@@ -1,0 +1,20 @@
+﻿EasyBugManager
+
+
+winexe
+C#
+.cs
+C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\obj\Debug\
+EasyBugManager
+none
+false
+DEBUG;TRACE
+C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\App.xaml
+55-1263549112
+21127725068
+99-1557211208
+1683503551
+Xaml\Control\Perfab\BugUi\RecordInputBoxControl.xaml;Xaml\Control\Perfab\BugUi\RecordListItemControl.xaml;Xaml\Control\Perfab\ListUi\ListTipControl.xaml;Xaml\Control\Ui\BugUiControl.xaml;Xaml\Control\Ui\ChangeBugUiControl.xaml;Xaml\Control\Ui\CreateBugUiControl.xaml;Xaml\Control\Ui\CreateProjectUiControl.xaml;Xaml\Control\Ui\DeleteBugTipUiControl.xaml;Xaml\Control\Ui\ErrorUiControl.xaml;Xaml\Control\Ui\ExportUiControl.xaml;Xaml\Control\Ui\ImageUiControl.xaml;Xaml\Control\Ui\SettingsUiControl.xaml;Xaml\Control\Ui\SyncUiControl.xaml;Xaml\Control\Ui\TipUiControl.xaml;Xaml\Dictionary\ConverterDictionary.xaml;Xaml\Dictionary\Theme\Dark\ChineseTextDictionary.xaml;Xaml\Dictionary\Theme\Dark\EnglishTextDictionary.xaml;Xaml\Dictionary\Theme\Dark\ImageDictionary.xaml;Xaml\Style\ListBox\BaseList\BaseListBoxDictionary.xaml;Xaml\Style\ListBox\BaseList\BaseListScrollViewerDictionary.xaml;Xaml\Style\ListBox\RecordList\RecordListBoxDictionary.xaml;Xaml\Style\ListBox\RecordList\RecordListScrollViewerDictionary.xaml;Xaml\Style\Slider\SliderDictionary.xaml;Xaml\Style\TextBox\BaseTextBox\BaseTextBoxDictionary.xaml;Xaml\Style\TextBox\BaseTextBox\BaseTextBoxScrollViewerDictionary.xaml;Xaml\Style\TextBox\InputTextBox\InputTextBoxScrollViewerDictionary.xaml;Xaml\Style\TextBox\InputTextBox\InputTextBoxDictionary.xaml;MainWindow.xaml;Xaml\Control\Base\ColorButtonControl.xaml;Xaml\Control\Base\ColorCheckControl.xaml;Xaml\Control\Base\ImageButtonControl.xaml;Xaml\Control\Base\ImageCheckControl.xaml;Xaml\Control\Base\ImageCheckGroupControl.xaml;Xaml\Control\Perfab\BugUi\PriorityBubbleButtonControl.xaml;Xaml\Control\Perfab\BugUi\ProgressBubbleButtonControl.xaml;Xaml\Control\Perfab\ListUi\BugListItemContextMenuControl.xaml;Xaml\Control\Perfab\ListUi\BugListItemControl.xaml;Xaml\Control\Perfab\ListUi\ListHeadButtonControl.xaml;Xaml\Control\Perfab\MainUi\CreateProjectButtonControl.xaml;Xaml\Control\Perfab\MainUi\MinimizeButtonControl.xaml;Xaml\Control\Perfab\MainUi\NoButtonControl.xaml;Xaml\Control\Perfab\MainUi\OpenProjectButtonControl.xaml;Xaml\Control\Perfab\MainUi\SettingButtonControl.xaml;Xaml\Control\Perfab\MainUi\YesButtonControl.xaml;Xaml\Control\Ui\ListUiControl.xaml;Xaml\Control\Ui\MainUiControl.xaml;Xaml\Dictionary\Theme\White\ChineseTextDictionary.xaml;Xaml\Dictionary\Theme\White\EnglishTextDictionary.xaml;Xaml\Dictionary\FontDictionary.xaml;Xaml\Dictionary\Theme\White\ImageDictionary.xaml;Xaml\Style\Button\NoBackgroundButtonDictionary.xaml;Xaml\Style\ListBox\BugList\BugListBoxDictionary.xaml;Xaml\Style\ListBox\BugList\BugListBoxItemDictionary.xaml;Xaml\Style\ScrollBar\ScrollBarDictionary.xaml;Xaml\Style\ListBox\BugList\BugListScrollViewerDictionary.xaml;
+
+False
+

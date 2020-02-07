@@ -1,0 +1,186 @@
+﻿<!--BugList的Bug右键菜单 控件-->
+<UserControl x:Class="EasyBugManager.BugListItemContextMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="148"
+                 
+             Name="BugListItemContextMenuUserControl">
+    
+
+    <Grid Width="148" Height="200">
+
+        <!--主Panel-->
+        <Grid Name="ContextMenuPanel">
+
+            <!--布局：横排-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3"></RowDefinition>
+                <RowDefinition Height="47"></RowDefinition>
+                <RowDefinition Height="1"></RowDefinition>
+                <RowDefinition Height="46"></RowDefinition>
+                <RowDefinition Height="1"></RowDefinition>
+                <RowDefinition Height="48"></RowDefinition>
+                <RowDefinition Height="1"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <Border Name="BaseBorder"
+                    Grid.RowSpan="8"
+                    Background="White" BorderBrush="#e8e8e8" BorderThickness="2"
+                    CornerRadius="12"></Border>
+
+
+            <!--按钮：完成度-->
+            <local:ImageButtonControl x:Name="ProgressButtonControl"
+                                      Width="128" Height="40" Margin="2,3,0,0"
+                                              Grid.Row="1"
+                                              PressAnimationSize="1,1"
+                                              MouseEnterImage="{DynamicResource ListUi.BugContextMenu.Text.Progress.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource ListUi.BugContextMenu.Text.Progress.MouseLeave.ImageBrush}"
+                                      MouseEnter="ProgressButtonControl_MouseEnter"
+                                      MouseLeave="ProgressButtonControl_MouseLeave"/>
+
+            <!--按钮：优先级-->
+            <local:ImageButtonControl Width="128" Height="40" Margin="2,4,0,0"
+                                              Grid.Row="3"
+                                              PressAnimationSize="1,1"
+                                              MouseEnterImage="{DynamicResource ListUi.BugContextMenu.Text.Priority.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource ListUi.BugContextMenu.Text.Priority.MouseLeave.ImageBrush}"
+                                      MouseEnter="PriorityButtonControl_MouseEnter"
+                                      MouseLeave="PriorityButtonControl_MouseLeave"/>
+
+            <!--按钮：删除-->
+            <local:ImageButtonControl x:Name="DeleteButtonControl"
+                                      Width="128" Height="40" Margin="2,4,0,0"
+                                              Grid.Row="5"
+                                              PressAnimationSize="0.95,0.85"
+                                              MouseEnterImage="{DynamicResource ListUi.BugContextMenu.Text.Delete.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource ListUi.BugContextMenu.Text.Delete.MouseLeave.ImageBrush}"
+                                      Click="DeleteButtonControl_Click"/>
+
+            <!--按钮：其他-->
+            <local:ImageButtonControl x:Name="MoreButtonControl"
+                                      Width="128" Height="40" Margin="2,1,0,0"
+                                              Grid.Row="7"
+                                              PressAnimationSize="0.95,0.85"
+                                              MouseEnterImage="{DynamicResource ListUi.BugContextMenu.Text.More.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource ListUi.BugContextMenu.Text.More.MouseLeave.ImageBrush}"
+                                      Click="MoreButtonControl_Click"/>
+
+
+
+            <!--分割线-->
+            <Border Name="Line1Border"
+                    Width="107" Margin="1,0,0,0"
+                            Grid.Row="2"
+                            Background="#dfdfdf" BorderThickness="0"/>
+            <Border Name="Line2Border"
+                    Width="107" Margin="1,0,0,0"
+                            Grid.Row="4"
+                            Background="#dfdfdf" BorderThickness="0"/>
+            <Border Name="Line3Border"
+                    Width="107" Margin="1,0,0,0"
+                            Grid.Row="6"
+                            Background="#dfdfdf" BorderThickness="0"/>
+
+
+        </Grid>
+
+        <!--进度Panel-->
+        <Popup Name="ProgressPanel"
+               Width="128" Height="138"
+               PlacementTarget="{Binding ElementName=ContextMenuPanel}" Placement="Right"
+               HorizontalOffset="-15" VerticalOffset="-40"
+               AllowsTransparency="True"
+               IsOpen="False"
+
+               MouseLeave="ProgressPanel_MouseLeave"
+               MouseEnter="ProgressPanel_MouseEnter">
+
+            <Grid>
+                <!--背景-->
+                <Border Name="ProgressBorder"
+                        Background="White" BorderBrush="#e8e8e8" BorderThickness="2"
+                                CornerRadius="12"/>
+
+                <!--CheckGroup-->
+                <local:ImageCheckGroupControl x:Name="ProgressCheckGroup"
+                                              Width="118" Height="120"
+                                                      CheckedIndex="0" CheckControlNumber="3"
+                                                      Orientation="Vertical"
+                                                      PressAnimationSize="0.95,0.85"
+                                                      
+                                                      Width1="118" Height1="40"
+                                                      MouseEnterImage1="{DynamicResource ChangeBugUi.Text.Progress.Undone.MouseEnter.ImageBrush}"
+                                                      MouseLeaveImage1="{DynamicResource ChangeBugUi.Text.Progress.Undone.MouseLeave.ImageBrush}"
+                                                      CheckImage1="{DynamicResource ChangeBugUi.Text.Progress.Undone.Checked.ImageBrush}"
+                                                      
+                                              Width2="118" Height2="40"
+                                                      MouseEnterImage2="{DynamicResource ChangeBugUi.Text.Progress.Solved.MouseEnter.ImageBrush}"
+                                                      MouseLeaveImage2="{DynamicResource ChangeBugUi.Text.Progress.Solved.MouseLeave.ImageBrush}"
+                                                      CheckImage2="{DynamicResource ChangeBugUi.Text.Progress.Solved.Checked.ImageBrush}"
+                                                      
+                                              Width3="118" Height3="40"
+                                                      MouseEnterImage3="{DynamicResource ChangeBugUi.Text.Progress.Deprecat.MouseEnter.ImageBrush}"
+                                                      MouseLeaveImage3="{DynamicResource ChangeBugUi.Text.Progress.Deprecat.MouseLeave.ImageBrush}"
+                                                      CheckImage3="{DynamicResource ChangeBugUi.Text.Progress.Deprecat.Checked.ImageBrush}"
+                                              
+                                              CheckedChange="ProgressCheckGroupControl_CheckedChange"
+                                              ClickCheck="ProgressCheckGroupControl_ClickCheck"/>
+            </Grid>
+
+        </Popup>
+
+        <!--优先级Panel-->
+        <Popup Name="PriorityPanel"
+               Width="128" Height="138"
+               PlacementTarget="{Binding ElementName=ContextMenuPanel}" Placement="Right"
+               HorizontalOffset="-10" VerticalOffset="0"
+               AllowsTransparency="True"
+               IsOpen="False"
+               
+               MouseLeave="PriorityPanel_MouseLeave"
+               MouseEnter="PriorityPanel_MouseEnter">
+
+            <Grid>
+                <!--背景-->
+                <Border Name="PriorityBorder"
+                        Background="White" BorderBrush="#e8e8e8" BorderThickness="2"
+                                CornerRadius="12"/>
+
+                <!--CheckGroup-->
+                <local:ImageCheckGroupControl x:Name="PriorityCheckGroup"
+                                              Width="102" Height="120"
+                                                      CheckedIndex="0" CheckControlNumber="3"
+                                                      Orientation="Vertical"
+                                                      PressAnimationSize="0.95,0.85"
+                                                      
+                                                      Width1="102" Height1="40"
+                                                      MouseEnterImage1="{DynamicResource ChangeBugUi.Text.Priority.Low.MouseEnter.ImageBrush}"
+                                                      MouseLeaveImage1="{DynamicResource ChangeBugUi.Text.Priority.Low.MouseLeave.ImageBrush}"
+                                                      CheckImage1="{DynamicResource ChangeBugUi.Text.Priority.Low.Checked.ImageBrush}"
+                                                      
+                                              Width2="102" Height2="40"
+                                                      MouseEnterImage2="{DynamicResource ChangeBugUi.Text.Priority.Mid.MouseEnter.ImageBrush}"
+                                                      MouseLeaveImage2="{DynamicResource ChangeBugUi.Text.Priority.Mid.MouseLeave.ImageBrush}"
+                                                      CheckImage2="{DynamicResource ChangeBugUi.Text.Priority.Mid.Checked.ImageBrush}"
+                                                      
+                                              Width3="102" Height3="40"
+                                                      MouseEnterImage3="{DynamicResource ChangeBugUi.Text.Priority.High.MouseEnter.ImageBrush}"
+                                                      MouseLeaveImage3="{DynamicResource ChangeBugUi.Text.Priority.High.MouseLeave.ImageBrush}"
+                                                      CheckImage3="{DynamicResource ChangeBugUi.Text.Priority.High.Checked.ImageBrush}"
+                                              
+                                              CheckedChange="PriorityCheckGroupControl_CheckedChange"
+                                              ClickCheck="PriorityCheckGroupControl_ClickCheck"/>
+            </Grid>
+
+        </Popup>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,42 @@
+﻿<!-- 按钮：图片的按钮（鼠标移入时，显示某个图片；鼠标移出时，显示另外一个图片） -->
+    <UserControl x:Class="EasyBugManager.ImageButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             
+             Name="ImageButtonUserControl">
+
+    <Grid>
+        <!--背景-->
+        <Button Name="BaseButton"
+                Style="{StaticResource NoBackgroundButtonStyle}"
+                RenderTransformOrigin="0.5,0.5" 
+
+                PreviewMouseLeftButtonDown="Button_OnPreviewMouseDown"
+                PreviewMouseLeftButtonUp="Button_OnPreviewMouseUp"
+                MouseEnter="BaseButton_OnMouseEnter"
+                MouseLeave="BaseButton_OnMouseLeave"
+                Click="Button_OnClick">
+
+            <Border Name="ButtonImageBorder"
+                    Width="{Binding ElementName=ImageButtonUserControl,Path=Width}"
+                    Height="{Binding ElementName=ImageButtonUserControl,Path=Height}"
+                    Background="{Binding ElementName=ImageButtonUserControl,Path=MouseLeaveImage}"
+                    Margin="-1"></Border>
+
+
+
+            <!--变换-->
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="BaseButtonScaleTransform"></ScaleTransform>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+    </Grid>
+
+</UserControl>

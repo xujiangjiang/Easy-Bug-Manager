@@ -1,0 +1,212 @@
+﻿<!--界面：创建项目界面-->
+<UserControl x:Class="EasyBugManager.CreateProjectUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="1002" d:DesignWidth="1440"
+             
+             Name="CreateProjectUiUserControl">
+
+
+    <Grid>
+
+
+        <Grid Margin="18,90,0,0" Opacity="1">
+
+            <!--背景：白色-->
+            <Border Name="BackgroundBorder"
+                    Width="580" Height="292" 
+                    VerticalAlignment="Top" Margin="0,275,0,0"
+                    Background="White" CornerRadius="15"
+                    Opacity="1">
+                <Border.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                      Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+
+            <!--基础选项-->
+            <Canvas Width="580" Height="292"
+                    VerticalAlignment="Top" Margin="0,275,0,0">
+
+                <!--图片：标题-->
+                <Border Width="154" Height="28"
+                            Canvas.Top="25" Canvas.Left="40.5"
+                            Background="{DynamicResource CreateProjectUi.Text.Title.ImageBrush}"/>
+
+                <!--图片：项目名称-->
+                <Border Width="64" Height="20"
+                            Canvas.Top="97" Canvas.Left="62"
+                            Background="{DynamicResource CreateProjectUi.Text.Name.ImageBrush}"/>
+
+                <!--图片：保存位置-->
+                <Border Width="64" Height="20"
+                            Canvas.Top="157.5" Canvas.Left="62"
+                            Background="{DynamicResource CreateProjectUi.Text.Location.ImageBrush}"/>
+
+                <!--文本框：Tip-->
+                <TextBlock Name="TipTextBlock"
+                           Canvas.Left="210" Canvas.Top="30"
+                           Text="{Binding ElementName=CreateProjectUiUserControl,Path=TipString}"
+                           Opacity="0.8"
+                           FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                           FontSize="18" Padding="5,4,5,0" Foreground="#852a2a"/>
+
+
+
+
+                <!--TextBox：输入框-->
+                <Border Width="349" Height="46"
+                            Canvas.Top="84" Canvas.Left="162"
+                            Background="{DynamicResource CreateProjectUi.Text.InputBox.ImageBrush}">
+                    <TextBox Name="ProjectNameTextBox"
+                             Text=""
+                             BorderThickness="0" Margin="5"
+                             SelectionBrush ="Gray"
+                             VerticalContentAlignment="Center"
+                             FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                             FontSize="20" Padding="5,4,5,0"
+                             Background="Transparent" Foreground="#FF767676"
+                             MaxLength="100"                     
+                             
+                             TextChanged="ProjectNameTextBox_TextChanged"/>
+                </Border>
+
+                <!--按钮：浏览-->
+                <StackPanel Canvas.Top="146" Canvas.Left="161"
+                            Orientation="Horizontal">
+                    <!--按钮：浏览-->
+                    <local:ImageButtonControl Width="46" Height="40"
+                                              VerticalAlignment="Top"
+                                              PressAnimationSize="0.85,0.85"
+                                              MouseEnterImage="{DynamicResource CreateProjectUi.Browse.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource CreateProjectUi.Browse.MouseLeave.ImageBrush}"
+                                              
+                                              Click="BrowseButtonControl_Click"/>
+
+                    <!--TextBox：地址-->
+                    <TextBox Text="{Binding ElementName=CreateProjectUiUserControl,Path=SaveLocation}"
+                             MaxWidth="270" MaxHeight="42"
+                             Padding="10,4,15,0" Margin="0,0,10,0"
+                             Visibility="Visible"
+                             
+                             BorderThickness="0"
+                             SelectionBrush ="Gray"
+                             VerticalContentAlignment="Center"
+                             FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                             FontSize="16" 
+                             Background="Transparent" Foreground="#FFA8A8A8"
+                             TextWrapping="Wrap"
+                             IsReadOnly="True"
+                             Style="{StaticResource BaseTextBoxStyle}"
+                             VerticalScrollBarVisibility="Auto"/>
+
+                </StackPanel>
+
+                <!--右边按钮-->
+                <StackPanel Width="83"
+                                Canvas.Left="533" Canvas.Top="6.5">
+
+                    <!--按钮：确定-->
+                    <local:YesButtonControl Width="73" Height="62" Margin="0,0,0,0"
+                                            PressAnimationSize="0.85,0.85"
+                                            MouseLeaveImage="{DynamicResource OtherUi.YesButton.MouseLeave.ImageBrush}"
+                                            MouseEnterImage="{DynamicResource OtherUi.YesButton.MouseEnter.ImageBrush}"
+                                            HorizontalAlignment="Right"
+                                                 
+                                            Click="YesButtonControl_Click"/>
+
+                    <!--按钮：取消-->
+                    <local:NoButtonControl Width="70" Height="57" Margin="2,3,0,0"
+                                           PressAnimationSize="0.85,0.85"
+                                           MouseLeaveImage="{DynamicResource OtherUi.NoButton.MouseLeave.ImageBrush}"
+                                           MouseEnterImage="{DynamicResource OtherUi.NoButton.MouseEnter.ImageBrush}"
+                                           
+                                           Click="NoButtonControl_Click"/>
+
+                </StackPanel>
+
+            </Canvas>
+
+            <!--高级选项相关-->
+            <Canvas Width="580" Height="292"
+                    VerticalAlignment="Top" Margin="0,275,0,0">
+
+                <!--图片：分割线-->
+                <Border Width="474" Height="2" Canvas.Top="221" Canvas.Left="60"
+                        Background="{DynamicResource ChangeBugUi.Line.ImageBrush}"/>
+
+                <!--按钮：高级选项-->
+                <Grid Name="AdvancedOptionsButtonGrid"
+                      Width="184" Height="40" Canvas.Top="228" Canvas.Right="48">
+
+                    <!--按钮：显示高级选项（EN）-->
+                    <local:ImageButtonControl x:Name="EnAdvancedOptionsButton"
+                                              Width="184" Height="40"
+                                              VerticalAlignment="Top" HorizontalAlignment="Right"
+                                              PressAnimationSize="0.85,0.85"
+                                              MouseEnterImage="{DynamicResource SyncUi.Text.AdvancedOptionsButton.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource SyncUi.Text.AdvancedOptionsButton.MouseLeave.ImageBrush}"
+                                              
+                                              Visibility="Collapsed"
+
+                                              Click="AdvancedOptionsButton_OnClick"/>
+
+                    <!--按钮：显示高级选项（CN）-->
+                    <local:ImageButtonControl x:Name="CnAdvancedOptionsButton"
+                                              Width="124" Height="40"
+                                              VerticalAlignment="Top" HorizontalAlignment="Right"
+                                              PressAnimationSize="0.85,0.85"
+                                              MouseEnterImage="{DynamicResource SyncUi.Text.AdvancedOptionsButton.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource SyncUi.Text.AdvancedOptionsButton.MouseLeave.ImageBrush}"
+                                              
+                                              Visibility="Visible"
+
+                                              Click="AdvancedOptionsButton_OnClick"/>
+
+                </Grid>
+
+
+            </Canvas>
+
+            <!--高级选项-->
+            <Canvas Name="AdvancedOptionsCanvas"
+                    Width="580" Height="520" 
+                    VerticalAlignment="Top" Margin="0,275,0,0"
+                    Visibility="Collapsed">
+
+                <!--图片：说明-->
+                <Border Width="445" Height="171" Canvas.Top="306" Canvas.Left="82"
+                        Background="{DynamicResource SyncUi.Text.Tip.ImageBrush}"
+                        IsHitTestVisible="False"/>
+
+                <!--图片：是否是协同合作模式？-->
+                <Border Name="IsCollaborationModeBorder"
+                        Width="130" Height="20"
+                        Canvas.Top="252" Canvas.Left="62"
+                        Background="{DynamicResource SyncUi.Text.CollaborativeMode.ImageBrush}"
+                        IsHitTestVisible="False"/>
+
+                <!--Check：是否是协同合作模式？-->
+                <local:ImageCheckControl x:Name="IsCollaborationModeCheckControl"
+                                         Width="33" Height="35" Canvas.Top="239" Canvas.Left="185"
+                                         HorizontalAlignment="Left"
+                                         MouseLeaveImage="{DynamicResource BugUi.Check.Uncheck.ImageBrush}"
+                                         MouseEnterImage="{DynamicResource BugUi.Check.Uncheck.ImageBrush}"
+                                         CheckedImage="{DynamicResource BugUi.Check.Checked.ImageBrush}"
+                                         IsChecked="{Binding ElementName=CreateProjectUiUserControl,Path=IsCollaborationMode,Mode=TwoWay}"/>
+
+
+            </Canvas>
+
+        </Grid>
+
+
+
+    </Grid>
+
+
+</UserControl>

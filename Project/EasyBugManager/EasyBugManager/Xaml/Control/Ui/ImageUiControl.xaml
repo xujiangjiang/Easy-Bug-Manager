@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="EasyBugManager.ImageUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="1002" d:DesignWidth="1440"
+             
+             Name="ImageUiUserControl">
+
+    <Grid>
+
+        <!--Border：背景-->
+        <Border Width="1440" Height="1002"
+                Background="Black" CornerRadius="22"
+                Opacity="0.75"/>
+        <Border Name="BackgroundBorder"
+                Background="White" CornerRadius="25"
+                Margin="110"></Border>
+
+
+        <!--Image：图片-->
+        <Grid Margin="130">
+            <local:ImageControl Source="{Binding ElementName=ImageUiUserControl,Path=ImagePath}"
+                   Stretch="Uniform" StretchDirection="DownOnly">
+                <local:ImageControl.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                      Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+                </local:ImageControl.Effect>
+            </local:ImageControl>
+        </Grid>
+
+
+        <!--右边按钮-->
+        <StackPanel Width="83" Height="193"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Margin="0,145,75,0">
+
+            <!--按钮：关闭-->
+            <local:NoButtonControl Width="70" Height="57" Margin="1,3,0,0"
+                                   PressAnimationSize="0.85,0.85"
+                                   MouseLeaveImage="{DynamicResource MainUi.NoButton.MouseLeave.ImageBrush}"
+                                   MouseEnterImage="{DynamicResource MainUi.NoButton.MouseEnter.ImageBrush}"
+                                   Click="CloseButtonControl_OnClick"/>
+
+            <!--按钮：设置-->
+            <local:SettingButtonControl Width="79" Height="68" Margin="-6,3,0,0"
+                                        PressAnimationSize="0.85,0.85"
+                                        MouseLeaveImage="{DynamicResource ImageUi.FileButton.MouseLeave.ImageBrush}"
+                                        MouseEnterImage="{DynamicResource ImageUi.FileButton.MouseEnter.ImageBrush}"
+                                        Click="FileButtonControl_OnClick">
+            </local:SettingButtonControl>
+
+        </StackPanel>
+
+
+        <!--灰色前景：用于遮挡-->
+        <Canvas Name="ForegroundCanvas"
+                Width="1440" Height="1002"
+                Opacity="0.75"
+                Visibility="Collapsed">
+
+            <Border Width="1440" Height="1002"
+                    Background="Black" CornerRadius="22"/>
+
+        </Canvas>
+
+    </Grid>
+
+</UserControl>

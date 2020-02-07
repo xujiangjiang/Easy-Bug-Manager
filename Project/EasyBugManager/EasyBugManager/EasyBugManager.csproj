@@ -1,0 +1,1035 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6251003B-DF01-40BF-9769-362225947BBF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EasyBugManager</RootNamespace>
+    <AssemblyName>EasyBugManager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Asset\Icon\Icon128.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>E:\Ximigua\App\BugManager WPF -20190927\类库\EPPlus(2018年12月)\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>E:\Ximigua\App\BugManager WPF -20190927\类库\Litjson(2018年07月)\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AppManager.cs" />
+    <Compile Include="Code\Datas.cs" />
+    <Compile Include="Code\Data\BugData\BugBaseData.cs" />
+    <Compile Include="Code\Data\BugData\BugData.cs" />
+    <Compile Include="Code\Data\BugData\BugItemData.cs" />
+    <Compile Include="Code\Data\OtherData.cs" />
+    <Compile Include="Code\Data\ProjectData\ProjectBaseData.cs" />
+    <Compile Include="Code\Data\ProjectData\ProjectData.cs" />
+    <Compile Include="Code\Data\RecordData\RecordBaseData.cs" />
+    <Compile Include="Code\Data\RecordData\RecordData.cs" />
+    <Compile Include="Code\Data\RecordData\RecordItemData.cs" />
+    <Compile Include="Code\Data\SettingsData.cs" />
+    <Compile Include="Code\Data\SortData\SortBaseData.cs" />
+    <Compile Include="Code\Data\SortData\SortData.cs" />
+    <Compile Include="Code\Data\TemperamentData.cs" />
+    <Compile Include="Code\Other\Enums.cs" />
+    <Compile Include="Code\Struct\HighlightText.cs" />
+    <Compile Include="Code\Systems.cs" />
+    <Compile Include="Code\System\AudioSystem.cs" />
+    <Compile Include="Code\System\BackupSystem.cs" />
+    <Compile Include="Code\System\BugSystem.cs" />
+    <Compile Include="Code\System\CollaborationSystem.cs" />
+    <Compile Include="Code\System\DeleteSystem.cs" />
+    <Compile Include="Code\System\DlcSystem.cs" />
+    <Compile Include="Code\System\ExportSystem.cs" />
+    <Compile Include="Code\System\ImageSystem.cs" />
+    <Compile Include="Code\System\LanguageSystem.cs" />
+    <Compile Include="Code\System\PageSytem.cs" />
+    <Compile Include="Code\System\ProjectSystem.cs" />
+    <Compile Include="Code\System\RecordSystem.cs" />
+    <Compile Include="Code\System\RelatedSystem.cs" />
+    <Compile Include="Code\System\SaveSystem.cs" />
+    <Compile Include="Code\System\SearchSystem.cs" />
+    <Compile Include="Code\System\SortSystem.cs" />
+    <Compile Include="Code\System\TemperamentSystem.cs" />
+    <Compile Include="Code\System\ThemeSystem.cs" />
+    <Compile Include="Code\Tool\AnimationTool.cs" />
+    <Compile Include="Code\Tool\DateTimeTool.cs" />
+    <Compile Include="Code\Tool\FileTool.cs" />
+    <Compile Include="Code\Tool\FolderTool.cs" />
+    <Compile Include="Code\Tool\IntTool.cs" />
+    <Compile Include="Code\Tool\ObservableCollectionTool.cs" />
+    <Compile Include="Code\Tool\RandomTool.cs" />
+    <Compile Include="Code\Tool\StringTool.cs" />
+    <Compile Include="Code\Uis.cs" />
+    <Compile Include="Code\Ui\BaseTipUi.cs" />
+    <Compile Include="Code\Ui\BugUi.cs" />
+    <Compile Include="Code\Ui\ChangeBugUi.cs" />
+    <Compile Include="Code\Ui\CreateBugUi.cs" />
+    <Compile Include="Code\Ui\CreateProjectUi.cs" />
+    <Compile Include="Code\Ui\DeleteBugTipUi.cs" />
+    <Compile Include="Code\Ui\DeleteRecordTipUi.cs" />
+    <Compile Include="Code\Ui\ErrorUi.cs" />
+    <Compile Include="Code\Ui\ExportUi.cs" />
+    <Compile Include="Code\Ui\ImageUi.cs" />
+    <Compile Include="Code\Ui\ListUi.cs" />
+    <Compile Include="Code\Ui\MainUi.cs" />
+    <Compile Include="Code\Ui\SettingsUi.cs" />
+    <Compile Include="Code\Ui\SyncUi.cs" />
+    <Compile Include="Xaml\Control\Base\ColorButtonControl.xaml.cs">
+      <DependentUpon>ColorButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Base\ColorCheckControl.xaml.cs">
+      <DependentUpon>ColorCheckControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Base\ImageButtonControl.xaml.cs">
+      <DependentUpon>ImageButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Base\ImageCheckControl.xaml.cs">
+      <DependentUpon>ImageCheckControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Base\ImageCheckGroupControl.xaml.cs">
+      <DependentUpon>ImageCheckGroupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Extension\ImageControl.cs" />
+    <Compile Include="Xaml\Control\Perfab\BugUi\PriorityBubbleButtonControl.xaml.cs">
+      <DependentUpon>PriorityBubbleButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\BugUi\ProgressBubbleButtonControl.xaml.cs">
+      <DependentUpon>ProgressBubbleButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\BugUi\RecordInputBoxControl.xaml.cs">
+      <DependentUpon>RecordInputBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\BugUi\RecordListItemControl.xaml.cs">
+      <DependentUpon>RecordListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\ListUi\BugListItemContextMenuControl.xaml.cs">
+      <DependentUpon>BugListItemContextMenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\ListUi\BugListItemControl.xaml.cs">
+      <DependentUpon>BugListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\ListUi\ListHeadButtonControl.xaml.cs">
+      <DependentUpon>ListHeadButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\ListUi\ListTipControl.xaml.cs">
+      <DependentUpon>ListTipControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\MainUi\CreateProjectButtonControl.xaml.cs">
+      <DependentUpon>CreateProjectButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\MainUi\MinimizeButtonControl.xaml.cs">
+      <DependentUpon>MinimizeButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\MainUi\NoButtonControl.xaml.cs">
+      <DependentUpon>NoButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\MainUi\OpenProjectButtonControl.xaml.cs">
+      <DependentUpon>OpenProjectButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\MainUi\SettingButtonControl.xaml.cs">
+      <DependentUpon>SettingButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Perfab\MainUi\YesButtonControl.xaml.cs">
+      <DependentUpon>YesButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\BugUiControl.xaml.cs">
+      <DependentUpon>BugUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\ChangeBugUiControl.xaml.cs">
+      <DependentUpon>ChangeBugUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\CreateBugUiControl.xaml.cs">
+      <DependentUpon>CreateBugUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\CreateProjectUiControl.xaml.cs">
+      <DependentUpon>CreateProjectUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\DeleteBugTipUiControl.xaml.cs">
+      <DependentUpon>DeleteBugTipUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\ErrorUiControl.xaml.cs">
+      <DependentUpon>ErrorUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\ExportUiControl.xaml.cs">
+      <DependentUpon>ExportUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\ImageUiControl.xaml.cs">
+      <DependentUpon>ImageUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\ListUiControl.xaml.cs">
+      <DependentUpon>ListUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\MainUiControl.xaml.cs">
+      <DependentUpon>MainUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\SettingsUiControl.xaml.cs">
+      <DependentUpon>SettingsUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\SyncUiControl.xaml.cs">
+      <DependentUpon>SyncUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Control\Ui\TipUiControl.xaml.cs">
+      <DependentUpon>TipUiControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Tool\FindListBoxItemTool.cs" />
+    <Page Include="Xaml\Control\Perfab\BugUi\RecordInputBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\BugUi\RecordListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\ListUi\ListTipControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\BugUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\ChangeBugUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\CreateBugUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\CreateProjectUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\DeleteBugTipUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\ErrorUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\ExportUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\ImageUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\SettingsUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\SyncUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\TipUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Dictionary\ConverterDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Dictionary\Theme\Dark\ChineseTextDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Xaml\Dictionary\Theme\Dark\EnglishTextDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Xaml\Dictionary\Theme\Dark\ImageDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\BaseList\BaseListBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\BaseList\BaseListScrollViewerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\RecordList\RecordListBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\RecordList\RecordListScrollViewerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\Slider\SliderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\TextBox\BaseTextBox\BaseTextBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\TextBox\BaseTextBox\BaseTextBoxScrollViewerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\TextBox\InputTextBox\InputTextBoxScrollViewerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\TextBox\InputTextBox\InputTextBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Xaml\Control\Base\ColorButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Base\ColorCheckControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Base\ImageButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Base\ImageCheckControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Base\ImageCheckGroupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\BugUi\PriorityBubbleButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\BugUi\ProgressBubbleButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\ListUi\BugListItemContextMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\ListUi\BugListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\ListUi\ListHeadButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\MainUi\CreateProjectButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\MainUi\MinimizeButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\MainUi\NoButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\MainUi\OpenProjectButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\MainUi\SettingButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Perfab\MainUi\YesButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\ListUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Control\Ui\MainUiControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Dictionary\Theme\White\ChineseTextDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Dictionary\Theme\White\EnglishTextDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Dictionary\FontDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Dictionary\Theme\White\ImageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\Button\NoBackgroundButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\BugList\BugListBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\BugList\BugListBoxItemDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ScrollBar\ScrollBarDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Style\ListBox\BugList\BugListScrollViewerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Asset\Font\zcoolwenyiti-Regular.otf" />
+    <Resource Include="Asset\Font\zcoolqingkehuangyouti-Regular.otf" />
+    <Resource Include="Asset\Font\HappyZcool-2016-Regular.otf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Image\White\MainUi\NoButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\MainUi\MinimizeButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\MainUi\SettingButton-MouseLeave.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Asset\Audio\ButtonDown.wav" />
+    <Content Include="Asset\Audio\ButtonUp.wav" />
+    <Resource Include="Asset\Image\Dark\MainUi\Version.png" />
+    <Resource Include="Asset\Image\White\MainUi\Version.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Logo.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\StaffPanel-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\StaffPanel-EN.png" />
+    <Resource Include="Asset\Image\Dark\ImageUi\FileButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ImageUi\FileButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\SyncUi\AdvancedOptions-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SyncUi\AdvancedOptions-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SyncUi\Text-ClickRefresh-CN.png" />
+    <Resource Include="Asset\Image\Dark\SyncUi\Text-ClickRefresh-EN.png" />
+    <Resource Include="Asset\Image\Dark\SyncUi\Text-Deleted-CN.png" />
+    <Resource Include="Asset\Image\Dark\SyncUi\Text-Deleted-EN.png" />
+    <Resource Include="Asset\Image\White\ImageUi\FileButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ImageUi\FileButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-ClickRefresh-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-ClickRefresh-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Deleted-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Deleted-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\AdvancedOptions-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\AdvancedOptions-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\AdvancedOptions-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\AdvancedOptions-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-CollaborativeMode-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-CollaborativeMode-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\SyncIcon.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-NoSync-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-NoSync-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Synced-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Synced-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Syncing-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Syncing-EN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Tip-CN.png" />
+    <Resource Include="Asset\Image\White\SyncUi\Text-Tip-EN.png" />
+    <Resource Include="Asset\Icon\Icon128.ico" />
+    <Resource Include="Asset\Icon\Icon64.ico" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\Box-EN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\Box-EN.png" />
+    <Resource Include="Asset\Image\Dark\TipUi\Brackets-Left.png" />
+    <Resource Include="Asset\Image\Dark\TipUi\Brackets-Right.png" />
+    <Resource Include="Asset\Image\Dark\DeleteTipUi\IsNotRemindAgain-CN.png" />
+    <Resource Include="Asset\Image\Dark\DeleteTipUi\IsNotRemindAgain-EN.png" />
+    <Resource Include="Asset\Image\Dark\ExportUi\Location-CN.png" />
+    <Resource Include="Asset\Image\Dark\ExportUi\Location-EN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\InputBox-CN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\InputBox-EN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\Location-CN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\Location-EN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\Name-CN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\Name-EN.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\Browse-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\CreateProjectUi\Browse-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\InputBox-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\InputBox-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\BugName-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\BugName-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\BugPriority-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\BugPriority-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\BugProgress-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\BugProgress-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Line.png" />
+    <Resource Include="Asset\Image\Dark\OtherUi\NoButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\OtherUi\NoButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\OtherUi\YesButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\OtherUi\YesButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Off-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Off-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Off-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Off-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Off-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Off-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\On-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\On-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\On-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\On-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\On-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\On-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\StaffButton.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\White-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\White-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\White-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\White-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\White-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\White-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Chinese-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Chinese-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Chinese-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Chinese-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Chinese-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Chinese-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Dark-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Dark-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Dark-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Dark-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Dark-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Dark-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\English-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\English-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\English-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\English-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\English-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\English-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\ExcelButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\ExcelButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\ExcelButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\ExcelButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Theme-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Theme-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-ThemeBear-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-ThemeBear-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-ThemeCat-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-ThemeCat-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Theme-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Theme-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-ThemeBear-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-ThemeBear-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-ThemeCat-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-ThemeCat-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Language-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Language-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Transparent-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Transparent-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Sound-CN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Option-Sound-EN.png" />
+    <Resource Include="Asset\Image\Dark\SettingsUi\Logo.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\RecordListItem\BugIcon.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\FindBug-CN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\FindBug-EN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\SolveBug-CN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\SolveBug-EN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\DeleteImageButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\DeleteImageButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\RecordListItem\DeleteRecordButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\RecordListItem\DeleteRecordButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\ImageButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\ImageButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\RecordListItem\BearIcon.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\BearIcon.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\Box-CN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\PriorityButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\PriorityButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\ProgressButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\ProgressButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\Bear.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\SendButton-Null.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\SendButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\SendButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\Ellipsis-1.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\Ellipsis-2.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\InputBox\Ellipsis-3.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\RecordListItem\Bubble-Right.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\RecordListItem\Bubble-Left.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\BugText.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\Check-Checked.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\Check-Uncheck.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\Bug.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\IsShowBugReply-CN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\IsShowBugReply-EN.png" />
+    <Resource Include="Asset\Image\Dark\BugUi\BackButton.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\Delete-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\Delete-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\More-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\More-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\Priority-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\Priority-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\Progress-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\BugContextMenu\Progress-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Undone-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Undone-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Undone-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Undone-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Solved-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Solved-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Solved-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Solved-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Deprecat-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Deprecat-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Deprecat-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Progress-Deprecat-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-High-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-High-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-High-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-High-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Low-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Low-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Low-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Low-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Mid-Checked-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Mid-Checked-EN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Mid-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\ChangeBugUi\Priority-Mid-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Show20Button-Choose.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Show20Button-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Show20Button-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Show10Button-Choose.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Show10Button-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Show10Button-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\SearchBox-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\SearchBox-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\DeleteButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\DeleteButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\AddButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\AddButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\DisplayText-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\DisplayText-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\ProjectIcon-CN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\ProjectIcon-EN.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-CreateTime-Down.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-CreateTime-None.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-CreateTime-Up.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Priority-Down.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Priority-None.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Priority-Up.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Progress-Down.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Progress-None.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Progress-Up.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-Title-None.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-UpdateTime-Down.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-UpdateTime-None.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Arrow-UpdateTime-Up.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\SearchBox-CloseButton.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\MinimizeButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\MinimizeButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\NoButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\NoButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\SettingButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\SettingButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\YesButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\YesButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Bear.png" />
+    <Resource Include="Asset\Image\Dark\ListUi\Bug-1.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\Bear.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\CreateButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\CreateButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\CreateButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\CreateButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\Logo.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\MinimizeButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\MinimizeButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\NoButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\NoButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\OpenButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\OpenButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\OpenButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\OpenButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\SettingButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\SettingButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\YesButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\Dark\MainUi\YesButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\BugIcon.png" />
+    <Resource Include="Asset\Image\White\BugUi\Bear.png" />
+    <Resource Include="Asset\Image\White\BugUi\Bug.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Cat-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Cat-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Cat-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Cat-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Cat-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Cat-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Sound-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Sound-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Language-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Language-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Transparent-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Option-Transparent-EN.png" />
+    <Resource Include="Asset\Image\White\MainUi\Foreground\Logo.png" />
+    <Resource Include="Asset\Image\White\MainUi\Foreground\MinimizeButton.png" />
+    <Resource Include="Asset\Image\White\MainUi\Foreground\NoButton.png" />
+    <Resource Include="Asset\Image\White\MainUi\Foreground\SettingButton.png" />
+    <Resource Include="Asset\Image\White\MainUi\Foreground\Bear.png" />
+    <Resource Include="Asset\Image\White\MainUi\Bear.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\Bubble-Left.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\Bubble-Right.png" />
+    <Resource Include="Asset\Image\White\Base\Null.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\ImageButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\ImageButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\SendButton-Null.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\BugCreated-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\BugCreated-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\BugRemoved-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\BugRemoved-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\CloseButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\CloseButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\LookButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\LookButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\LookButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\Tip\LookButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Check-Checked.png" />
+    <Resource Include="Asset\Image\White\BugUi\Check-Uncheck.png" />
+    <Resource Include="Asset\Image\White\BugUi\IsShowBugReply-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\IsShowBugReply-EN.png" />
+    <Resource Include="Asset\Image\White\DeleteTipUi\IsNotRemindAgain-CN.png" />
+    <Resource Include="Asset\Image\White\DeleteTipUi\IsNotRemindAgain-EN.png" />
+    <Resource Include="Asset\Image\White\DeleteTipUi\Title-CN.png" />
+    <Resource Include="Asset\Image\White\DeleteTipUi\Title-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\SearchBox-CloseButton.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\Tip-Icon.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\Tip-Page-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\Tip-Page-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\Tip-Refresh-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\Tip-Refresh-EN.png" />
+    <Resource Include="Asset\Image\White\TipUi\Brackets-Left.png" />
+    <Resource Include="Asset\Image\White\TipUi\Brackets-Right.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\BugName-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\BugName-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\BugPriority-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\BugPriority-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\BugProgress-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\BugProgress-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Line.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Title-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Title-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\InputBox-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\InputBox-EN.png" />
+    <Resource Include="Asset\Image\White\CreateBugUi\Title-CN.png" />
+    <Resource Include="Asset\Image\White\CreateBugUi\Title-EN.png" />
+    <Resource Include="Asset\Image\White\ExportUi\Location-CN.png" />
+    <Resource Include="Asset\Image\White\ExportUi\Location-EN.png" />
+    <Resource Include="Asset\Image\White\ExportUi\Title-CN.png" />
+    <Resource Include="Asset\Image\White\ExportUi\Title-EN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\InputBox-CN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\InputBox-EN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Location-CN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Location-EN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Name-CN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Name-EN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Title-CN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Title-EN.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Browse-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\CreateProjectUi\Browse-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\StaffButton.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\CloseButton.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Chinese-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Chinese-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Chinese-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Chinese-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Chinese-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Chinese-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Dark-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Dark-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Dark-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Dark-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Dark-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Dark-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\English-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\English-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\English-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\English-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\English-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\English-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\ExcelButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\ExcelButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\ExcelButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\ExcelButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\GithubButton.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Off-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Off-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Off-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Off-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Off-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\Off-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\On-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\On-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\On-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\On-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\On-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\On-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\White-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\White-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\White-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\White-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\White-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\SettingsUi\White-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\Ellipsis-1.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\Ellipsis-2.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\Ellipsis-3.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\DeleteRecordButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\DeleteRecordButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\ImageMask.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\DeleteImageButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\DeleteImageButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\ImageMask.png" />
+    <Resource Include="Asset\Image\White\BugUi\Name.png" />
+    <Resource Include="Asset\Image\White\BugUi\FindBug-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\FindBug-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\SolveBug-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\SolveBug-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\BugText.png" />
+    <Resource Include="Asset\Image\White\BugUi\Priority-Mid-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Priority-Mid-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Priority-Low-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Priority-Low-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Priority-High-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Priority-High-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\PriorityButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\PriorityButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\BugUi\RecordListItem\BearIcon.png" />
+    <Resource Include="Asset\Image\White\BugUi\BugRoute.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\Box-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\SendButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\SendButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\BugUi\InputBox\BearIcon.png" />
+    <Resource Include="Asset\Image\White\BugUi\BackButton.png" />
+    <Resource Include="Asset\Image\White\BugUi\Progress-Solved-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Progress-Solved-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Progress-Deprecat-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Progress-Deprecat-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Progress-Undone-CN.png" />
+    <Resource Include="Asset\Image\White\BugUi\Progress-Undone-EN.png" />
+    <Resource Include="Asset\Image\White\BugUi\ProgressButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\BugUi\ProgressButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Solved-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Solved-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Solved-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Solved-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Solved-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Solved-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Undone-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Undone-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Undone-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Undone-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Undone-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Undone-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Deprecat-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Deprecat-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Deprecat-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Deprecat-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Deprecat-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Progress-Deprecat-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-High-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-High-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-High-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-High-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-High-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-High-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Low-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Low-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Low-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Low-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Low-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Low-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Mid-Checked-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Mid-Checked-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Mid-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Mid-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Mid-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ChangeBugUi\Priority-Mid-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Delete-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Delete-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Delete-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Delete-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\More-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\More-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\More-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\More-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Priority-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Priority-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Priority-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Priority-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Progress-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Progress-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Progress-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugContextMenu\Progress-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\MoreButton.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\PriorityIcon-High.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\PriorityIcon-Low.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\PriorityIcon-Mid.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\ProgressIcon-Deprecat.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\ProgressIcon-Solved.png" />
+    <Resource Include="Asset\Image\White\ListUi\BugListItem\ProgressIcon-Undone.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-UpdateTime-Down.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-UpdateTime-Up.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Priority-Down.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Priority-None.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Priority-Up.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Progress-Down.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Progress-None.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Progress-Up.png" />
+    <Resource Include="Asset\Image\White\ListUi\SearchBox-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\SearchBox-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\AddButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\DeleteButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\AddButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\DeleteButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\Bug-1.png" />
+    <Resource Include="Asset\Image\White\ListUi\Bug-2.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-CreateTime-Down.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-CreateTime-None.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-CreateTime-Up.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-Title-None.png" />
+    <Resource Include="Asset\Image\White\ListUi\Arrow-UpdateTime-None.png" />
+    <Resource Include="Asset\Image\White\ListUi\Bear.png" />
+    <Resource Include="Asset\Image\White\ListUi\CreateTimeText-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\CreateTimeText-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\DisplayText-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\DisplayText-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\MinimizeButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\MinimizeButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\NextPageButton.png" />
+    <Resource Include="Asset\Image\White\ListUi\NoButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\NoButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\PageNumber-Line.png" />
+    <Resource Include="Asset\Image\White\ListUi\PreviousPageButton.png" />
+    <Resource Include="Asset\Image\White\ListUi\PriorityNumber-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\PriorityNumber-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\PriorityText-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\PriorityText-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\ProgressText-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\ProgressText-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\ProjectIcon-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\ProjectIcon-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\SettingButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\SettingButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\Show10Button-Choose.png" />
+    <Resource Include="Asset\Image\White\ListUi\Show10Button-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\Show10Button-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\Show20Button-Choose.png" />
+    <Resource Include="Asset\Image\White\ListUi\Show20Button-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\Show20Button-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\ListUi\TitleText-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\TitleText-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\TotalNumber-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\TotalNumber-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\TotalNumber-Line.png" />
+    <Resource Include="Asset\Image\White\ListUi\UpdateTimeText-CN.png" />
+    <Resource Include="Asset\Image\White\ListUi\UpdateTimeText-EN.png" />
+    <Resource Include="Asset\Image\White\ListUi\YesButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\ListUi\YesButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\MainUi\YesButton-MouseLeave.png" />
+    <Resource Include="Asset\Image\White\MainUi\CreateButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\MainUi\CreateButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\MainUi\MinimizeButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\MainUi\NoButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\MainUi\OpenButton-MouseEnter-CN.png" />
+    <Resource Include="Asset\Image\White\MainUi\OpenButton-MouseEnter-EN.png" />
+    <Resource Include="Asset\Image\White\MainUi\SettingButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\MainUi\YesButton-MouseEnter.png" />
+    <Resource Include="Asset\Image\White\MainUi\CreateButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\MainUi\CreateButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\MainUi\OpenButton-MouseLeave-CN.png" />
+    <Resource Include="Asset\Image\White\MainUi\OpenButton-MouseLeave-EN.png" />
+    <Resource Include="Asset\Image\White\MainUi\Logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

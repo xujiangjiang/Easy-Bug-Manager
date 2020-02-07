@@ -1,0 +1,201 @@
+﻿<!--记录输入框 控件（属于BugUi）-->
+<UserControl x:Class="EasyBugManager.RecordInputBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="195" d:DesignWidth="513.5"
+                 
+             Name="RecordInputBoxUserControl">
+
+    <Grid>
+
+        <!--图片：消息发送框-->
+        <Border Width="419" Height="137"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Background="{DynamicResource BugUi.Text.InputBox.ImageBrush}"/>
+
+        <!--文本框-->
+        <TextBox Name="InputTextBox"
+                 Width="372" Height="88"
+                 VerticalScrollBarVisibility="Visible"
+                 VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                 Margin="22.5,0,0,26.5"
+                 Text=""
+                 Style="{StaticResource InputTextBoxStyle}"
+                 FontSize="18" Foreground="Gray"
+                 FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                 Background="Transparent" BorderThickness="0"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 SelectionBrush ="Gray"
+                 RenderTransformOrigin="0.5,0.5"
+                 
+                 TextChanged="InputTextBox_TextChanged">
+            
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="0"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+            
+        </TextBox>
+
+        <!--图片：熊头像-->
+        <Border Width="83" Height="76"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="0,0,0,14.5"
+                Background="{DynamicResource BugUi.InputBox.BearIcon.ImageBrush}"/>
+
+        <!--按钮：发送按钮-->
+        <local:ImageButtonControl Width="66" Height="60"
+                                  VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                  Margin="0,0,22,99"
+                                  PressAnimationSize="0.85,0.85"
+
+                                  MouseEnterImage="{DynamicResource BugUi.InputBox.SendButton.MouseEnter.ImageBrush}"
+                                  MouseLeaveImage="{DynamicResource BugUi.InputBox.SendButton.MouseLeave.ImageBrush}"
+                                  Click="SubmitButtonControl_Click"/>
+
+        <!--图片：发送按钮(空)-->
+        <Border Name="SendButtonBorder"
+                Width="66" Height="60"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="0,0,22,99"
+                Visibility="Collapsed"
+                Background="{DynamicResource BugUi.InputBox.SendButton.Null.ImageBrush}"/>
+
+        <!--省略号-->
+        <StackPanel Name="EllipsisStackPanel" Opacity="0.5"
+                    Width="42" Height="32" Margin="0,0,35,116"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsHitTestVisible="False"
+                    Visibility="Collapsed">
+
+            <Border Name="Ellipsis1Border"
+                    Width="14" Height="14" 
+                    Background="{DynamicResource BugUi.InputBox.Ellipsis1.ImageBrush}"/>
+            <Border Name="Ellipsis2Border"
+                    Width="14" Height="14" 
+                    Background="{DynamicResource BugUi.InputBox.Ellipsis2.ImageBrush}"/>
+            <Border Name="Ellipsis3Border"
+                    Width="14" Height="14" 
+                    Background="{DynamicResource BugUi.InputBox.Ellipsis3.ImageBrush}"/>
+
+        </StackPanel>
+
+
+        <!--图片相关-->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Margin="13,0,0,0"
+                    Orientation="Horizontal">
+
+            <!--按钮：图片-->
+            <Grid x:Name="ChooseImageGrid"
+                  Width="39" Height="39" 
+                  Margin="0,22,0,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  Opacity="0">
+                <local:ImageButtonControl Width="39" Height="39"
+                                          PressAnimationSize="0.85,0.85"
+                                          MouseEnterImage="{DynamicResource BugUi.ImageButton.MouseEnter.ImageBrush}"
+                                          MouseLeaveImage="{DynamicResource BugUi.ImageButton.MouseLeave.ImageBrush}"
+                                          Click="ChooseImageButtonControl_Click"/>
+            </Grid>
+
+            <!--列表：图片-->
+            <ListBox Name="ImageListBox"
+                     Background="Transparent" BorderThickness="0"
+                     Margin="8,0,0,0"
+                             
+                     ItemContainerStyle="{StaticResource BugListItemStyle}"
+                     ItemsSource="{Binding ElementName=RecordInputBoxUserControl,Path=ImagePaths}">
+
+                <!--布局：让列表横向排列-->
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+
+
+
+                <!--ListBox的 Item的数据模板-->
+                <ListBox.ItemTemplate>
+                    <!--创建1个数据模板-->
+                    <DataTemplate>
+
+                        <!--列表的Item-->
+                        <Grid Width="55" Height="55" Margin="0,0,2,0">
+
+                            <!--边框-->
+                            <Border Width="48" Height="48"
+                                Background="White" BorderThickness="2" BorderBrush="#FFAEAEAE"
+                                CornerRadius="3"
+                                HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
+                            <!--图片-->
+                            <local:ImageControl Width="45" Height="45" Margin="2"
+                               Source="{Binding}"
+                               Stretch="Fill"
+                               OpacityMask="{DynamicResource BugUi.InputBox.ImageMask.ImageBrush}"
+                               HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
+
+                            <!--按钮：图片-->
+                            <local:ColorButtonControl Width="48" Height="48"
+                                                  PressAnimationSize="1,1"
+                                                  Opacity="0.2" CornerRadius="5"
+                                                  MouseEnterBackground="Gray"
+                                                  MouseLeaveBackground="Transparent"
+                                                  HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                                  Tag="{Binding}"
+                                                  Click="ImageButtonControl_Click"/>
+
+                            <!--按钮：删除-->
+                            <local:ImageButtonControl Width="27" Height="27"
+                                                  HorizontalAlignment="Right" VerticalAlignment="Top"
+                                                  MouseEnterImage="{DynamicResource BugUi.InputBox.DeleteImageButton.MouseEnter.ImageBrush}"
+                                                  MouseLeaveImage="{DynamicResource BugUi.InputBox.DeleteImageButton.MouseLeave.ImageBrush}"
+                                                  Tag="{Binding}"
+                                                  Click="DeleteImageButtonControl_Click"/>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+
+            </ListBox>
+
+            <!--文字：图片的限制个数-->
+            <StackPanel Name="ImageMaxNumberStackPanel"
+                        Orientation="Horizontal"
+                        Visibility="Collapsed">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                           Margin="0,0,0,5"
+                           Text="("
+                           FontSize="20" Foreground="#c2c2c2"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           TextOptions.TextFormattingMode="Display"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                           Margin="0,0,0,5"
+                           Text="{Binding ElementName=RecordInputBoxUserControl,Path=ImageCurrentNumber}"
+                           FontSize="20" Foreground="#c2c2c2"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           TextOptions.TextFormattingMode="Display"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                           Margin="0,0,0,5"
+                           Text="/4)"
+                           FontSize="20" Foreground="#c2c2c2"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           TextOptions.TextFormattingMode="Display"/>
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

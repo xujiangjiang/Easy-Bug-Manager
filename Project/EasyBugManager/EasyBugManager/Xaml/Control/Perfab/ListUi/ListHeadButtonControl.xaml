@@ -1,0 +1,43 @@
+﻿<!--按钮：列表表头的 按钮-->
+<UserControl x:Class="EasyBugManager.ListHeadButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="52" d:DesignWidth="110"
+                 
+             Name="ListHeadButtonUserControl">
+        
+    <Grid>
+        <!--表头：按钮-->
+        <local:ColorButtonControl x:Name="ListHeadColorButtonControl"
+                                  MouseEnterBackground="White" MouseLeaveBackground="Transparent"
+                                  MouseEnterBorderBrush="#FFE6E6E6" MouseLeaveBorderBrush="Transparent"
+                                  BorderThickness="2"
+                                  PressAnimationSize="0.9,0.9"
+                                  Width="{Binding ElementName=ListHeadButtonUserControl,Path=ButtonWidth}" 
+                                  Height="{Binding ElementName=ListHeadButtonUserControl,Path=ButtonHeight}"
+                                  Margin="{Binding ElementName=ListHeadButtonUserControl,Path=ButtonPadding}"
+                                  CornerRadius="5"
+                                  Visibility="Visible"
+                                  Click="ListHeadColorButtonControl_Click"/>
+
+        <!--表头：图片-->
+        <Border Name="ListHandTextBorder"
+                Background="{Binding ElementName=ListHeadButtonUserControl,Path=Text}" 
+                Width="{Binding ElementName=ListHeadButtonUserControl,Path=TextWidth}" 
+                Height="{Binding ElementName=ListHeadButtonUserControl,Path=TextHeight}" 
+                Margin="{Binding ElementName=ListHeadButtonUserControl,Path=TextPadding}"
+                IsHitTestVisible="False"/>
+
+        <!--表头：箭头-->
+        <Border Name="ListHandArrowBorder"
+                Background="{Binding ElementName=ListHeadButtonUserControl,Path=ArrowNoneImage}"
+                Width="{Binding ElementName=ListHeadButtonUserControl,Path=Width}" 
+                Height="12"
+                VerticalAlignment="Top"></Border>
+    </Grid>
+</UserControl>
+    

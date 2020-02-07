@@ -1,0 +1,88 @@
+﻿<!--界面：错误的界面(用于显示错误)-->
+<UserControl x:Class="EasyBugManager.ErrorUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+
+             d:DesignHeight="1002" d:DesignWidth="1440"
+             
+             Name="ErrorUiUserControl">
+
+    <Grid>
+
+        <Grid Width="580" Height="300" Margin="18,-78,0,0">
+
+            <!--背景：白色-->
+            <Border Name="BackgroundBorder"
+                    Width="580" Height="300"
+                    Background="White" CornerRadius="15"
+                    Opacity="1">
+                <Border.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                      Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+
+
+            <!--内容-->
+            <Canvas Width="580" Height="300">
+
+                <!--文字：标题-->
+                <TextBlock Margin="39.5,20,0,0"
+                               Text="{Binding ElementName=ErrorUiUserControl,Path=TipTitle}"
+                               FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                               FontSize="31" Foreground="#787878"/>
+
+
+                <!--右边按钮-->
+                <StackPanel Width="83"
+                                Canvas.Left="533" Canvas.Top="6.5">
+
+                    <!--按钮：确定-->
+                    <local:YesButtonControl Width="73" Height="62" Margin="0,0,0,0"
+                                            PressAnimationSize="0.85,0.85"
+                                            MouseLeaveImage="{DynamicResource OtherUi.YesButton.MouseLeave.ImageBrush}"
+                                            MouseEnterImage="{DynamicResource OtherUi.YesButton.MouseEnter.ImageBrush}"
+                                            HorizontalAlignment="Right"
+                                            Visibility="{Binding ElementName=ErrorUiUserControl,Path=IsShowYesButton,Converter={StaticResource BoolToVisibilityConverter}}"
+                                            
+                                            Click="YesButtonControl_Click"/>
+
+                    <!--按钮：取消-->
+                    <local:NoButtonControl Width="70" Height="57" Margin="2,3,0,0"
+                                           PressAnimationSize="0.85,0.85"
+                                           MouseLeaveImage="{DynamicResource OtherUi.NoButton.MouseLeave.ImageBrush}"
+                                           MouseEnterImage="{DynamicResource OtherUi.NoButton.MouseEnter.ImageBrush}"
+                                           Visibility="{Binding ElementName=ErrorUiUserControl,Path=IsShowNoButton,Converter={StaticResource BoolToVisibilityConverter}}"
+                                           
+                                           Click="NoButtonControl_Click"/>
+
+                </StackPanel>
+
+            </Canvas>
+
+
+            <!--文本框-->
+            <TextBox Text="{Binding ElementName=ErrorUiUserControl,Path=TipContent}"
+                                 
+                     Style="{StaticResource BaseTextBoxStyle}"
+                     VerticalScrollBarVisibility="Visible"
+
+                     Width="450" Height="200"
+                     Margin="0,35,0,0"
+                                 
+                     FontSize="16" Foreground="Gray"
+                     FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                     Background="Transparent" BorderThickness="0"
+                     TextWrapping="Wrap" AcceptsReturn="True"
+                     SelectionBrush ="Gray"
+                     IsReadOnly="True" TextAlignment="Center"/>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

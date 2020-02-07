@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="EasyBugManager.ListTipControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="98" d:DesignWidth="473">
+
+    <Grid Name="BaseGrid" 
+          Opacity="0">
+
+        <!--图片：背景-->
+        <Border Name="BackgroundBorder"
+                Width="443" Height="68"
+                        CornerRadius="20"
+                        Background="#4669a5">
+            <Border.Effect>
+                <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                          Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
+
+        <!--图片：创建Bug的文字-->
+        <Border Name="CreateBugBorder"
+                Visibility="Collapsed"
+                Width="123" Height="22"
+                        Margin="120,0,0,0"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ListUi.Text.Tip.BugCreated.ImageBrush}"/>
+
+        <!--图片：删除Bug的文字-->
+        <Border Name="DeleteBugBorder"
+                Visibility="Visible"
+                Width="112" Height="22"
+                        Margin="179,0,0,0"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ListUi.Text.Tip.BugRemoved.ImageBrush}"/>
+
+
+        <!--按钮：查看-->
+        <local:ImageButtonControl x:Name="LookButton"
+                                  Visibility="Collapsed"
+                                  Width="86" Height="33"
+                                          Margin="314,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          PressAnimationSize="0.9,0.8"
+                                          MouseEnterImage="{DynamicResource ListUi.Text.Tip.LookButton.MouseEnter.ImageBrush}"
+                                          MouseLeaveImage="{DynamicResource ListUi.Text.Tip.LookButton.MouseLeave.ImageBrush}"
+                                          
+                                          Click="LookButtonControl_OnClick"/>
+
+        <!--按钮：关闭-->
+        <local:ImageButtonControl x:Name="CloseButton"
+                                  Visibility="Visible"
+                                  Width="30" Height="30"
+                                          Margin="410,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          MouseEnterImage="{DynamicResource ListUi.Tip.CloseButton.MouseEnter.ImageBrush}"
+                                          MouseLeaveImage="{DynamicResource ListUi.Tip.CloseButton.MouseLeave.ImageBrush}"
+                                          
+                                          Click="CloseButtonControl_OnClick"/>
+
+
+    </Grid>
+
+</UserControl>

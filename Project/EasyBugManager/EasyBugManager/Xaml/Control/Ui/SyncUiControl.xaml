@@ -1,0 +1,317 @@
+﻿<UserControl x:Class="EasyBugManager.SyncUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="1002" d:DesignWidth="1440"
+             
+             Name="SyncUiUserControl">
+
+    <Grid>
+
+        <!--动画（这些动画不会实际显示什么内容，只是用来计时的）-->
+        <Grid>
+            <!--Border：等待同步（用于为IsWaitSync字段计时）-->
+            <Border Name="WaitSyncBorder"
+                    Width="0" Height="0" Opacity="0"
+                    Background="Transparent"/>
+        </Grid>
+
+        <!-- 按钮 -->
+        <Canvas>
+
+            <StackPanel Canvas.Top="42" Canvas.Left="98"
+                        Orientation="Horizontal">
+
+                <!--按钮-->
+                <Grid>
+
+                    <!--CN-->
+                    <Grid Name="CnSyncButtonGrid"
+                          Visibility="Visible">
+
+                        <!--按钮：同步-->
+                        <local:ColorButtonControl x:Name="CnSyncButtonControl"
+                                                  Margin="-21,-6,-20,-6"         
+                                                  BorderThickness="0" CornerRadius="14"
+                                                  PressAnimationSize="0.95,0.85" 
+                                                  MouseEnterBackground="#FFE6E6E6" MouseEnterBorderBrush="Transparent"
+                                                  MouseLeaveBackground="#FFF4F4F4" MouseLeaveBorderBrush="Transparent"
+                                                  
+                                                  Click="SyncButtonControl_OnClick"/>
+
+
+                        <!--图片：暂无同步-->
+                        <Border Name="CnNoSyncBorder"
+                                Width="114" Height="16"
+                                Background="{DynamicResource SyncUi.Text.NoSync.ImageBrush}"
+                                IsHitTestVisible="False"
+                                Visibility="Visible"/>
+
+                        <!--图片：同步中-->
+                        <Border Name="CnSyncingBorder"
+                                Width="190" Height="16"
+                                Background="{DynamicResource SyncUi.Text.Syncing.ImageBrush}"
+                                IsHitTestVisible="False"
+                                Visibility="Collapsed"/>
+
+                        <!--图片：同步完成-->
+                        <Border Name="CnSyncedBorder"
+                                Width="210" Height="16"
+                                Background="{DynamicResource SyncUi.Text.Synced.ImageBrush}"
+                                IsHitTestVisible="False"
+                                Visibility="Collapsed"/>
+
+                    </Grid>
+
+                    <!--EN-->
+                    <Grid Name="EnSyncButtonGrid"
+                          Visibility="Collapsed">
+
+                        <!--按钮：同步-->
+                        <local:ColorButtonControl x:Name="EnSyncButtonControl"
+                                                  Margin="-21,-5.5,-20,-3"         
+                                                  BorderThickness="0" CornerRadius="14"
+                                                  PressAnimationSize="0.95,0.85" 
+                                                  MouseEnterBackground="#FFE6E6E6" MouseEnterBorderBrush="Transparent"
+                                                  MouseLeaveBackground="#FFF4F4F4" MouseLeaveBorderBrush="Transparent"
+                                                  
+                                                  Click="SyncButtonControl_OnClick"/>
+
+
+                        <!--图片：暂无同步-->
+                        <Border Name="EnNoSyncBorder"
+                                Width="149" Height="19" Margin="0,1,0,0"
+                                Background="{DynamicResource SyncUi.Text.NoSync.ImageBrush}"
+                                IsHitTestVisible="False"
+                                Visibility="Visible"/>
+
+                        <!--图片：同步中-->
+                        <Border Name="EnSyncingBorder"
+                                Width="230" Height="19" Margin="0,1,0,0"
+                                Background="{DynamicResource SyncUi.Text.Syncing.ImageBrush}"
+                                IsHitTestVisible="False"
+                                Visibility="Collapsed"/>
+
+                        <!--图片：同步完成-->
+                        <Border Name="EnSyncedBorder"
+                                Width="226" Height="19" Margin="0,1,0,0"
+                                Background="{DynamicResource SyncUi.Text.Synced.ImageBrush}"
+                                IsHitTestVisible="False"
+                                Visibility="Collapsed"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <!--图片-->
+                <Grid Margin="27,0,0,0">
+
+                    <!--图片：同步图标-->
+                    <Border Name="SyncIconBorder"
+                            Width="17" Height="17"
+                            Background="{DynamicResource SyncUi.SyncIcon.ImageBrush}" 
+                            RenderTransformOrigin="0.5,0.5"
+                            Visibility="Collapsed">
+                        <Border.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform x:Name="SyncIconBorderRotateTransform" Angle="0"></RotateTransform>
+                            </TransformGroup>
+                        </Border.RenderTransform>
+                    </Border>
+
+                    <!--文字：同步时间-->
+                    <TextBlock Name="TimeTextBlock"
+                               HorizontalAlignment="Left" VerticalAlignment="Top"
+                               Height="16"
+                               Text="{Binding ElementName=SyncUiUserControl,Path=SyncedTime}"
+                               FontSize="18" Foreground="#aeaeae"
+                               FontFamily="{StaticResource ZcoolLiterary.FontFamily}"/>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Canvas>
+
+        <!--灰色前景：用于遮挡-->
+        <Canvas Width="1440" Height="1002"
+                Opacity="0.75"
+                Visibility="{Binding ElementName=SyncUiUserControl,Path=IsShowSyncLog,Converter={StaticResource BoolToVisibilityConverter}}">
+
+            <Border Width="1440" Height="1002"
+                    Background="Black" CornerRadius="22"/>
+
+            <!--上方按钮图片-->
+            <StackPanel Name="TopButtonBackgroundGroupStackPanel"
+                        Width="83" Height="193"
+                        Canvas.Right="63" Canvas.Top="36">
+
+                <!--图片：最小化-->
+                <Border Width="73" Height="62" Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        Background="{DynamicResource MainUi.Foreground.MinimizeButton.ImageBrush}"/>
+
+                <!--图片：关闭-->
+                <Border Width="70" Height="57" Margin="1,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.NoButton.ImageBrush}"/>
+
+                <!--图片：设置-->
+                <Border Width="79" Height="68" Margin="-6,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.SettingButton.ImageBrush}"/>
+
+            </StackPanel>
+
+
+        </Canvas>
+
+        <!-- 日志 -->
+        <Grid Width="580" Height="799" Margin="18,86,0,0"
+              VerticalAlignment="Top"
+              Visibility="{Binding ElementName=SyncUiUserControl,Path=IsShowSyncLog,Converter={StaticResource BoolToVisibilityConverter}}">
+
+            <!--背景：白色-->
+            <Border Name="BackgroundBorder"
+                    Width="580" Height="799"
+                    Background="White" CornerRadius="15"
+                    Opacity="1">
+                <Border.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                      Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+
+
+            <!--内容-->
+            <Canvas Width="580" Height="799">
+
+                <!--文字：标题-->
+                <TextBlock Name="SyncLogTitleTextBlock"
+                           Margin="39.5,20,0,0"
+                           Text="同步日志"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           FontSize="31" Foreground="#787878"/>
+
+
+                <!--右边按钮-->
+                <StackPanel Width="83"
+                            Canvas.Left="533" Canvas.Top="6.5">
+
+                    <!--按钮：确定-->
+                    <local:YesButtonControl Width="73" Height="62" Margin="0,0,0,0"
+                                            PressAnimationSize="0.85,0.85"
+                                            MouseLeaveImage="{DynamicResource OtherUi.YesButton.MouseLeave.ImageBrush}"
+                                            MouseEnterImage="{DynamicResource OtherUi.YesButton.MouseEnter.ImageBrush}"
+                                            HorizontalAlignment="Right"
+                                            Visibility="{Binding ElementName=SyncUiUserControl,Path=IsShowYesButton,Converter={StaticResource BoolToVisibilityConverter}}"
+                                            
+                                            Click="YesButtonControl_Click"/>
+
+                    <!--按钮：取消-->
+                    <local:NoButtonControl Width="70" Height="57" Margin="2,3,0,0"
+                                           PressAnimationSize="0.85,0.85"
+                                           MouseLeaveImage="{DynamicResource OtherUi.NoButton.MouseLeave.ImageBrush}"
+                                           MouseEnterImage="{DynamicResource OtherUi.NoButton.MouseEnter.ImageBrush}"
+                                           Visibility="{Binding ElementName=SyncUiUserControl,Path=IsShowNoButton,Converter={StaticResource BoolToVisibilityConverter}}"
+                                           
+                                           Click="NoButtonControl_Click"/>
+
+                </StackPanel>
+
+
+                <!--文字：同步次数-->
+                <StackPanel Canvas.Top="95" Canvas.Left="69"
+                            Orientation="Horizontal">
+
+                    <TextBlock Name="NumberOfSyncTitleTextBlock"
+                               Text="同步次数 :  "
+                               FontSize="21" Foreground="#979797"
+                               FontFamily="{StaticResource ZcoolLiterary.FontFamily}">
+                    </TextBlock>
+
+                    <TextBlock Name="NumberOfSyncContentTextBlock"
+                               Text="{Binding ElementName=SyncUiUserControl,Path=SyncNumber}"
+                               FontSize="21" Foreground="#4669a5"
+                               FontFamily="{StaticResource ZcoolLiterary.FontFamily}">
+                    </TextBlock>
+
+                </StackPanel>
+
+
+                <!--文字：最后一次同步的时间-->
+                <StackPanel Canvas.Top="119" Canvas.Left="69"
+                            Orientation="Horizontal">
+
+                    <TextBlock Name="LastSyncTimeTitleTextBlock"
+                               Text="最后一次同步 :  "
+                               FontSize="21" Foreground="#979797"
+                               FontFamily="{StaticResource ZcoolLiterary.FontFamily}">
+                    </TextBlock>
+
+                    <TextBlock Name="LastSyncTimeContentTextBlock"
+                               Text="{Binding ElementName=SyncUiUserControl,Path=LastSyncTime}"
+                               FontSize="21" Foreground="#4669a5"
+                               FontFamily="{StaticResource ZcoolLiterary.FontFamily}">
+                    </TextBlock>
+
+                </StackPanel>
+
+            </Canvas>
+
+
+            <!--文本框-->
+            <TextBox Text="{Binding ElementName=SyncUiUserControl,Path=SyncLogText}"
+                                 
+                     Style="{StaticResource BaseTextBoxStyle}"
+                     VerticalScrollBarVisibility="Visible"
+
+                     Width="445" Height="550"
+                     VerticalAlignment="Top"
+                     Margin="3,180,0,0"
+                                 
+                     FontSize="17" Foreground="Gray"
+                     FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                     Background="Transparent" BorderThickness="0"
+                     TextWrapping="Wrap" AcceptsReturn="True"
+                     SelectionBrush ="Gray"
+                     IsReadOnly="True" TextAlignment="Left"/>
+
+        </Grid>
+
+        <!--灰色前景：用于遮挡-->
+        <Canvas Name="ForegroundCanvas"
+                Width="1440" Height="1002"
+                Opacity="0.75"
+                Visibility="Collapsed">
+
+            <Border Width="1440" Height="1002"
+                    Background="Black" CornerRadius="22"/>
+
+            <!--上方按钮图片-->
+            <StackPanel Name="TopButtonForegroundGroupStackPanel"
+                        Width="83" Height="193"
+                        Canvas.Right="63" Canvas.Top="36">
+
+                <!--图片：最小化-->
+                <Border Width="73" Height="62" Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        Background="{DynamicResource MainUi.Foreground.MinimizeButton.ImageBrush}"/>
+
+                <!--图片：关闭-->
+                <Border Width="70" Height="57" Margin="1,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.NoButton.ImageBrush}"/>
+
+                <!--图片：设置-->
+                <Border Width="79" Height="68" Margin="-6,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.SettingButton.ImageBrush}"/>
+
+            </StackPanel>
+
+
+        </Canvas>
+
+    </Grid>
+
+</UserControl>

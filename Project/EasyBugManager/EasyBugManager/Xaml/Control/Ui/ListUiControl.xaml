@@ -1,0 +1,1001 @@
+﻿<!--界面：列表界面-->
+<UserControl x:Class="EasyBugManager.ListUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="1002" d:DesignWidth="1480"
+             
+             Name="ListUiUserControl"
+             
+             Loaded="ListUiControl_OnLoaded">
+    
+    <Grid>
+
+        <!--上方右边-->
+        <Canvas Width="1440" Height="1002">
+
+            <!--熊-->
+            <Border Width="334" Height="294" Canvas.Left="1039" Canvas.Top="11"
+                    Background="{DynamicResource ListUi.Bear.ImageBrush}"
+                    IsHitTestVisible="False"/>
+
+            <!--虫-->
+            <Border Width="532" Height="200" Canvas.Left="507" Canvas.Top="44"
+                    Background="{DynamicResource ListUi.Bug1.ImageBrush}"
+                    IsHitTestVisible="False"/>
+
+
+            <!--上方按钮-->
+            <StackPanel Name="TopButtonGroupStackPanel"
+                        Width="83" Height="193"
+                        Canvas.Right="63" Canvas.Top="36">
+
+                <!--按钮：最小化-->
+                <local:MinimizeButtonControl x:Name="MinimizeButtonControl"
+                                             Width="73" Height="62" Margin="0,0,0,0"
+                                             PressAnimationSize="0.85,0.85"
+                                             MouseLeaveImage="{DynamicResource ListUi.MinimizeButton.MouseLeave.ImageBrush}"
+                                             MouseEnterImage="{DynamicResource ListUi.MinimizeButton.MouseEnter.ImageBrush}"
+                                             HorizontalAlignment="Right"
+                                             Click="MinimizeButtonControl_Click"/>
+
+                <!--按钮：关闭-->
+                <local:NoButtonControl x:Name="CloseButtonControl"
+                                       Width="70" Height="57" Margin="1,3,0,0"
+                                       PressAnimationSize="0.85,0.85"
+                                       MouseLeaveImage="{DynamicResource ListUi.NoButton.MouseLeave.ImageBrush}"
+                                       MouseEnterImage="{DynamicResource ListUi.NoButton.MouseEnter.ImageBrush}"
+                                       Click="CloseButtonControl_Click"/>
+
+                <!--按钮：设置-->
+                <local:SettingButtonControl x:Name="SettingButtonControl"
+                                            Width="79" Height="68" Margin="-6,3,0,0"
+                                            PressAnimationSize="0.85,0.85"
+                                            MouseLeaveImage="{DynamicResource ListUi.SettingButton.MouseLeave.ImageBrush}"
+                                            MouseEnterImage="{DynamicResource ListUi.SettingButton.MouseEnter.ImageBrush}"
+                                            Click="SettingButtonControl_Click"/>
+
+            </StackPanel>
+
+
+            <!--项目-->
+            <Border Width="146" Height="46" Canvas.Left="939" Canvas.Top="105"
+                    Background="{DynamicResource ListUi.Text.Project.ImageBrush}"/>
+
+            <!--项目名称-->
+            <TextBox Name="ProjectNameTextBox"
+                     Text="{Binding ElementName=ListUiUserControl,Path=ProjectNameString}" 
+                     FontFamily="{StaticResource ZcoolHappy.FontFamily}" 
+                     Canvas.Left="785" Canvas.Top="50" Width="305" Height="60"
+                     Foreground="#FFBEBEBE" Background="Transparent" BorderThickness="0"
+                     HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"
+                     FontSize="25" RenderTransformOrigin="0.5,0.5"
+                     TextWrapping="Wrap"
+                     Opacity="0.9"
+                     SelectionBrush ="Gray"
+                     IsReadOnly="True" IsHitTestVisible="False">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-4"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+
+        </Canvas>
+
+
+        <!--上方左边-->
+        <Canvas Width="1440" Height="1002">
+
+            <!--Bug总数：图片-->
+            <Border Background="{DynamicResource ListUi.Text.TotalNumber.ImageBrush}"
+                        Width="115" Height="26" Canvas.Left="84" Canvas.Top="92"/>
+
+            <!--Bug总数：数据-->
+            <StackPanel Canvas.Left="81.5" Canvas.Top="125"
+                            Orientation="Horizontal">
+                <!--未完成的bug数量-->
+                <TextBlock Name="UndoneBugNumberTextBlock"
+                           Text="{Binding ElementName=ListUiUserControl,Path=UndoneBugTotalNumber}"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           FontSize="43" TextAlignment="Right"
+                           Foreground="#a54646"/>
+
+                <!--分割线-->
+                <Border Background="{DynamicResource ListUi.TotalNumberLine.ImageBrush}"
+                        Width="13" Height="39" Margin="13.5,-1,13.5,0"></Border>
+
+                <!--全部的bug数量-->
+                <TextBlock Text="{Binding ElementName=ListUiUserControl,Path=AllBugTotalNumber}"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           FontSize="43" TextAlignment="Left"
+                           Foreground="#535353"/>
+            </StackPanel>
+
+            <!--分割线-->
+            <Border Background="#535353" Opacity="0.18"
+                    Width="2.3" Height="103" Canvas.Left="299" Canvas.Top="79.5"></Border>
+
+            <!--优先级总数：图片-->
+            <Border Background="{DynamicResource ListUi.Text.PriorityNumber.ImageBrush}"
+                        Width="31" Height="75" Canvas.Left="333" Canvas.Top="95"></Border>
+
+            <StackPanel Canvas.Left="393.5" Canvas.Top="88.5">
+
+                <!--数量：优先级高-->
+                <TextBlock Name="PriorityHighBugNumberTextBlock"
+                           Text="{Binding ElementName=ListUiUserControl,Path=HighUndoneBugTotalNumber}"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           FontSize="23" Foreground="#a54646"/>
+
+                <!--数量：优先级中-->
+                <TextBlock Name="PriorityMidBugNumberTextBlock"
+                           Text="{Binding ElementName=ListUiUserControl,Path=MidUndoneBugTotalNumber}"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           FontSize="23" Foreground="#4669a5"
+                           Margin="0,2,0,0"/>
+
+                <!--数量：优先级低-->
+                <TextBlock Name="PriorityLowBugNumberTextBlock"
+                           Text="{Binding ElementName=ListUiUserControl,Path=LowUndoneBugTotalNumber}"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           FontSize="23" Foreground="#5e5e5e"
+                           Margin="0,3,0,0"/>
+
+            </StackPanel>
+
+        </Canvas>
+
+
+        <!--中间-->
+        <Canvas Width="1440" Height="1002">
+
+            <!--按钮：添加-->
+            <local:ImageButtonControl Width="50" Height="44" Canvas.Left="78.5" Canvas.Top="210"
+                                      PressAnimationSize="0.8,0.8"
+                                      MouseLeaveImage="{DynamicResource ListUi.AddButton.MouseLeave.ImageBrush}"
+                                      MouseEnterImage="{DynamicResource ListUi.AddButton.MouseEnter.ImageBrush}"
+                                      Click="AddBugButton_Click"/>
+
+            <!--按钮：删除-->
+            <local:ImageButtonControl Width="50" Height="44" Canvas.Left="135" Canvas.Top="210"
+                                      PressAnimationSize="0.8,0.8"
+                                      MouseLeaveImage="{DynamicResource ListUi.DeleteButton.MouseLeave.ImageBrush}"
+                                      MouseEnterImage="{DynamicResource ListUi.DeleteButton.MouseEnter.ImageBrush}"
+                                      Click="DeleteBugButton_Click"/>
+
+            <!--输入框：背景-->
+            <Grid Width="349" Height="46" Canvas.Left="219" Canvas.Top="209">
+
+                <Border Background="{DynamicResource ListUi.Text.SearchBox.ImageBrush}"
+                        Width="349" Height="46"/>
+
+                <TextBox Name="SearchTextBox"
+                         Text=""
+                         BorderThickness="0" Margin="5"
+                         SelectionBrush ="Gray"
+                         VerticalContentAlignment="Center"
+                         FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                         FontSize="21" Padding="5,4,42,0"
+                         Background="Transparent" Foreground="#FF767676" 
+                         TextChanged="SearchTextBox_TextChanged"/>
+
+                <local:ImageButtonControl x:Name="ClearSearchButtonControl"
+                                          Width="32" Height="32"
+                                          PressAnimationSize="0.85,0.85"
+                                          HorizontalAlignment="Right" Margin="0,0,10,0"
+                                          MouseEnterImage="{DynamicResource ListUi.SearchBox.CloseButton.ImageBrush}"
+                                          MouseLeaveImage="{DynamicResource ListUi.SearchBox.CloseButton.ImageBrush}"
+                                          
+                                          Visibility="Collapsed"
+                                          Click="ClearSearchButtonControl_Click"/>
+
+            </Grid>
+
+        </Canvas>
+
+
+        <!--列表-->
+        <Canvas Width="1440" Height="1002">
+
+            <Grid Width="1318" Height="590" Canvas.Top="308" Canvas.Left="63"
+                      Opacity="1">
+
+                <!--布局：竖排-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                    <ColumnDefinition Width="124"></ColumnDefinition>
+                    <ColumnDefinition Width="674"></ColumnDefinition>
+                    <ColumnDefinition Width="169"></ColumnDefinition>
+                    <ColumnDefinition Width="223"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!--布局：横排-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="52"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <!--表头：完成度（进度）-->
+                <local:ListHeadButtonControl x:Name="ProgressListHeadButtonControl"
+                                             Grid.Column="0"
+                                             ArrowNoneImage="{DynamicResource ListUi.Arrow.Progress.None.ImageBrush}"
+                                             ArrowUpImage="{DynamicResource ListUi.Arrow.Progress.Up.ImageBrush}"
+                                             ArrowDownImage="{DynamicResource ListUi.Arrow.Progress.Down.ImageBrush}"
+                                             Text="{DynamicResource ListUi.Text.Progress.ImageBrush}"
+                                             TextPadding="-5,5,0,0" TextWidth="76" TextHeight="24"
+                                             ButtonPadding="-5,5,0,0" ButtonWidth="100" ButtonHeight="34"
+                                             SortType="{Binding ElementName=ListUiUserControl,Path=ProgressSortType}"
+                                             IsCanClick="True"
+                                             Click="ProgressListHeadButton_Click"/>
+
+                <!--表头：优先级-->
+                <local:ListHeadButtonControl x:Name="PriorityListHeadButtonControl"
+                                             Grid.Column="1"
+                                             ArrowNoneImage="{DynamicResource ListUi.Arrow.Priority.None.ImageBrush}"
+                                             ArrowUpImage="{DynamicResource ListUi.Arrow.Priority.Up.ImageBrush}"
+                                             ArrowDownImage="{DynamicResource ListUi.Arrow.Priority.Down.ImageBrush}"
+                                             Text="{DynamicResource ListUi.Text.Priority.ImageBrush}"
+                                             TextPadding="-1,5,0,0" TextWidth="63" TextHeight="23"
+                                             ButtonPadding="0,5,0,0" ButtonWidth="100" ButtonHeight="34"
+                                             SortType="{Binding ElementName=ListUiUserControl,Path=PrioritySortType}" 
+                                             IsCanClick="True"
+                                             Click="PriorityListHeadButton_Click"/>
+
+                <!--表头：标题-->
+                <local:ListHeadButtonControl Grid.Column="2"
+                                             SortType="None" IsCanClick="False"
+                                             ArrowNoneImage="{DynamicResource ListUi.Arrow.Title.None.ImageBrush}"
+                                             ArrowUpImage="{x:Null}"
+                                             ArrowDownImage="{x:Null}"
+                                             Text="{DynamicResource ListUi.Text.Title.ImageBrush}"
+                                             TextPadding="-5,5,0,0" TextWidth="40" TextHeight="24"
+                                             ButtonPadding="-5,5,0,0" ButtonWidth="0" ButtonHeight="34"/>
+
+                <!--表头：创建时间-->
+                <local:ListHeadButtonControl x:Name="CreateTimeListHeadButtonControl"
+                                             Grid.Column="3"
+                                             ArrowNoneImage="{DynamicResource ListUi.Arrow.CreateTime.None.ImageBrush}"
+                                             ArrowUpImage="{DynamicResource ListUi.Arrow.CreateTime.Up.ImageBrush}"
+                                             ArrowDownImage="{DynamicResource ListUi.Arrow.CreateTime.Down.ImageBrush}"
+                                             Text="{DynamicResource ListUi.Text.CreateTime.ImageBrush}"
+                                             TextPadding="-2,5,0,0" TextWidth="105" TextHeight="23"
+                                             ButtonPadding="-5,5,0,0" ButtonWidth="120" ButtonHeight="34"
+                                             SortType="{Binding ElementName=ListUiUserControl,Path=CreateTimeSortType}" 
+                                             IsCanClick="True"
+                                             Click="CreateTimeListHeadButton_Click"/>
+
+                <!--表头：更新时间-->
+                <local:ListHeadButtonControl x:Name="UpdateTimeListHeadButtonControl"
+                                             Grid.Column="4"
+                                             ArrowNoneImage="{DynamicResource ListUi.Arrow.UpdateTime.None.ImageBrush}"
+                                             ArrowUpImage="{DynamicResource ListUi.Arrow.UpdateTime.Up.ImageBrush}"
+                                             ArrowDownImage="{DynamicResource ListUi.Arrow.UpdateTime.Down.ImageBrush}"
+                                             Text="{DynamicResource ListUi.Text.UpdateTime.ImageBrush}"
+                                             TextPadding="-53,5,0,0" TextWidth="108" TextHeight="23"
+                                             ButtonPadding="-65,5,0,0" ButtonWidth="120" ButtonHeight="34"
+                                             SortType="{Binding ElementName=ListUiUserControl,Path=UpdateTimeSortType}" 
+                                             IsCanClick="True"
+                                             Click="UpdateTimeListHeadButton_Click"/>
+
+
+                <!--列表-->
+                <ListBox Name="BugListBox"
+                         Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,0,0"
+                         Padding="0,5,0,20"
+                         Style="{StaticResource BugListBoxStyle}"
+                         Background="Transparent" BorderThickness="0"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.CanContentScroll="False"
+                         ItemContainerStyle="{StaticResource BugListItemStyle}">
+
+                    <local:BugListItemControl x:Name="BugListItemControl1"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[0]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[0]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl2"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[1]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[1]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"   
+
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl3"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[2]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[2]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl4"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[3]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[3]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl5"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[4]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[4]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+
+                    <local:BugListItemControl x:Name="BugListItemControl6"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[5]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[5]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl7"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[6]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[6]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl8"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[7]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[7]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl9"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[8]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[8]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl10"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[9]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[9]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+
+
+                    <local:BugListItemControl x:Name="BugListItemControl11"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[10]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[10]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl12"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[11]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[11]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl13"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[12]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[12]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl14"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[13]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[13]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl15"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[14]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[14]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+
+                    <local:BugListItemControl x:Name="BugListItemControl16"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[15]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[15]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl17"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[16]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[16]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl18"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[17]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[17]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl19"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[18]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[18]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                    <local:BugListItemControl x:Name="BugListItemControl20"
+                                              Height="50" Width="1299" Margin="0,0,0,1"
+                                              Visibility="Collapsed"
+                                              DataContext="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[19]}"
+                                              Tag="{Binding ElementName=ListUiUserControl,Path=BugItemDatas[19]}"
+
+                                              Title="{Binding Data.Name}" CreateTime="{Binding CreateTimeInYMD}" UpdateTime="{Binding UpdateTimeInYMD}"
+                                              Progress="{Binding Data.Progress,Mode=TwoWay}" Priority="{Binding Data.Priority,Mode=TwoWay}"
+
+                                              IsChecked="False"
+                                              GoToPageNumber="{Binding GoToPageNumber}"
+                                              IsDelete="{Binding Data.IsDelete}"
+                                                      
+                                              ClickMoreButton="BugListItemControl_ClickMoreButton"
+                                              ClickProgressButton="BugListItemControl_OnClickProgressButton"
+                                              Checked="BugListItemControl_OnChecked"
+                                              MouseDoubleClickCheck="BugListItemControl_OnMouseDoubleClickCheck"
+                                                      
+                                              ClickDeleteButtonInContextMenu="BugListItemControl_ClickDeleteButtonInContextMenu"
+                                              ClickMoreButtonInContextMenu="BugListItemControl_ClickMoreButtonInContextMenu"
+                                              ClickProgressTypeButtonInContextMenu="BugListItemControl_ClickProgressTypeButtonInContextMenu"
+                                              ClickPriorityTypeButtonInContextMenu="BugListItemControl_ClickPriorityTypeButtonInContextMenu"
+                                                      
+                                              ClickRefreshButton="BugListItemControl_ClickRefreshButton"
+                                              ClickGoToPageButton="BugListItemControl_ClickGoToPageButton"
+                                              ClickDeletedButton="BugListItemControl_OnClickDeletedButton"/>
+
+                </ListBox>
+
+
+            </Grid>
+
+        </Canvas>
+
+
+        <!--下方-->
+        <Canvas Width="1440" Height="1002">
+
+            <!--显示的数量-->
+            <StackPanel Orientation="Horizontal"
+                            Width="200" Height="40"
+                            Canvas.Bottom="52" Canvas.Left="66">
+
+                <!--文字-->
+                <Border Background="{DynamicResource ListUi.Text.Display.ImageBrush}"
+                        Width="59" Height="19" Margin="0,3,0,0"></Border>
+
+                <!--按钮：10和20-->
+                <local:ImageCheckGroupControl x:Name="ShowBugNumberCheckGroupControl"
+                                              Margin="10,0,0,0" Padding="-2" PressAnimationSize="0.85,0.85"
+                                              Width1="46" Height1="40"
+                                              MouseEnterImage1="{DynamicResource ListUi.Show10Button.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage1="{DynamicResource ListUi.Show10Button.MouseLeave.ImageBrush}"
+                                              CheckImage1="{DynamicResource ListUi.Show10Button.Choose.ImageBrush}"
+                                              
+                                              Width2="46" Height2="40" 
+                                              MouseEnterImage2="{DynamicResource ListUi.Show20Button.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage2="{DynamicResource ListUi.Show20Button.MouseLeave.ImageBrush}"
+                                              CheckImage2="{DynamicResource ListUi.Show20Button.Choose.ImageBrush}"
+                                              
+                                              CheckControlNumber="2" CheckedIndex="1"
+                                              Visibility="Visible"
+                                              CheckedChange="ShowBugNumberCheckGroupControl_CheckedChange"/>
+            </StackPanel>
+
+
+            <!--页码-->
+            <StackPanel Orientation="Horizontal"
+                            Height="40"
+                            Canvas.Bottom="52" Canvas.Right="50">
+
+                <!--按钮：上一页-->
+                <Grid>
+                    <local:ColorButtonControl x:Name="PreviousPageButtonControl"
+                                              Width="30" Height="30" Margin="0,2,0,0"
+                                              BorderThickness="2"
+                                              PressAnimationSize="0.9,0.9" CornerRadius="5"
+                                              MouseEnterBackground="White" MouseEnterBorderBrush="#FFE6E6E6"
+                                              MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                              Click="PreviousPageButton_Click"/>
+                    <Border Width="14" Height="19" Margin="0,3,0,0"
+                                Background="{DynamicResource ListUi.PreviousPageButton.ImageBrush}"
+                                IsHitTestVisible="False"/>
+                </Grid>
+
+
+                <!--当前的页码-->
+                <TextBox Name="CurrentPageNumberTextBox"
+                         Text="0" 
+                         Margin="6,2,1,0"
+                         SelectionBrush ="Gray"
+                         FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                         BorderThickness="0" Background="Transparent" Foreground="#8f8f8f"
+                         VerticalContentAlignment="Center"
+                         FontSize="23" TextChanged="CurrentPageNumberTextBox_TextChanged"
+                         
+                         InputMethod.IsInputMethodEnabled="False"
+                         ContextMenu="{x:Null}"
+                         PreviewTextInput="CurrentPageNumberTextBox_PreviewTextInput"
+                         PreviewKeyDown="CurrentPageNumberTextBox_PreviewKeyDown"/>
+
+                <!--分割线-->
+                <Border Width="14" Height="32" Margin="3,1,0,0"
+                            Background="{DynamicResource ListUi.PageNumberLine.ImageBrush}"></Border>
+
+                <!--总共的页码-->
+                <TextBlock Name="TotalPageNumberTextBlock"
+                           Text="1" Margin="5,2,2,0"
+                           FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                           Background="Transparent" Foreground="#8f8f8f"
+                           FontSize="23"
+                           VerticalAlignment="Center"/>
+
+
+                <!--按钮：下一页-->
+                <Grid Margin="5,0,0,0">
+                    <local:ColorButtonControl x:Name="NextPageButtonControl"
+                                              Width="30" Height="30" Margin="0,2,0,0"
+                                              BorderThickness="2"
+                                              PressAnimationSize="0.9,0.9" CornerRadius="5"
+                                              MouseEnterBackground="White" MouseEnterBorderBrush="#FFE6E6E6"
+                                              MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                              Click="NextPageButton_Click"/>
+                    <Border Width="16" Height="19" Margin="0,5,0,0"
+                                Background="{DynamicResource ListUi.NextPageButton.ImageBrush}"
+                                IsHitTestVisible="False"/>
+                </Grid>
+
+            </StackPanel>
+
+        </Canvas>
+
+
+        <!--Tip-->
+        <Grid Width="1440" Height="1002">
+
+            <!--Tip：列表的提醒-->
+            <local:ListTipControl x:Name="ListTipControl"
+                                  Width="473" Height="98"
+                                  Margin="0,0,0,140"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Bottom"
+                                  Visibility="Collapsed"
+                                  
+                                  ClickLookButton="ListTipControl_OnClickLookButton"
+                                  ClickCloseButton="ListTipControl_OnClickCloseButton"/>
+
+        </Grid>
+
+
+        <!--灰色前景：用于遮挡-->
+        <Canvas Name="ForegroundCanvas"
+                Width="1440" Height="1002"
+                Opacity="0.75"
+                Visibility="Collapsed">
+
+            <Border Width="1440" Height="1002"
+                    Background="Black" CornerRadius="22"/>
+
+            <!--上方按钮图片-->
+            <StackPanel Name="TopButtonForegroundGroupStackPanel"
+                        Width="83" Height="193"
+                        Canvas.Right="63" Canvas.Top="36">
+
+                <!--图片：最小化-->
+                <Border Width="73" Height="62" Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        Background="{DynamicResource MainUi.Foreground.MinimizeButton.ImageBrush}"/>
+
+                <!--图片：关闭-->
+                <Border Width="70" Height="57" Margin="1,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.NoButton.ImageBrush}"/>
+
+                <!--图片：设置-->
+                <Border Width="79" Height="68" Margin="-6,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.SettingButton.ImageBrush}"/>
+
+            </StackPanel>
+
+
+        </Canvas>
+
+    </Grid>
+    
+</UserControl>

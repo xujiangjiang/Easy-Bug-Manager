@@ -1,0 +1,17 @@
+﻿<!-- 所有的字体 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EasyBugManager">
+
+
+    <!--字体：站酷快乐体-->
+    <FontFamily x:Key="ZcoolHappy.FontFamily">/EasyBugManager;component/Asset/Font/#HappyZcool-2016</FontFamily>
+
+    <!--字体：站酷黄油体-->
+    <FontFamily x:Key="ZcoolButter.FontFamily">/EasyBugManager;component/Asset/Font/#zcoolqingkehuangyouti</FontFamily>
+
+    <!--字体：站酷文艺体-->
+    <FontFamily x:Key="ZcoolLiterary.FontFamily">/EasyBugManager;component/Asset/Font/#zcoolwenyiti</FontFamily>
+
+
+</ResourceDictionary>

@@ -1,0 +1,144 @@
+﻿<!--界面：主界面-->
+<UserControl x:Class="EasyBugManager.MainUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="526" d:DesignWidth="845"
+             
+             Name="MainUiUserControl">
+
+
+    <Grid>
+
+        <!--内容-->
+        <Canvas Name="MainUiGrid" Width="845" Height="526" Opacity="1">
+
+            <!--窗口背景-->
+            <Border Name="BackgroundBorder"
+                Background="White" CornerRadius="15" Opacity="{Binding SettingsData.Transparent01}"
+                        Width="674" Height="463" Canvas.Left="44" Canvas.Top="63"
+                        BorderThickness="0" BorderBrush="#e5e5e5">
+                <Border.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                          Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+
+
+            <!--Logo-->
+            <Border Width="327" Height="210"
+                        Canvas.Top="0" Canvas.Left="0"
+                        Background="{DynamicResource MainUi.Logo.ImageBrush}"
+                        IsHitTestVisible="False"></Border>
+
+            <!--熊-->
+            <Border Name="BearBorder"
+                    Width="365" Height="382" Canvas.Left="409" Canvas.Top="114"
+                        Background="{DynamicResource MainUi.Bear.ImageBrush}"
+                        IsHitTestVisible="False"></Border>
+
+            <!--版本号-->
+            <Border Width="152" Height="14" Canvas.Left="69" Canvas.Top="481"
+                    Background="{DynamicResource MainUi.Version.ImageBrush}"></Border>
+
+
+            <!--右边按钮-->
+            <StackPanel Width="83" Height="193"
+                    Canvas.Left="762" Canvas.Top="126">
+
+                <!--按钮：最小化-->
+                <local:MinimizeButtonControl x:Name="MinimizeButtonControl"
+                                             Width="73" Height="62" Margin="0,0,0,0"
+                                             PressAnimationSize="0.85,0.85"
+                                             MouseLeaveImage="{DynamicResource MainUi.MinimizeButton.MouseLeave.ImageBrush}"
+                                             MouseEnterImage="{DynamicResource MainUi.MinimizeButton.MouseEnter.ImageBrush}"
+                                             HorizontalAlignment="Right"
+                                             Click="MinimizeButtonControl_OnClick"/>
+
+                <!--按钮：关闭-->
+                <local:NoButtonControl x:Name="CloseButtonControl"
+                                          Width="70" Height="57" Margin="1,3,0,0"
+                                          PressAnimationSize="0.85,0.85"
+                                          MouseLeaveImage="{DynamicResource MainUi.NoButton.MouseLeave.ImageBrush}"
+                                          MouseEnterImage="{DynamicResource MainUi.NoButton.MouseEnter.ImageBrush}"
+                                          Click="CloseButtonControl_OnClick"/>
+
+                <!--按钮：设置-->
+                <local:SettingButtonControl Width="79" Height="68" Margin="-6,3,0,0"
+                                          PressAnimationSize="0.85,0.85"
+                                          MouseLeaveImage="{DynamicResource MainUi.SettingButton.MouseLeave.ImageBrush}"
+                                          MouseEnterImage="{DynamicResource MainUi.SettingButton.MouseEnter.ImageBrush}"
+                                          Click="SettingButtonControl_OnClick">
+                </local:SettingButtonControl>
+
+            </StackPanel>
+
+
+            <!--按钮：新建项目-->
+            <local:CreateProjectButtonControl x:Name="CreateProjectButtonControl"
+                                              Width="158" Height="60" Canvas.Left="333" Canvas.Top="178"
+                                              PressAnimationSize="0.9,0.9"
+                                              MouseEnterImage="{DynamicResource MainUi.Text.CreateButton.MouseEnter.ImageBrush}"
+                                              MouseLeaveImage="{DynamicResource MainUi.Text.CreateButton.MouseLeave.ImageBrush}"
+                                              Click="CreateProjectButtonControl_OnClick"/>
+
+            <!--按钮：打开项目-->
+            <local:OpenProjectButtonControl x:Name="OpenProjectButtonControl"
+                                            Width="154" Height="70" Canvas.Left="342" Canvas.Top="234"
+                                            PressAnimationSize="0.9,0.9"
+                                            MouseEnterImage="{DynamicResource MainUi.Text.OpenButton.MouseEnter.ImageBrush}"
+                                            MouseLeaveImage="{DynamicResource MainUi.Text.OpenButton.MouseLeave.ImageBrush}"
+                                            Click="OpenProjectButtonControl_OnClick"/>
+
+        </Canvas>
+
+
+        <!--灰色-->
+        <Canvas Name="ForegroundCanvas" Width="845" Height="526" 
+                Opacity="0.4"
+                Visibility="Collapsed">
+
+            <!--窗口背景-->
+            <Border Background="Black" CornerRadius="15" Opacity="{Binding SettingsData.Transparent01}"
+                    Width="674" Height="463" Canvas.Left="44" Canvas.Top="63"/>
+
+
+            <!--Logo-->
+            <Border Width="327" Height="210"
+                        Canvas.Top="0" Canvas.Left="0"
+                        Background="{DynamicResource MainUi.Foreground.Logo.ImageBrush}"
+                        IsHitTestVisible="False"></Border>
+
+            <!--熊-->
+            <Border Name="BearForegroundBorder"
+                    Width="365" Height="382" Canvas.Left="409" Canvas.Top="114"
+                    Background="{DynamicResource MainUi.Foreground.Bear.ImageBrush}"
+                    IsHitTestVisible="False"></Border>
+
+            <!--右边按钮-->
+            <StackPanel Width="83" Height="193"
+                    Canvas.Left="762" Canvas.Top="126">
+
+                <!--图片：最小化(灰色)-->
+                <Border Width="73" Height="62" Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        Background="{DynamicResource MainUi.Foreground.MinimizeButton.ImageBrush}"/>
+
+                <!--图片：关闭-->
+                <Border Width="70" Height="57" Margin="1,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.NoButton.ImageBrush}"/>
+
+                <!--图片：设置-->
+                <Border Width="79" Height="68" Margin="-6,3,0,0"
+                        Background="{DynamicResource MainUi.Foreground.SettingButton.ImageBrush}"/>
+
+            </StackPanel>
+
+        </Canvas>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,304 @@
+﻿<!--英文的文字-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EasyBugManager">
+
+    <!--文字：主界面-->
+    <ImageBrush x:Key="MainUi.Text.CreateButton.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/MainUi/CreateButton-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="MainUi.Text.CreateButton.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/MainUi/CreateButton-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="MainUi.Text.OpenButton.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/MainUi/OpenButton-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="MainUi.Text.OpenButton.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/MainUi/OpenButton-MouseLeave-EN.png"></ImageBrush>
+
+
+
+
+
+    <!--文字：列表界面-->
+    <ImageBrush x:Key="ListUi.Text.CreateTime.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/CreateTimeText-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Priority.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/PriorityText-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Progress.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/ProgressText-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/TitleText-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.UpdateTime.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/UpdateTimeText-EN.png"></ImageBrush>
+
+    
+    <ImageBrush x:Key="ListUi.Text.TotalNumber.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/TotalNumber-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.PriorityNumber.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/PriorityNumber-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Display.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/DisplayText-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Project.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/ProjectIcon-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.SearchBox.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/SearchBox-EN.png"></ImageBrush>
+
+
+    <ImageBrush x:Key="ListUi.Text.Item.Page.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugListItem/Tip-Page-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Item.Refresh.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugListItem/Tip-Refresh-EN.png"></ImageBrush>
+
+
+
+    <ImageBrush x:Key="ListUi.Text.Tip.BugCreated.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/Tip/BugCreated-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Tip.BugRemoved.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/Tip/BugRemoved-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ListUi.Text.Tip.LookButton.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/Tip/LookButton-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.Text.Tip.LookButton.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/Tip/LookButton-MouseLeave-EN.png"></ImageBrush>
+
+
+
+
+
+
+    <!--文字：BugItem的右键菜单-->
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.Delete.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/Delete-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.Delete.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/Delete-MouseLeave-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.More.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/More-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.More.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/More-MouseLeave-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.Priority.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/Priority-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.Priority.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/Priority-MouseLeave-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.Progress.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/Progress-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ListUi.BugContextMenu.Text.Progress.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugContextMenu/Progress-MouseLeave-EN.png"></ImageBrush>
+
+
+
+
+
+    <!--文字：Bug界面-->
+    <ImageBrush x:Key="BugUi.Text.InputBox.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/InputBox/Box-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="BugUi.Text.Priority.High.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Priority-High-EN.png"></ImageBrush>
+    <ImageBrush x:Key="BugUi.Text.Priority.Low.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Priority-Low-EN.png"></ImageBrush>
+    <ImageBrush x:Key="BugUi.Text.Priority.Mid.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Priority-Mid-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="BugUi.Text.Progress.Deprecat.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Progress-Deprecat-EN.png"></ImageBrush>
+    <ImageBrush x:Key="BugUi.Text.Progress.Solved.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Progress-Solved-EN.png"></ImageBrush>
+    <ImageBrush x:Key="BugUi.Text.Progress.Undone.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Progress-Undone-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="BugUi.Text.FindBug.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/FindBug-EN.png"></ImageBrush>
+    <ImageBrush x:Key="BugUi.Text.SolveBug.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/SolveBug-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="BugUi.Text.IsShowBugReply.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/IsShowBugReply-EN.png"></ImageBrush>
+
+
+
+
+
+    <!--文字：设置界面-->
+    <ImageBrush x:Key="SettingsUi.Text.Chinese.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Chinese-Checked-CN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Chinese.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Chinese-MouseEnter-CN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Chinese.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Chinese-MouseLeave-CN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.Dark.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Dark-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Dark.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Dark-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Dark.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Dark-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.English.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/English-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.English.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/English-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.English.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/English-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.Off.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Off-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Off.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Off-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Off.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Off-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.On.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/On-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.On.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/On-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.On.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/On-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.White.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/White-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.White.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/White-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.White.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/White-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.ExcelButton.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/ExcelButton-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.ExcelButton.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/ExcelButton-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.Option.Language.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Option-Language-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Option.Sound.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Option-Sound-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Option.Transparent.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Option-Transparent-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Option.Theme.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Option-Theme-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Option.ThemeCat.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Option-ThemeCat-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SettingsUi.Text.Option.ThemeBear.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/Option-ThemeBear-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SettingsUi.Text.StaffPanel.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SettingsUi/StaffPanel-EN.png"></ImageBrush>
+
+
+
+
+    <!--文字：创建项目界面-->
+    <ImageBrush x:Key="CreateProjectUi.Text.InputBox.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/CreateProjectUi/InputBox-EN.png"></ImageBrush>
+    <ImageBrush x:Key="CreateProjectUi.Text.Location.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/CreateProjectUi/Location-EN.png"></ImageBrush>
+    <ImageBrush x:Key="CreateProjectUi.Text.Name.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/CreateProjectUi/Name-EN.png"></ImageBrush>
+    <ImageBrush x:Key="CreateProjectUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/CreateProjectUi/Title-EN.png"></ImageBrush>
+
+
+
+
+    <!--文字：导出界面-->
+    <ImageBrush x:Key="ExportUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ExportUi/Title-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ExportUi.Text.Location.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ExportUi/Location-EN.png"></ImageBrush>
+
+
+
+
+    <!--文字：创建Bug界面-->
+    <ImageBrush x:Key="CreateBugUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/CreateBugUi/Title-EN.png"></ImageBrush>
+
+
+
+
+
+    <!--文字：修改Bug界面-->
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Deprecat.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Deprecat-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Deprecat.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Deprecat-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Deprecat.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Deprecat-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Solved.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Solved-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Solved.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Solved-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Solved.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Solved-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Undone.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Undone-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Undone.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Undone-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Progress.Undone.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Progress-Undone-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.High.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-High-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.High.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-High-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.High.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-High-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.Low.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-Low-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.Low.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-Low-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.Low.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-Low-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.Mid.Checked.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-Mid-Checked-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.Mid.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-Mid-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.Priority.Mid.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Priority-Mid-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="ChangeBugUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/Title-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.BugName.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/BugName-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.BugPriority.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/BugPriority-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.BugProgress.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/BugProgress-EN.png"></ImageBrush>
+    <ImageBrush x:Key="ChangeBugUi.Text.InputBox.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/ChangeBugUi/InputBox-EN.png"></ImageBrush>
+
+
+
+    <!--文字：删除Bug提示界面-->
+    <ImageBrush x:Key="DeleteTipUi.Text.IsNotRemindAgain.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/DeleteTipUi/IsNotRemindAgain-EN.png"></ImageBrush>
+    <ImageBrush x:Key="DeleteTipUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/DeleteTipUi/Title-EN.png"></ImageBrush>
+
+
+
+    <!--文字：协同合作界面-->
+    <ImageBrush x:Key="SyncUi.Text.AdvancedOptionsButton.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/AdvancedOptions-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SyncUi.Text.AdvancedOptionsButton.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/AdvancedOptions-MouseLeave-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SyncUi.Text.CollaborativeMode.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-CollaborativeMode-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SyncUi.Text.Tip.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-Tip-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SyncUi.Text.Deleted.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-Deleted-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SyncUi.Text.ClickRefresh.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-ClickRefresh-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="SyncUi.Text.NoSync.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-NoSync-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SyncUi.Text.Synced.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-Synced-EN.png"></ImageBrush>
+    <ImageBrush x:Key="SyncUi.Text.Syncing.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-Syncing-EN.png"></ImageBrush>
+
+
+</ResourceDictionary>

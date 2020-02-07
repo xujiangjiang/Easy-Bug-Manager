@@ -1,0 +1,309 @@
+﻿<!--BugList的Item（属于ListUi）-->
+<UserControl x:Class="EasyBugManager.BugListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="1299"
+             
+             Name="BugListItemUserControl"
+             
+             DataContextChanged="BugListItemControl_OnDataContextChanged"
+             LostFocus="BugListItemControl_OnLostFocus">
+
+
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left"
+          Height="{Binding ElementName=BugListItemUserControl,Path=Height}"
+          Width="{Binding ElementName=BugListItemUserControl,Path=Width}">
+
+
+        <!--按钮-->
+        <Grid>
+
+            <!--布局：竖排-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="915"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--按钮-->
+            <local:ColorCheckControl x:Name="BaseCheckControl"
+                                     Grid.Column="0" Grid.ColumnSpan="1"
+                                     PressAnimationSize="0.98,0.8"
+                                     CornerRadius="25" BorderThickness="2" 
+                                     MouseEnterBackground="#72FFFFFF" MouseEnterBorderBrush="#72dedede"
+                                     MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                     CheckedBackground="White" CheckedBorderBrush="#dedede"
+                                     IsCanClick="True" IsCanUncheck="False" 
+                                     
+                                     IsChecked="{Binding ElementName=BugListItemUserControl,Path=IsChecked,Mode=TwoWay}"
+                                     
+                                     Checked="BaseCheckControl_Checked"
+                                     PreviewMouseRightButtonDown="BaseCheckControl_MouseRightButtonDown"
+                                     
+                                     MouseDoubleClick="BaseCheckControl_OnMouseDoubleClick"/>
+            
+            <!--Tip：跳转提示-->
+            <StackPanel Name="TipStackPanel"
+                        Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Visibility="Collapsed">
+
+                <!--按钮：刷新-->
+                <Grid Width="86" Height="33" Margin="35,0,0,0">
+
+                    <local:ColorButtonControl x:Name="RefreshButtonControl"
+                                              Width="86" Height="33"
+                                              PressAnimationSize="0.95,0.9"
+                                              BorderThickness="2" CornerRadius="15"
+                                              MouseEnterBackground="White" MouseEnterBorderBrush="#FFB8B8B8"
+                                              MouseLeaveBackground="White" MouseLeaveBorderBrush="#e5e5e5"
+                                              
+                                              Click="RefreshButtonControl_Click"/>
+
+                    <Border IsHitTestVisible="False"
+                            Width="66" Height="17"
+                            Background="{DynamicResource ListUi.Text.Item.Refresh.ImageBrush}"/>
+                </Grid>
+
+
+                <!--按钮：页面-->
+                <Grid Height="34" Margin="15,0,0,0">
+
+                    <!--布局：竖排-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="47"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--按钮-->
+                    <local:ColorButtonControl x:Name="GoToPageButtonControl"
+                                              Grid.Column="0" Grid.ColumnSpan="3"
+                                              PressAnimationSize="0.95,0.9"
+                                              BorderThickness="2" CornerRadius="15"
+                                              MouseEnterBackground="White" MouseEnterBorderBrush="#FFB8B8B8"
+                                              MouseLeaveBackground="White" MouseLeaveBorderBrush="#e5e5e5"
+                                              
+                                              Click="GoToPageButtonControl_Click"/>
+
+                    <!--图标-->
+                    <Border IsHitTestVisible="False"
+                            Width="35" Height="15" Margin="0,-3.5,0,0"
+                            HorizontalAlignment="Right"
+                            Background="{DynamicResource ListUi.Item.Turn.Icon.ImageBrush}"/>
+                    
+                    <!--页面-->
+                    <Border IsHitTestVisible="False"
+                            Width="43" Height="21" HorizontalAlignment="Left"
+                            Grid.Column="2" Margin="0,2,0,0"
+                            Background="{DynamicResource ListUi.Text.Item.Page.ImageBrush}"/>
+
+                    <!--文字-->
+                    <TextBlock Name="GoToPageNumberTextBlock"
+                               Grid.Column="1" Height="25" MaxWidth="105"
+                               Margin="10,0,8,0"
+                               Text="{Binding ElementName=BugListItemUserControl,Path=GoToPageNumber}" 
+                               HorizontalAlignment="Center"
+                               FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                               FontSize="22" Foreground="#4669a5"
+                               IsHitTestVisible="False"/>
+                </Grid>
+
+
+            </StackPanel>
+
+        </Grid>
+
+
+        
+        <!--内容-->
+        <Grid>
+
+            <!--布局：竖排-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition Width="124"></ColumnDefinition>
+                <ColumnDefinition Width="674"></ColumnDefinition>
+                <ColumnDefinition Width="169"></ColumnDefinition>
+                <ColumnDefinition Width="170"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--进度-->
+            <Grid Grid.Column="0">
+
+                <!--图片-->
+                <Border Name="UndoneProgressBorder"
+                        Width="34" Height="37" Margin="-4,-2,0,0"
+                        Visibility="Collapsed"
+                        Background="{DynamicResource ListUi.Item.ProgressIcon.Undone.ImageBrush}"
+                        IsHitTestVisible="False"/>
+                <Border Name="SolvedProgressBorder"
+                        Width="34" Height="37" Margin="-4,-2,0,0"
+                        Visibility="Collapsed"
+                        Background="{DynamicResource ListUi.Item.ProgressIcon.Solved.ImageBrush}"
+                        IsHitTestVisible="False"/>
+                <Border Name="DeprecatProgressBorder"
+                        Width="34" Height="37" Margin="-4,-2,0,0"
+                        Visibility="Collapsed"
+                        Background="{DynamicResource ListUi.Item.ProgressIcon.Deprecat.ImageBrush}"
+                        IsHitTestVisible="False"/>
+
+
+                <!--按钮-->
+                <local:ColorButtonControl x:Name="RedProgressButton"
+                                          Width="50" Height="40" Margin="-7,0,0,0"
+                                          Visibility="Collapsed"
+                                          BorderThickness="2"
+                                          PressAnimationSize="0.95,0.95" CornerRadius="10"
+                                          MouseEnterBackground="#A5FFFFFF" MouseEnterBorderBrush="#FFeddbdb"
+                                          MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                          
+                                          Click="ProgressButton_OnClick"/>
+
+                <local:ColorButtonControl x:Name="GreyProgressButton"
+                                          Width="50" Height="40" Margin="-7,0,0,0"
+                                          Visibility="Visible"
+                                          BorderThickness="2"
+                                          PressAnimationSize="0.95,0.95" CornerRadius="10"
+                                          MouseEnterBackground="#A5FFFFFF" MouseEnterBorderBrush="#FFE6E6E6"
+                                          MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                          
+                                          Click="ProgressButton_OnClick"/>
+            </Grid>
+
+            <!--优先级-->
+            <Grid Name="PriorityGrid" Grid.Column="1">
+                <!--图片-->
+                <Border Name="LowPriorityBorder"
+                        Width="56" Height="18" Margin="-5,0,0,0"
+                        Visibility="Collapsed"
+                        Background="{DynamicResource ListUi.Item.PriorityIcon.Low.ImageBrush}"
+                        IsHitTestVisible="False"/>
+                <Border Name="MidPriorityBorder"
+                        Width="56" Height="18" Margin="-5,0,0,0"
+                        Visibility="Collapsed"
+                        Background="{DynamicResource ListUi.Item.PriorityIcon.Mid.ImageBrush}"
+                        IsHitTestVisible="False"/>
+                <Border Name="HighPriorityBorder"
+                        Width="56" Height="18" Margin="-5,0,0,0"
+                        Visibility="Collapsed"
+                        Background="{DynamicResource ListUi.Item.PriorityIcon.High.ImageBrush}"
+                        IsHitTestVisible="False"/>
+            </Grid>
+
+            <!--标题-->
+            <TextBlock Name="TitleTextBlock"
+                       Margin="35,2,20,0"
+                       Grid.Column="2" VerticalAlignment="Center"
+                       FontFamily="{StaticResource ZcoolLiterary.FontFamily}"
+                       FontSize="20" Foreground="#767676"
+                       IsHitTestVisible="False">
+                <Run Foreground="#c9c9c9" Text="{Binding ElementName=BugListItemUserControl,Path=Title.FrontText}"/><Run Foreground="#767676" Text="{Binding ElementName=BugListItemUserControl,Path=Title.MiddleText}"/><Run Foreground="#c9c9c9" Text="{Binding ElementName=BugListItemUserControl,Path=Title.BehindText}"/>
+            </TextBlock>
+
+            <!--创建时间-->
+            <TextBlock Name="CreateTimeTextBlock"
+                       Grid.Column="3" Height="27" HorizontalAlignment="Center"
+                       Margin="-1,2.5,0,0"
+                       Text="{Binding ElementName=BugListItemUserControl,Path=CreateTime}"
+                       FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                       FontSize="22.5" Foreground="#a3a3a3"
+                       IsHitTestVisible="False"/>
+
+            <!--更新时间-->
+            <TextBlock Name="UpdateTimeTextBlock"
+                       Grid.Column="4" Height="27" HorizontalAlignment="Center"
+                       Margin="-1,2.5,0,0"
+                       Text="{Binding ElementName=BugListItemUserControl,Path=UpdateTime}"
+                       FontFamily="{StaticResource ZcoolButter.FontFamily}"
+                       FontSize="22.5" Foreground="#a3a3a3"
+                       IsHitTestVisible="False"/>
+
+            <!--更多按钮-->
+            <Grid Grid.Column="5" Margin="-23,0,0,0">
+                <!--按钮-->
+                <local:ColorButtonControl x:Name="MoreButtonControl"
+                                          Width="45" Height="40"
+                                          BorderThickness="2"
+                                          PressAnimationSize="0.9,0.9" CornerRadius="10"
+                                          MouseEnterBackground="White" MouseEnterBorderBrush="#FFE6E6E6"
+                                          MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                          
+                                          Click="MoreButtonControl_Click"/>
+
+                <!--图片-->
+                <Border Width="26" Height="4" Margin="-1,3,0,0"
+                        Background="{DynamicResource ListUi.Item.MoreButton.ImageBrush}"
+                        IsHitTestVisible="False"/>
+            </Grid>
+            
+        </Grid>
+
+
+        
+        <!--已删除-->
+        <Grid Name="DeletedGrid"
+              Visibility="Collapsed">
+
+            <!--按钮：背景-->
+            <local:ColorButtonControl x:Name="DeletedButtonControl"
+                                      CornerRadius="25"
+                                      PressAnimationSize="0.99,0.95"
+                                      MouseEnterBackground="#c8c8c8" MouseEnterBorderBrush="Transparent"
+                                      MouseLeaveBackground="#c8c8c8" MouseLeaveBorderBrush="Transparent"
+                                      Opacity="0.75"        
+
+                                      MouseEnter="DeletedButtonControl_OnMouseEnter"
+                                      MouseLeave="DeletedButtonControl_OnMouseLeave"
+
+                                      Click="DeletedButtonControl_OnClick"/>
+
+            <!--图片：已删除-->
+            <Border Name="DeletedBorder"
+                    Width="112" Height="20"
+                    Background="{DynamicResource SyncUi.Text.Deleted.ImageBrush}"
+                    IsHitTestVisible="False"
+                    Visibility="Visible"/>
+
+            <!--图片：点击刷新-->
+            <Border Name="ClickRefreshBorder"
+                    Width="161" Height="21"
+                    Background="{DynamicResource SyncUi.Text.ClickRefresh.ImageBrush}"
+                    IsHitTestVisible="False"
+                    Visibility="Hidden"/>
+
+        </Grid>
+
+
+
+        <!--右键菜单-->
+        <Popup Name="ContextMenuPopup"
+               IsOpen="False" StaysOpen="False" Placement="Mouse"
+               PopupAnimation="Fade" AllowsTransparency="True"
+               FlowDirection="LeftToRight"
+               HorizontalOffset="-10" VerticalOffset="-30" Opened="ContextMenuPopup_Opened" Closed="ContextMenuPopup_Closed"
+               
+               >
+            <!--Bug右键菜单的控件-->
+            <local:BugListItemContextMenuControl x:Name="ContextMenuControl"
+                                                 Width="148" Height="200"
+                                                 
+                                                 Progress="{Binding ElementName=BugListItemUserControl,Path=Progress,Mode=TwoWay}"
+                                                 Priority="{Binding ElementName=BugListItemUserControl,Path=Priority,Mode=TwoWay}"
+
+                                                 ClickDeleteButton="ContextMenuControl_ClickDeleteButton"
+                                                 ClickMoreButton="ContextMenuControl_ClickMoreButton"
+                                                 ClickProgressTypeButton="ContextMenuControl_ClickProgressTypeButton"
+                                                 ClickPriorityTypeButton="ContextMenuControl_ClickPriorityTypeButton"/>
+        </Popup>
+
+
+    </Grid>
+    
+</UserControl>

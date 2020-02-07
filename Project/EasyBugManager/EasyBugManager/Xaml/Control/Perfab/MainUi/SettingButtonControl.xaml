@@ -1,0 +1,51 @@
+﻿<!--按钮：设置 按钮-->
+<UserControl x:Class="EasyBugManager.SettingButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="68" d:DesignWidth="79"
+             
+             Name="SettingButtonUserControl">
+
+    <Grid>
+        <!--背景-->
+        <Button Name="BaseButton"
+                Style="{StaticResource NoBackgroundButtonStyle}"
+                RenderTransformOrigin="0.5,0.5" 
+
+                PreviewMouseLeftButtonDown="Button_OnPreviewMouseDown"
+                PreviewMouseLeftButtonUp="Button_OnPreviewMouseUp"
+                MouseEnter="BaseButton_OnMouseEnter"
+                MouseLeave="BaseButton_OnMouseLeave"
+                Click="Button_OnClick" Margin="9,6,7,6">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="18.08"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+
+        </Button>
+
+
+        <Border Name="ButtonImageBorder"
+                Background="{Binding ElementName=SettingButtonUserControl,Path=MouseLeaveImage}"
+                IsHitTestVisible="False"
+                RenderTransformOrigin="0.5,0.5">
+
+            <!--变换-->
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="BaseButtonScaleTransform"></ScaleTransform>
+                </TransformGroup>
+            </Border.RenderTransform>
+
+        </Border>
+    </Grid>
+
+</UserControl>
