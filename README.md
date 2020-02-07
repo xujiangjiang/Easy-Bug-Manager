@@ -12,7 +12,7 @@
 
 <br/>
 
-![](Document/Read Me/Image/Logo.png)
+![](Document/ReadMe/Image/Logo.png)
 
 <br/>
 
@@ -48,11 +48,11 @@ Steam link : https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
 ## Introduction
 
-![](Document/Read Me/Image/40.png)
+![](Document/ReadMe/Image/40.png)
 
-![](Document/Read Me/Image/41.png)
+![](Document/ReadMe/Image/41.png)
 
-![](Document/Read Me/Image/42.png)
+![](Document/ReadMe/Image/42.png)
 
 <br/>
 
@@ -186,9 +186,9 @@ You can buy it on the Steam Store : https://store.steampowered.com/app/1217970/E
 
 (Thank you very very very much, thank you very very much!)
 
-![](Document/Read Me/Image/38.png)
+![](Document/ReadMe/Image/38.png)
 
-![](Document/Read Me/Image/39.png)
+![](Document/ReadMe/Image/39.png)
 
 <br/>
 
