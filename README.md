@@ -2,7 +2,7 @@
 
 <br/>
 
-（中文请点击这里：[中文](Document/Read Me/ReadMe[CN].md)）
+（中文请点击这里：[中文](Document/ReadMe/ReadMe[CN].md)）
 
 <br/>
 
