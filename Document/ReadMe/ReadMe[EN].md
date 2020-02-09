@@ -26,9 +26,9 @@ Thank you for using this little software, thank you very much again : )
 
 ## Download
 
-Latest version: v1.0.0.0 (February 07, 2020)
+Latest version: v1.0.0.1 (February 9, 2020)
 
-Download link：[Click to download v1.0.0.0 version](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.0.0.0/Easy.Bug.Manager.v1.0.0.0.zip)
+Download link：[Click to download v1.0.0.1 version](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.0.0.1/Easy.Bug.Manager.v1.0.0.1.zip)
 
 Steam link : https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 

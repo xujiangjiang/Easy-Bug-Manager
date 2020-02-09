@@ -314,6 +314,13 @@ namespace EasyBugManager
                     UiControl.RecordInputBoxControl.HideChooseImageButton();//隐藏“选择图片”按钮
                     UiControl.RecordInputBoxControl.UpdateImageCurrentNumber();//更新"当前图片个数"
                     break;
+
+                //如果是打开
+                case true:
+                    //赋值文字
+                    UiControl.UpdateNumberBehindText = AppManager.Systems.LanguageSystem.UpdateNumberBehindText;
+                    UiControl.UpdateNumberFrontText = AppManager.Systems.LanguageSystem.UpdateNumberFrontText;
+                    break;
             }
         }
         #endregion [公开方法 - 打开or关闭]

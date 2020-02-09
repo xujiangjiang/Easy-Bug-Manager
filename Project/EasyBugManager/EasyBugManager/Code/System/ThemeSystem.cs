@@ -165,12 +165,6 @@ namespace EasyBugManager
 
 
                     //Bug界面
-                    AppManager.Uis.BugUi.UiControl.UpdateNumberFrontTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
-                    AppManager.Uis.BugUi.UiControl.UpdateNumberTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
-                    AppManager.Uis.BugUi.UiControl.UpdateNumberBehindTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
-                    AppManager.Uis.BugUi.UiControl.StartTimeTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
-                    AppManager.Uis.BugUi.UiControl.EndTimeTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
-
                     AppManager.Uis.BugUi.UiControl.LineBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e5e5e5"));
 
                     AppManager.Uis.BugUi.UiControl.BackButtonControl.MouseEnterBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF1F1F1"));
@@ -280,12 +274,6 @@ namespace EasyBugManager
 
 
                     //Bug界面
-                    AppManager.Uis.BugUi.UiControl.UpdateNumberFrontTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
-                    AppManager.Uis.BugUi.UiControl.UpdateNumberTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
-                    AppManager.Uis.BugUi.UiControl.UpdateNumberBehindTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
-                    AppManager.Uis.BugUi.UiControl.StartTimeTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
-                    AppManager.Uis.BugUi.UiControl.EndTimeTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
-
                     AppManager.Uis.BugUi.UiControl.LineBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3c3c3c"));
 
                     AppManager.Uis.BugUi.UiControl.BackButtonControl.MouseEnterBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2d2d2d"));
@@ -382,6 +370,14 @@ namespace EasyBugManager
                         }
 
 
+                        //Bug界面
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberFrontTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberBehindTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.StartTimeTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.EndTimeTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+
+
                         //其他界面
                         AppManager.Uis.CreateProjectUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#852a2a"));
                         AppManager.Uis.ExportUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#852a2a"));
@@ -411,6 +407,14 @@ namespace EasyBugManager
                             BugListItemControl _bugListItemControl = AppManager.Uis.ListUi.UiControl.BugItems[i];
                             _bugListItemControl.RedProgressButton.MouseEnterBorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF642d30"));
                         }
+
+
+                        //Bug界面
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberFrontTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#636363"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#636363"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberBehindTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#636363"));
+                        AppManager.Uis.BugUi.UiControl.StartTimeTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#636363"));
+                        AppManager.Uis.BugUi.UiControl.EndTimeTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#636363"));
 
 
                         //其他界面
@@ -449,6 +453,14 @@ namespace EasyBugManager
                         }
 
 
+                        //Bug界面
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberFrontTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberBehindTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.StartTimeTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+                        AppManager.Uis.BugUi.UiControl.EndTimeTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bebebe"));
+
+
                         //其他界面
                         AppManager.Uis.CreateProjectUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9e6c3a"));
                         AppManager.Uis.ExportUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9e6c3a"));
@@ -480,6 +492,15 @@ namespace EasyBugManager
 
                             _bugListItemControl.RedProgressButton.MouseEnterBorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#81661a"));
                         }
+
+
+                        //Bug界面
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberFrontTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
+                        AppManager.Uis.BugUi.UiControl.UpdateNumberBehindTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
+                        AppManager.Uis.BugUi.UiControl.StartTimeTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
+                        AppManager.Uis.BugUi.UiControl.EndTimeTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#8f8f8f"));
+
 
 
                         //其他界面

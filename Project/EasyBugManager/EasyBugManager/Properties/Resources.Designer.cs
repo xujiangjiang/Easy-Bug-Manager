@@ -146,7 +146,7 @@ namespace EasyBugManager.Properties {
         ///絮大王
         ///
         ///
-        ///【Special Thank - 感谢】
+        ///【Special Thank - 特别感谢】
         ///菠萝
         ///mask
         ///小木
@@ -168,6 +168,13 @@ namespace EasyBugManager.Properties {
         ///胖子于
         ///原浩成
         ///Pw
+        ///
+        ///
+        ///【Thank - 感谢】
+        ///踏长安
+        ///Linzh
+        ///Varaosa
+        ///playwhite
         ///
         ///
         ///【Font - 字体】

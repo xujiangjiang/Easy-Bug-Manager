@@ -27,12 +27,22 @@
                 </Border.Effect>
             </Border>
 
-
             <!--Logo-->
             <Border Width="327" Height="210"
                         Canvas.Top="0" Canvas.Left="0"
                         Background="{DynamicResource MainUi.Logo.ImageBrush}"
                         IsHitTestVisible="False"></Border>
+
+
+            <!--用于拖动窗口-->
+            <Grid Width="845" Height="200"
+                  Visibility="Visible">
+                <Border Width="845" Height="200" Background="Transparent"
+                        VerticalAlignment="Top"
+                        MouseLeftButtonDown="WindowTitleBorder_MouseLeftButtonDown"></Border>
+            </Grid>
+
+
 
             <!--熊-->
             <Border Name="BearBorder"

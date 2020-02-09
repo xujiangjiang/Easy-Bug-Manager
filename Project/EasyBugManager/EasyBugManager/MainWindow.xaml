@@ -164,8 +164,8 @@
 
                             RecordItemDatas="{Binding OtherData.ShowRecordItemDatas}"
 
-                            UpdateNumberFrontText="{Binding OtherData.UpdateNumberFrontText}"
-                            UpdateNumberBehindText="{Binding OtherData.UpdateNumberBehindText}"
+                            UpdateNumberFrontText=""
+                            UpdateNumberBehindText=""
 
                             
                             ClickBackButton="BugUiControl_OnClickBackButton"

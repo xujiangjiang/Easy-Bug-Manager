@@ -50,13 +50,24 @@ namespace EasyBugManager
             /* 当点击拖拽区域的时候，让窗口跟着移动 */
             //DragMove();
 
+            /*当点击拖拽区域的时候，让窗口跟着移动（并且阻止[窗口拖到屏幕边缘时 自动最大化]）*/
+            DragMoveWindow(e);
+        }
 
+
+        /// <summary>
+        /// 当点击拖拽区域的时候，让窗口跟着移动
+        /// （并且阻止[窗口拖到屏幕边缘时 自动最大化]）
+        /// </summary>
+        /// <param name="e">鼠标按钮事件</param>
+        public void DragMoveWindow(MouseButtonEventArgs e)
+        {
             /* 如何在Window.ResizeMode属性为CanResize的时候，阻止窗口拖动到屏幕边缘自动最大化。
                思路是当拖拽窗口时，把ResizeMode属性设置为NoResize；当拖拽结束后，把ResizeMode属性设置为CanResize
-               
+
                参考文章： https://blog.csdn.net/wcc27857285/article/details/78223901
                文章作者：Bird鸟人
-               (因为拖到屏幕边缘自动最大化，有个必要条件是鼠标按下去，然后拖，可以利用这个间隙将ResizeMode设置一下，然后鼠标放开之后再把ResizeMode设置回来就行了)*/
+                (因为拖到屏幕边缘自动最大化，有个必要条件是鼠标按下去，然后拖，可以利用这个间隙将ResizeMode设置一下，然后鼠标放开之后再把ResizeMode设置回来就行了)*/
             if (e.ChangedButton == MouseButton.Left)
             {
                 if (Mouse.LeftButton == MouseButtonState.Pressed)

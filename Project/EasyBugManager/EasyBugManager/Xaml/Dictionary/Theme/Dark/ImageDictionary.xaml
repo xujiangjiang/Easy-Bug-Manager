@@ -197,7 +197,7 @@
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/BugUi/BugText.png"></ImageBrush>
 
     <ImageBrush x:Key="BugUi.Name.ImageBrush"
-                ImageSource="/EasyBugManager;component/Asset/Image/White/BugUi/Name.png"></ImageBrush>
+                ImageSource="/EasyBugManager;component/Asset/Image/Dark/BugUi/Name.png"></ImageBrush>
 
     <ImageBrush x:Key="BugUi.PriorityButton.MouseEnter.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/BugUi/PriorityButton-MouseEnter.png"></ImageBrush>

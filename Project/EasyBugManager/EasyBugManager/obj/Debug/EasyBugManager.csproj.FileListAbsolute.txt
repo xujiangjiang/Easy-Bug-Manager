@@ -177,3 +177,4 @@ C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\obj\Debug
 C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\obj\Debug\Xaml\Dictionary\Theme\Dark\ImageDictionary.baml
 C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\obj\Debug\Xaml\Control\Ui\SyncUiControl.g.cs
 C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\obj\Debug\Xaml\Control\Ui\SyncUiControl.baml
+C:\Project\WPF\EasyBugManager WpfProject\EasyBugManager\EasyBugManager\obj\Debug\EasyBugManager.csprojAssemblyReference.cache

@@ -489,6 +489,7 @@
   <ItemGroup>
     <Content Include="Asset\Audio\ButtonDown.wav" />
     <Content Include="Asset\Audio\ButtonUp.wav" />
+    <Resource Include="Asset\Image\Dark\BugUi\Name.png" />
     <Resource Include="Asset\Image\Dark\MainUi\Version.png" />
     <Resource Include="Asset\Image\White\MainUi\Version.png" />
     <Resource Include="Asset\Image\White\SettingsUi\Logo.png" />

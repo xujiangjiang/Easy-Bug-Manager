@@ -42,6 +42,9 @@ namespace EasyBugManager
         private string collaborativeModeTestTipTitle = "提示";//[协同合作模式 测试]的提示标题
         private string collaborativeModeTestTipContent = "目前 [协同合作模式] 只是一个测试功能，\n可能有很多不完善的地方，也许会有一些Bug。\n希望可以多包容，欢迎给我们建议，非常感谢！";//[协同合作模式 测试]的提示内容
 
+        /*Bug界面*/
+        private string updateNumberFrontText= "(经过 ";//[更新次数]前面的文字
+        private string updateNumberBehindText= " 次更新)";//[更新次数]后面的文字
         #endregion
 
 
@@ -207,6 +210,28 @@ namespace EasyBugManager
         }
         #endregion
 
+        #region [公开属性 - Bug界面]
+
+        /// <summary>
+        /// [更新次数]前面的文字
+        /// </summary>
+        public string UpdateNumberFrontText
+        {
+            get { return updateNumberFrontText; }
+            set { updateNumberFrontText = value; }
+        }
+
+        /// <summary>
+        /// [更新次数]后面的文字
+        /// </summary>
+        public string UpdateNumberBehindText
+        {
+            get { return updateNumberBehindText; }
+            set { updateNumberBehindText = value; }
+        }
+
+        #endregion
+
 
 
 
@@ -297,8 +322,8 @@ namespace EasyBugManager
 
                     NoBugNameTip = "( 请输入Bug的名字呀~ )";
 
-                    AppManager.Datas.OtherData.UpdateNumberFrontText = "(经过 ";
-                    AppManager.Datas.OtherData.UpdateNumberBehindText = " 次更新)";
+                    UpdateNumberFrontText = "(经过 ";
+                    UpdateNumberBehindText = " 次更新)";
 
                     ExportSucceededTipTitle = "导出成功！";
 
@@ -322,8 +347,8 @@ namespace EasyBugManager
 
                     NoBugNameTip = "( Please enter the bug name. )";
 
-                    AppManager.Datas.OtherData.UpdateNumberFrontText = "(After ";
-                    AppManager.Datas.OtherData.UpdateNumberBehindText = " updates)";
+                    UpdateNumberFrontText = "(After ";
+                    UpdateNumberBehindText = " updates)";
 
                     ExportSucceededTipTitle = "Export succeeded!";
 

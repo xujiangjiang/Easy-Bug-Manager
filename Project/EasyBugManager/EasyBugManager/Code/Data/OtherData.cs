@@ -35,8 +35,6 @@ namespace EasyBugManager
         /* Bug界面 */
         private bool isShowBugReply;//是否显示Bug的回复？
         private bool isShowSubmitButtonAnimation;//是否显示提交按钮的动画？
-        private string updateNumberFrontText;//[更新次数]前面的文字
-        private string updateNumberBehindText;//[更新次数]后面的文字
 
         /* 修改or创建界面 */
         private ObservableCollection<HighlightText> showRelatedBugNames;//要显示的 相关的Bug的名字（属于创建BugUi、修改BugUi）
@@ -196,34 +194,6 @@ namespace EasyBugManager
             {
                 isShowSubmitButtonAnimation = value;
                 PropertyChange("IsShowSubmitButtonAnimation");
-            }
-        }
-
-
-
-        /// <summary>
-        /// [更新次数]前面的文字
-        /// </summary>
-        public string UpdateNumberFrontText
-        {
-            get { return updateNumberFrontText; }
-            set
-            {
-                updateNumberFrontText = value;
-                PropertyChange("UpdateNumberFrontText");
-            }
-        }
-
-        /// <summary>
-        /// [更新次数]后面的文字
-        /// </summary>
-        public string UpdateNumberBehindText
-        {
-            get { return updateNumberBehindText; }
-            set
-            {
-                updateNumberBehindText = value;
-                PropertyChange("UpdateNumberBehindText");
             }
         }
         #endregion
@@ -392,9 +362,6 @@ namespace EasyBugManager
 
             IsShowBugReply = true;
             IsShowSubmitButtonAnimation = false;
-
-            UpdateNumberFrontText = "(经过 ";
-            UpdateNumberBehindText = " 次更新)";
 
             IsNotAgainShowDeleteBugTip = false;
             IsNotAgainShowDeleteRecordTip = false;

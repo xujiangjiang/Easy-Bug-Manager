@@ -261,8 +261,6 @@ namespace EasyBugManager
 
 
 
-
-
         #region [事件]
         /// <summary>
         /// 当点击[最小化]按钮时
@@ -303,6 +301,22 @@ namespace EasyBugManager
         {
             this.OnClickOpenProjectButton();//触发[点击打开项目按钮]的事件
         }
+        #endregion
+
+        #region [事件 - 拖动窗口]
+
+        /// <summary>
+        /// 当在窗口顶部的矩形中，按下鼠标左键的时候：拖动窗口的时候
+        /// </summary>
+        private void WindowTitleBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            /* 当点击拖拽区域的时候，让窗口跟着移动 */
+            //DragMove();
+
+            /*当点击拖拽区域的时候，让窗口跟着移动（并且阻止[窗口拖到屏幕边缘时 自动最大化]）*/
+            AppManager.MainWindow.DragMoveWindow(e);
+        }
+
         #endregion
 
     }
