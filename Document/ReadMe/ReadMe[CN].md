@@ -28,7 +28,7 @@
 
 最新版本： v1.1.0.0 (2020年02月28日)
 
-下载地址：[点击下载v1.1.0.0版本](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.1.0.0/easy.bug.manager.setup.exe)
+下载地址：[点击下载v1.1.0.0版本](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.1.0.0/easy-bug-manager-setup.exe)
 
 Steam商店：https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
