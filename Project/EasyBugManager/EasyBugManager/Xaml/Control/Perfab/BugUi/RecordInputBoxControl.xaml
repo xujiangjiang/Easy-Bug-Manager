@@ -33,13 +33,13 @@
                  RenderTransformOrigin="0.5,0.5"
                  
                  TextChanged="InputTextBox_TextChanged">
-            
+
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <RotateTransform Angle="0"/>
                 </TransformGroup>
             </TextBox.RenderTransform>
-            
+
         </TextBox>
 
         <!--图片：熊头像-->

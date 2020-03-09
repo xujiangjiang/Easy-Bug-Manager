@@ -31,7 +31,7 @@ namespace EasyBugManager
         /// <summary>
         /// 当点击[最小化]按钮时
         /// </summary>
-        public void ClickMinimizeButton() 
+        public void ClickMinimizeButton()
         {
             AppManager.MainWindow.WindowState = WindowState.Minimized; //最小化此窗口
         }
@@ -86,70 +86,21 @@ namespace EasyBugManager
                 //把路径赋值给ProjectSystem系统的SavePath属性
                 string _filePath = _openFileDialog.FileName;
 
-                //读取项目（_isLoadOk代表是否读取成功？）
-                bool _isLoadProjectOk = AppManager.Systems.ProjectSystem.LoadProject(_filePath);//读取项目
-
-                //读取Bug和记录
-                AppManager.Systems.BugSystem.LoadBugs(AppManager.Systems.CollaborationSystem.ModeType);//读取所有Bug
-                AppManager.Systems.RecordSystem.LoadRecords(AppManager.Systems.CollaborationSystem.ModeType);//读取所有Record
-
-                /* [测试代码] */
-                AppManager.Test();
-
-                /* [更新Ui] */
-                AppManager.Systems.BugSystem.CalculatedBugsNumber();//计算个数
-                AppManager.Systems.SortSystem.Sort();//排序
-                AppManager.Systems.SearchSystem.Filter();//过滤
-                AppManager.Systems.PageSytem.CalculatedPagesNumber();//重新计算页码
-                AppManager.Systems.PageSytem.Turn(1);//显示第一页
-
-                /* 打开界面 （判断是否读取成功？） */
-                if (_isLoadProjectOk == true)
-                {
-                    //关闭Main界面，打开List界面
-                    AppManager.Uis.MainUi.OpenOrClose(false);
-                    AppManager.Uis.ListUi.OpenOrClose(true);
-                }
-                else
-                {
-                    //打开Tip界面
-                    AppManager.Uis.BaseTipUi.UiControl.TipTitle = AppManager.Systems.LanguageSystem.ErrorTipTitle;
-                    AppManager.Uis.BaseTipUi.UiControl.TipContent = AppManager.Systems.LanguageSystem.OpenProjectErrorTipContent;
-                    AppManager.Uis.BaseTipUi.OpenOrClose(true);
-                }
-
-
-
-                /* [进行备份] */
-                if (_isLoadProjectOk == true)
-                {
-                    //备份工程
-                    AppManager.Systems.BackupSystem.BackupProject();
-
-                    //备份Bug
-                    if (AppManager.Datas.ProjectData.BugDatas.Count > 0)
-                    {
-                        AppManager.Systems.BackupSystem.BackupBug();
-                    }
-
-                    //备份Record
-                    if (AppManager.Datas.ProjectData.RecordDatas.Count > 0)
-                    {
-                        AppManager.Systems.BackupSystem.BackupRecord();
-                    }
-                }
-
-
-
-
-                /* [删除的文件] */
-                if (_isLoadProjectOk == true)
-                {
-                    //删除所有要删除的文件
-                    AppManager.Systems.DeleteSystem.DeleteFile();
-                }
-
+                //读取项目（读取项目中的所有东西）
+                LoadProjectAll(_filePath);
             }
+        }
+
+        /// <summary>
+        /// 当点击[最近]按钮时
+        /// </summary>
+        public void ClickLatelyButton()
+        {
+            //隐藏[最近]按钮
+            AppManager.Datas.SettingsData.IsShowLatelyUi = true;
+
+            //显示[最近]面板
+            AppManager.Uis.LatelyProjectUi.UiControl.Visibility = Visibility.Visible;
         }
         #endregion
 
@@ -159,22 +110,116 @@ namespace EasyBugManager
         /// 打开或者关闭 界面
         /// </summary>
         /// <param name="_isOpen">是否打开？</param>
-        public void OpenOrClose(bool _isOpen) 
+        public void OpenOrClose(bool _isOpen)
         {
             switch (_isOpen)
             {
                 //如果是打开
                 case true:
                     this.UiControl.Visibility = Visibility.Visible;//打开界面
+                    AppManager.Uis.LatelyProjectUi.OpenOrClose(true);//打开[最近的项目]界面
                     AppManager.Uis.OpenOrCloseBackground(false);//关闭背景
+                    AppManager.MainWindow.WindowPositionCenter();//窗口位置居中
                     break;
 
                 //如果是关闭
                 case false:
                     this.UiControl.Visibility = Visibility.Collapsed;//关闭界面
+                    AppManager.Uis.LatelyProjectUi.OpenOrClose(false);//关闭[最近的项目]界面
                     break;
             }
         }
+        #endregion
+
+        #region [公开方法 - 读取项目、Bug、记录等]
+        /// <summary>
+        /// 读取项目中的所有东西
+        /// （读取：项目文件、Bug文件、记录文件等）
+        /// </summary>
+        /// <param name="_projectFilePath">项目文件的路径（文件夹+文件名+文件后缀）</param>
+        public void LoadProjectAll(string _projectFilePath)
+        {
+            /* [读取文件] */
+            //读取项目（_isLoadOk代表是否读取成功？）
+            bool _isLoadProjectOk = AppManager.Systems.ProjectSystem.LoadProject(_projectFilePath);//读取项目
+
+            //读取Bug和记录
+            AppManager.Systems.BugSystem.LoadBugs(AppManager.Systems.CollaborationSystem.ModeType);//读取所有Bug
+            AppManager.Systems.RecordSystem.LoadRecords(AppManager.Systems.CollaborationSystem.ModeType);//读取所有Record
+
+
+
+            /* [测试代码] */
+            AppManager.Test();
+
+
+
+            /* [更新Ui] */
+            AppManager.Systems.BugSystem.CalculatedBugsNumber();//计算个数
+            AppManager.Systems.SortSystem.Sort();//排序
+            AppManager.Systems.SearchSystem.Filter();//过滤
+            AppManager.Systems.PageSytem.CalculatedPagesNumber();//重新计算页码
+            AppManager.Systems.PageSytem.Turn(1);//显示第一页
+
+
+
+            /* 打开界面 （判断是否读取成功？） */
+            if (_isLoadProjectOk == true)
+            {
+                //关闭Main界面，打开List界面
+                AppManager.Uis.MainUi.OpenOrClose(false);
+                AppManager.Uis.ListUi.OpenOrClose(true);
+
+                /* 窗口位置居中 */
+                AppManager.MainWindow.WindowPositionCenter();
+            }
+            else
+            {
+                //打开Tip界面
+                AppManager.Uis.BaseTipUi.UiControl.TipTitle = AppManager.Systems.LanguageSystem.ErrorTipTitle;
+                AppManager.Uis.BaseTipUi.UiControl.TipContent = AppManager.Systems.LanguageSystem.OpenProjectErrorTipContent;
+                AppManager.Uis.BaseTipUi.OpenOrClose(true);
+            }
+
+
+
+            /* 修改最近的项目 */
+            if (_isLoadProjectOk == true)
+            {
+                AppManager.Systems.LatelySystem.Add(AppManager.Systems.ProjectSystem.ProjectData, _projectFilePath);
+            }
+
+
+
+            /* [进行备份] */
+            if (_isLoadProjectOk == true)
+            {
+                //备份工程
+                AppManager.Systems.BackupSystem.BackupProject();
+
+                //备份Bug
+                if (AppManager.Datas.ProjectData.BugDatas.Count > 0)
+                {
+                    AppManager.Systems.BackupSystem.BackupBug();
+                }
+
+                //备份Record
+                if (AppManager.Datas.ProjectData.RecordDatas.Count > 0)
+                {
+                    AppManager.Systems.BackupSystem.BackupRecord();
+                }
+            }
+
+
+
+            /* [删除的文件] */
+            if (_isLoadProjectOk == true)
+            {
+                //删除所有要删除的文件
+                AppManager.Systems.DeleteSystem.DeleteFile();
+            }
+        }
+
         #endregion
     }
 }

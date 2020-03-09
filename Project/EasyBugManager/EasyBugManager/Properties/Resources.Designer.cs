@@ -79,11 +79,7 @@ namespace EasyBugManager.Properties {
         }
         
         /// <summary>
-        ///   查找类似 
-        ///
-        ///
-        ///
-        ///Email :  
+        ///   查找类似 Email :  
         ///xudawang@vip.163.com
         ///
         ///
@@ -118,12 +114,7 @@ namespace EasyBugManager.Properties {
         }
         
         /// <summary>
-        ///   查找类似 
-        ///
-        ///
-        ///
-        ///
-        ///Litjson：
+        ///   查找类似 Litjson：
         ///https://github.com/LitJSON/litjson 的本地化字符串。
         /// </summary>
         internal static string LitjsonText {
@@ -159,6 +150,7 @@ namespace EasyBugManager.Properties {
         ///grqx
         ///布卡
         ///瓜指导
+        ///Vincent
         ///
         ///
         ///【QA - 测试】
@@ -175,6 +167,24 @@ namespace EasyBugManager.Properties {
         ///Linzh
         ///Varaosa
         ///playwhite
+        ///Vincent
+        ///Mr_Specter
+        ///兜兜
+        ///小段_d(duanyph)
+        ///冷场小王子
+        ///天青
+        ///小黑by MTJJ
+        ///分裂
+        ///芦苇骑士
+        ///小李
+        ///李竹贤
+        ///黑椒and五介
+        ///blue
+        ///innovation
+        ///INS
+        ///CraneZ
+        ///呦痕
+        ///xjoker(丑爷)
         ///
         ///
         ///【Font - 字体】

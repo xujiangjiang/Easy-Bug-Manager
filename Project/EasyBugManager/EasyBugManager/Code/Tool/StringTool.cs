@@ -31,7 +31,7 @@ namespace EasyBugManager
             _newValue = _value.Substring(0, _newLength);
 
             //如果[字符串本身的长度]比[要截取的长度]长
-            if (_value.Length>_length)
+            if (_value.Length > _length)
             {
                 //那么就加一个省略号
                 _newValue += "...";

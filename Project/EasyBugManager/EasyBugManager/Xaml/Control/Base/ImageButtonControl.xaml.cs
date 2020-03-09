@@ -193,7 +193,7 @@ namespace EasyBugManager
             //注册PressAnimationSizeProperty
             PressAnimationSizeProperty = DependencyProperty.Register(
                 "PressAnimationSize", typeof(Point), typeof(ImageButtonControl),
-                new FrameworkPropertyMetadata((Point)new Point(0.75f,0.75f), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
+                new FrameworkPropertyMetadata((Point)new Point(0.75f, 0.75f), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
 
 
 
@@ -221,7 +221,8 @@ namespace EasyBugManager
         {
             /* 更改按钮的背景 */
             //创建绑定数据
-            Binding _binding = new Binding(){
+            Binding _binding = new Binding()
+            {
                 ElementName = "ImageButtonUserControl",//要绑定的控件名称
                 Path = new PropertyPath("MouseEnterImage"),// 需绑定的属性名
             };

@@ -35,7 +35,7 @@ namespace EasyBugManager
 
                     /* 获取要操作的表 */
                     //如果Excel文件中，没有任何表格(或者Excel文件不存在)
-                    if (_excelPackage.Workbook.Worksheets.Count<=0)
+                    if (_excelPackage.Workbook.Worksheets.Count <= 0)
                     {
                         //创建一张表格(创建Excel文件)
                         _excelPackage.Workbook.Worksheets.Add("Sheet1");

@@ -27,7 +27,7 @@ namespace EasyBugManager
         /// <param name="_listBox">要查找的ListBox</param>
         /// <param name="_itemName">（DataTemplate中的）Item控件的名字</param>
         /// <returns>列表的Item控件(DataTemplate中的控件)</returns>
-        public static ItemControl GetListItemControl<Data,ItemControl>(ListBox _listBox, string _itemName, Data _data)
+        public static ItemControl GetListItemControl<Data, ItemControl>(ListBox _listBox, string _itemName, Data _data)
         {
 
             /* 第1步：根据Data获取ListBoxItem

@@ -113,7 +113,7 @@ namespace EasyBugManager
         {
             get
             {
-                if (Data==null || Data.Progress != ProgressType.Solved)
+                if (Data == null || Data.Progress != ProgressType.Solved)
                 {
                     return "";
                 }

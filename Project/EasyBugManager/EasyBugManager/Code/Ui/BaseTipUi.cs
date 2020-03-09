@@ -1,4 +1,4 @@
-﻿/* By: 絮大王（sukiup@163.com）
+﻿/* By: 絮大王（xudawang@vip.163.com）
    Time：2019年11月14日16:45:06*/
 
 using System;
@@ -55,6 +55,7 @@ namespace EasyBugManager
         /// <param name="_isOpen">是否打开？</param>
         public void OpenOrClose(bool _isOpen)
         {
+            /* 界面 */
             switch (_isOpen)
             {
                 //如果是打开
@@ -66,13 +67,19 @@ namespace EasyBugManager
                     AppManager.Uis.OpenOrCloseForeground(true);
 
                     //移动界面
-                    if (AppManager.Uis.MainUi.UiControl.Visibility == Visibility.Visible)//如果主界面是打开的
+                    if (AppManager.Uis.LatelyProjectUi.UiControl.Visibility == Visibility.Visible)//如果最近界面是打开的
                     {
-                        AppManager.Uis.BaseTipUi.UiControl.Margin = new Thickness(-95, 15, 0, 0);
+                        UiControl.Margin = new Thickness(-80, 0, 0, 0);
                     }
+
+                    else if (AppManager.Uis.MainUi.UiControl.Visibility == Visibility.Visible)//如果主界面是打开的
+                    {
+                        UiControl.Margin = new Thickness(-135, 15, 0, 0);
+                    }
+
                     else
                     {
-                        AppManager.Uis.BaseTipUi.UiControl.Margin = new Thickness(0,0,0,0);
+                        UiControl.Margin = new Thickness(0, 0, 0, 0);
                     }
                     break;
 
@@ -80,7 +87,19 @@ namespace EasyBugManager
                 case false:
                     this.UiControl.Visibility = Visibility.Collapsed;//关闭界面
                     AppManager.Uis.OpenOrCloseForeground(false);//关闭前景(灰色)
-                    AppManager.Uis.BaseTipUi.UiControl.Margin = new Thickness(0, 0, 0, 0);//移动界面
+                    UiControl.Margin = new Thickness(0, 0, 0, 0);//移动界面
+                    break;
+            }
+
+
+            /* 数据 */
+            switch (_isOpen)
+            {
+                //如果是关闭
+                case false:
+                    //清空数据
+                    UiControl.TipTitle = "";
+                    UiControl.TipContent = "";
                     break;
             }
         }

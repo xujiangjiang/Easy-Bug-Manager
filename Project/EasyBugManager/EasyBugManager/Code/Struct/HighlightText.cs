@@ -14,7 +14,7 @@ namespace EasyBugManager
     /// <summary>
     /// 高亮文字
     /// </summary>
-    public class HighlightText: INotifyPropertyChanged
+    public class HighlightText : INotifyPropertyChanged
     {
         /* 思路：可以让一个文字中的某个字高亮显示 */
 
@@ -54,7 +54,7 @@ namespace EasyBugManager
             get { return highlight; }
             set
             {
-                highlight = value; 
+                highlight = value;
                 OnChange();//更改frontText、middleText、behindText
             }
         }
@@ -124,7 +124,7 @@ namespace EasyBugManager
         private void OnChange()
         {
             //如果高亮不存在
-            if (highlight == null || highlight=="")
+            if (highlight == null || highlight == "")
             {
                 FrontText = "";
                 MiddleText = text;

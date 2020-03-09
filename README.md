@@ -12,7 +12,7 @@
 
 <br/>
 
-![](Document/ReadMe/Image/Logo.png)
+![Image](Document/ReadMe/Image/Logo.png)
 
 <br/>
 
@@ -32,9 +32,9 @@ Thank you for using this little software, thank you very much again : )
 
 ## Download
 
-Latest version: v1.0.0.1 (February 9, 2020)
+Latest version: v1.1.0.0 (February 28, 2020)
 
-Download link：[Click to download v1.0.0.1 version](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.0.0.1/Easy.Bug.Manager.v1.0.0.1.zip)
+Download link：[Click to download v1.1.0.0 version](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.1.0.0/easy.bug.manager.setup.exe)
 
 Steam link : https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
@@ -48,11 +48,11 @@ Steam link : https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
 ## Introduction
 
-![](Document/ReadMe/Image/40.png)
+![Image](Document/ReadMe/Image/40.png)
 
-![](Document/ReadMe/Image/41.png)
+![Image](Document/ReadMe/Image/41.png)
 
-![](Document/ReadMe/Image/42.png)
+![Image](Document/ReadMe/Image/42.png)
 
 <br/>
 
@@ -143,6 +143,10 @@ Easy Bug Manager is a WPF application written in C# (.NET Framework) that runs o
 
 <br/>
 
+<br/>
+
+<br/>
+
 ## Project structure
 
 **Folder description:**
@@ -186,13 +190,49 @@ You can buy it on the Steam Store : https://store.steampowered.com/app/1217970/E
 
 (Thank you very very very much, thank you very very much!)
 
-![](Document/ReadMe/Image/38.png)
+![Image](Document/ReadMe/Image/38.png)
 
-![](Document/ReadMe/Image/39.png)
+![Image](Document/ReadMe/Image/39.png)
+
+<br/>
 
 <br/>
 
 <br/>
+
+<br/>
+
+## Other
+
+> Thanks for the cool fonts of ZCOOL, and the open source libraries Epplus and Litjson. 
+
+**Font : **站酷庆科黄油体、站酷文艺体、站酷快乐体（https://www.zcool.com.cn/special/zcoolfonts/）
+
+**Epplus：**https://github.com/JanKallman/EPPlus
+
+**Litjson：**https://github.com/LitJSON/litjson
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+## FAQ
+
+1. **Is it possible to resize the window?**
+
+> Yes.
+> After opening the project, drag the mouse on the edge of the window to adjust the size of the window.
+
+<br/>
+
+2. **Is there a user manual?**
+
+> Yes.
+> You can [click here](Document/UserManual/Easy Bug Manager User manual - [English].md) to view the user manual.
 
 <br/>
 

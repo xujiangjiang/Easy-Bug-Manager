@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
              
              Name="ColorCheckUserControl">
-    
+
     <Grid>
         <Button Name="BaseButton"
                 Style="{StaticResource NoBackgroundButtonStyle}"
@@ -42,5 +42,5 @@
             </Border.RenderTransform>
         </Border>
     </Grid>
-    
+
 </UserControl>

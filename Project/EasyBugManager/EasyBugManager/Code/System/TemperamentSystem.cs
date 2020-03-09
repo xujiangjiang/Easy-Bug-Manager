@@ -87,13 +87,13 @@ namespace EasyBugManager
         /// <param name="_temperamentId">性格的编号</param>
         /// <param name="_replyId">回复的编号</param>
         /// <returns>回复的文字</returns>
-        public string GetReplyString(int _temperamentId,int _replyId)
+        public string GetReplyString(int _temperamentId, int _replyId)
         {
             //获取数据
             TemperamentData _temperamentData = GetTemperament(_temperamentId);
 
             //返回回复的文字
-            if (_replyId >= 0 && _replyId<_temperamentData.BugStringInReply.Count)
+            if (_replyId >= 0 && _replyId < _temperamentData.BugStringInReply.Count)
             {
                 return _temperamentData.BugStringInReply[_replyId];
             }
@@ -148,7 +148,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_id">性格数据的编号</param>
         /// <param name="_bug">Bug说的话</param>
-        public void RandomCreate(out int _id,out string _bug) 
+        public void RandomCreate(out int _id, out string _bug)
         {
             //随机1个性格
             TemperamentData _temperamentData = RandomTemperament();
@@ -203,8 +203,8 @@ namespace EasyBugManager
                 };
 
                 //[回复时]Bug说的话
-                _temperament1.BugStringInReply = new List<string>() { 
-                    "我知道啦！", 
+                _temperament1.BugStringInReply = new List<string>() {
+                    "我知道啦！",
                     "不用担心，所有问题都会慢慢解决哒！",
                     "你会解决这个Bug哒！因为你有明亮的眼睛，和聪明的头脑~",
                     "一杯茶，一包烟，一个Bug查一天~",

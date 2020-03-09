@@ -78,15 +78,15 @@ namespace EasyBugManager
             if (_source != null)
             {
                 //取到BugData
-                BugItemData _bugItemData  = _source.Tag as BugItemData;
+                BugItemData _bugItemData = _source.Tag as BugItemData;
                 BugData _bugData = _bugItemData.Data;
 
                 //如果[还要提示]
-                if (AppManager.Datas.OtherData.IsNotAgainShowDeleteBugTip == false)
+                if (AppManager.Datas.AppData.IsNotAgainShowDeleteBugTip == false)
                 {
                     //显示删除Bug界面
                     AppManager.Uis.DeleteBugTipUi.UiControl.Data = _bugData;
-                    AppManager.Uis.DeleteBugTipUi.UiControl.Text = StringTool.Clamp(_bugData.Name.Text,50);
+                    AppManager.Uis.DeleteBugTipUi.UiControl.Text = StringTool.Clamp(_bugData.Name.Text, 50);
                     AppManager.Uis.DeleteBugTipUi.OpenOrClose(true);
                 }
 
@@ -297,7 +297,7 @@ namespace EasyBugManager
         public void ClickCloseButtonInListTip()
         {
             //关闭Tip
-            UiControl.OpenOrCloseListTip(false,null);
+            UiControl.OpenOrCloseListTip(false, null);
         }
 
         /// <summary>

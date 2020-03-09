@@ -114,7 +114,7 @@ namespace EasyBugManager
             ObservableCollection<BugData> _allBugDatas = AppManager.Systems.SearchSystem.FilterBugDatas;
 
             //取到这一页开始的Bug索引
-            int _startBugIndex = (_pageNumber-1) * ShowBugNumber;
+            int _startBugIndex = (_pageNumber - 1) * ShowBugNumber;
 
             //然后取到所有的Bug
             ObservableCollection<BugData> _currentPageBugDatas = new ObservableCollection<BugData>();
@@ -195,35 +195,35 @@ namespace EasyBugManager
         /// <param name="_bugData">要插入的Bug</param>
         public void Insert(BugData _bugData)
         {
-            //首先，计算这个BugData，应该在页面的哪个部分？
+            /* 思路：1. 如果BugData在当前页
+                        把Bug插入到当前页面的指定位置。
+                        如果此时PageSystem.ShowBugDatas属性的数量，大于了ShowBugNumber属性，
+                        那么就把当前页面中的最后一个BugData，从页面中删掉
+                        
+                    2. 如果BugData不在当前页，而是在当前页之前的页面里
+                       把当前页的前一个Bug，插入到当前页的第0个位置上。
+                       如果此时PageSystem.ShowBugDatas属性的数量，大于了ShowBugNumber属性，
+                       那么就把当前页面中的最后一个BugData，从页面中删掉*/
+
+
+
+            //首先，计算这个BugData，应该在哪一页？（从1开始）
+            int _bugPageNumber = GetPageNumber(_bugData);
+
+            //计算这个BugData，应该在页面的哪个位置？（从0开始）
             int _bugIndexInCurrentPage = GetBugIndexInCurrentPage(_bugData, true);
 
-            //进行插入
-            Insert(_bugIndexInCurrentPage, _bugData);
-        }
 
 
-        /// <summary>
-        /// 插入
-        /// (插入一个BugData。并把当前页面中的最后BugData，从页面中删掉)
-        /// (不影响BugSystem.BugDatas属性，只影响PageSystem.ShowBugDatas属性)
-        /// </summary>
-        /// <param name="_index">要把Bug插入到当前页面中的哪一个位置上？（从0开始）</param>
-        /// <param name="_bugData">要插入的Bug</param>
-        public void Insert(int _index, BugData _bugData)
-        {
-            /* 思路：把Bug插入到当前页面的指定位置。
-                    如果此时PageSystem.ShowBugDatas属性的数量，大于了ShowBugNumber属性，
-                    那么就当前页面中的最后BugData，从页面中删掉*/
-
-            
-            if (_index>=0)
+            //判断：如果这个Bug，在当前页面中
+            if (_bugIndexInCurrentPage >= 0)
             {
-                //插入：新的Bug
-                if (ShowBugItemDatas.Count-1 < _index)
+                /* 插入：新的Bug */
+                //如果这个Bug，是当前页面中的最后1个Bug -> 那么先移除当前页面中的当前的最后1个Bug，然后把这个Bug插入到最后1个Bug的位置上（因为List.Insert()方法不能超出索引）
+                if (ShowBugItemDatas.Count - 1 < _bugIndexInCurrentPage)
                 {
                     //判断：如果添加了1个Bug后，会超出显示的Bug数量
-                    if (ShowBugItemDatas.Count+1 > ShowBugNumber)
+                    if (ShowBugItemDatas.Count + 1 > ShowBugNumber)
                     {
                         //移除最后一个Bug
                         ShowBugItemDatas.RemoveAt(ShowBugItemDatas.Count - 1);
@@ -232,10 +232,12 @@ namespace EasyBugManager
                     //插入
                     ShowBugItemDatas.Add(_bugData.ItemData);
                 }
+
+                //如果这个Bug，不是当前页面中的，最后1个Bug -> 先插入到对应的位置上，然后移除当前页面中的最后1个Bug
                 else
                 {
                     //插入
-                    ShowBugItemDatas.Insert(_index, _bugData.ItemData);
+                    ShowBugItemDatas.Insert(_bugIndexInCurrentPage, _bugData.ItemData);
 
                     //判断：如果添加了1个Bug后，会超出显示的Bug数量
                     if (ShowBugItemDatas.Count > ShowBugNumber)
@@ -247,6 +249,44 @@ namespace EasyBugManager
                 }
             }
 
+            //判断：如果这个Bug，不在当前页面中。并且这个Bug在当前页面之前。
+            else if (_bugPageNumber >= 0 && _bugPageNumber < CurrentPageNumber)
+            {
+                /* 真实：表示的是FilterBugDatas中的数据
+                   显示：表示的是ShowBugDatas中的数据*/
+
+                //获取当前页(真实)的所有Bug（比如当前页面是第5页，就获取第5页的所有Bug）
+                List<BugData> _bugDatasInCurrentPage = GetBugDatasInPage(CurrentPageNumber);
+
+                //遍历当前页(真实)中，所有的Bug （从最后一个元素开始遍历）
+                for (int i = _bugDatasInCurrentPage.Count - 1; i >= 0; i--)
+                {
+                    //获取到这个Bug
+                    BugData _b = _bugDatasInCurrentPage[i];
+
+                    //如果当前页(显示)中，没有这个Bug
+                    if (ShowBugItemDatas.Contains(_b.ItemData) == false)
+                    {
+                        //插入到 当前页面的第0个位置上
+                        if (ShowBugItemDatas.Count > 0)
+                        {
+                            ShowBugItemDatas.Insert(0, _b.ItemData);
+                        }
+                        else
+                        {
+                            ShowBugItemDatas.Add(_b.ItemData);
+                        }
+
+                        //判断：如果添加了1个Bug后，会超出显示的Bug数量
+                        if (ShowBugItemDatas.Count > ShowBugNumber)
+                        {
+                            //移除最后一个Bug
+                            ShowBugItemDatas.RemoveAt(ShowBugItemDatas.Count - 1);
+                        }
+                    }
+
+                }
+            }
         }
 
         #endregion
@@ -284,25 +324,38 @@ namespace EasyBugManager
         /// (根据BugData，获取Bug所在的页面)
         /// </summary>
         /// <param name="_bugData">跳转到哪个Bug所在的页面？</param>
-        /// <returns>Bug所在的页面（如果这个Bug不存在，就返回-1）</returns>
+        /// <returns>Bug所在的页面（从1开始）（如果这个Bug不存在，就返回-1）</returns>
         public int GetPageNumber(BugData _bugData)
         {
-            //获取到过滤后的文字
-            ObservableCollection<BugData> _filterBugDatas = AppManager.Systems.SearchSystem.FilterBugDatas;
 
-            //然后，查找到Bug所在的索引
-            int _bugIndex = 0;//bug的索引(从0开始)
-            for (int i = 0; i < _filterBugDatas.Count; i++)
+            int _pageNumber = -1;//bug所在的页数(从1开始)
+
+
+            if (_bugData != null)
             {
-                if (_filterBugDatas[i].Id == _bugData.Id)
+                //获取到过滤后的文字
+                ObservableCollection<BugData> _filterBugDatas = AppManager.Systems.SearchSystem.FilterBugDatas;
+
+                //然后，查找到Bug所在的索引
+                int _bugIndex = -1;//bug的索引(从0开始)
+                if (_filterBugDatas != null)
                 {
-                    _bugIndex = i;
-                    break;
+                    for (int i = 0; i < _filterBugDatas.Count; i++)
+                    {
+                        if (_filterBugDatas[i].Id == _bugData.Id)
+                        {
+                            _bugIndex = i;
+                            break;
+                        }
+                    }
+                }
+
+                //查找到Bug所在的页数
+                if (_bugIndex > -1)
+                {
+                    _pageNumber = (_bugIndex / ShowBugNumber) + 1;
                 }
             }
-
-            //查找到Bug所在的页数
-            int _pageNumber = (_bugIndex / ShowBugNumber) + 1;
 
 
             //返回值
@@ -317,7 +370,7 @@ namespace EasyBugManager
         /// <param name="_bugData">哪个Bug？</param>
         /// <param name="_isReal">是否查找的是真实的索引？ 如果为true，从FilterBugDatas中进行查找；如果为false，从ShowBugDatas中进行查找</param>
         /// <returns>>Bug在此页面中的索引（如果这个Bug不存在，就返回-1）(从0开始) </returns>
-        public int GetBugIndexInCurrentPage(BugData _bugData, bool _isReal=false)
+        public int GetBugIndexInCurrentPage(BugData _bugData, bool _isReal = false)
         {
             /* _isReal参数：是否查找的是真实的索引？
                             如果为true，从FilterBugDatas中进行查找，那么找到的就是这个Bug在当前页面的真实索引；
@@ -326,19 +379,19 @@ namespace EasyBugManager
             int _index = -1;
 
 
-            if (_bugData!=null)
+            if (_bugData != null)
             {
                 //判断
                 switch (_isReal)
                 {
                     //从ShowBugDatas中进行查找，那么找到的就是这个Bug当前在当前页面中的索引
                     case false:
-                        if (ShowBugItemDatas!=null)
+                        if (ShowBugItemDatas != null)
                         {
                             //遍历所有正在显示的Bug
                             for (int i = 0; i < ShowBugItemDatas.Count; i++)
                             {
-                                if (BugData.Compare(CompareType.Id,ShowBugItemDatas[i].Data,_bugData))
+                                if (BugData.Compare(CompareType.Id, ShowBugItemDatas[i].Data, _bugData))
                                 {
                                     _index = i;
                                     break;
@@ -354,13 +407,13 @@ namespace EasyBugManager
                         ObservableCollection<BugData> _filterBugDatas = AppManager.Systems.SearchSystem.FilterBugDatas;
 
                         //找出Bug在当前页的索引
-                        if (_filterBugDatas!=null)
+                        if (_filterBugDatas != null)
                         {
                             //然后，查找到Bug所在的索引
                             for (int i = 0; i < _filterBugDatas.Count; i++)
                             {
                                 //如果找到了Bug
-                                if (BugData.Compare(CompareType.Id,_filterBugDatas[i],_bugData) == true)
+                                if (BugData.Compare(CompareType.Id, _filterBugDatas[i], _bugData) == true)
                                 {
                                     //就判断Bug所在的页码是否是当前页码
                                     int _bugPageNumber = (i / ShowBugNumber) + 1;
@@ -381,6 +434,53 @@ namespace EasyBugManager
 
 
             return _index;
+        }
+
+
+
+        /// <summary>
+        /// 获取某个页面中的所有Bug
+        /// </summary>
+        /// <param name="_pageNumber">要获取哪个页面？（页码）（从1开始）</param>
+        /// <returns>这个页面中所有的Bug</returns>
+        public List<BugData> GetBugDatasInPage(int _pageNumber)
+        {
+            //这个页面中，所有的Bug
+            List<BugData> _pageBugDatas = new List<BugData>();
+
+
+
+            //判断：如果页码大于0
+            if (_pageNumber > 0)
+            {
+                /* 从FilterBugDatas中进行查找，那么找到的就是这个Bug在当前页面的真实索引 */
+
+                //获取到过滤后的文字
+                ObservableCollection<BugData> _filterBugDatas = AppManager.Systems.SearchSystem.FilterBugDatas;
+
+                //找出Bug在当前页的索引
+                if (_filterBugDatas != null)
+                {
+                    //然后，查找到Bug所在的索引
+                    for (int i = 0; i < _filterBugDatas.Count; i++)
+                    {
+                        //获取Bug所在的页码
+                        int _bugPageNumber = (i / ShowBugNumber) + 1;
+
+                        //如果Bug所在的页码 是我们要找的页码
+                        if (_bugPageNumber == _pageNumber)
+                        {
+                            //就把Bug加入到列表中
+                            _pageBugDatas.Add(_filterBugDatas[i]);
+                        }
+                    }
+                }
+            }
+
+
+
+            //返回值
+            return _pageBugDatas;
         }
         #endregion
 

@@ -153,7 +153,7 @@ namespace EasyBugManager
                 //那就把Button启用
                 _listHeadButtonControl.ListHeadColorButtonControl.Visibility = Visibility.Visible;
             }
-            else 
+            else
             {
                 //那就把Button禁用
                 _listHeadButtonControl.ListHeadColorButtonControl.Visibility = Visibility.Collapsed;

@@ -40,7 +40,7 @@ namespace EasyBugManager
             /* 调用OpenFileDialog.ShowDialog()方法，显示[打开文件对话框]
                这个方法有一个bool?类型的返回值
                返回值为Ok，代表用户选择了文件；否则就代表用户没有选择文件 */
-            DialogResult _dialogResult =  _folderBrowserDialog.ShowDialog();
+            DialogResult _dialogResult = _folderBrowserDialog.ShowDialog();
 
             /* 获取用户打开的文件 的路径 */
             if (_dialogResult == DialogResult.OK)
@@ -84,7 +84,7 @@ namespace EasyBugManager
             }
 
             /* 如果填写了项目名和路径，就创建项目 */
-            bool _isCreate = AppManager.Systems.ProjectSystem.CreateProject(UiControl.SaveLocation,UiControl.ProjectName,_modeType);
+            bool _isCreate = AppManager.Systems.ProjectSystem.CreateProject(UiControl.SaveLocation, UiControl.ProjectName, _modeType);
 
             //如果创建不成功
             if (_isCreate == false)
@@ -95,10 +95,16 @@ namespace EasyBugManager
             //如果创建成功
             else
             {
-                //关闭此界面，关闭MainUi，打开ListUi
+                /* 关闭此界面，关闭MainUi，打开ListUi */
                 this.OpenOrClose(false);
                 AppManager.Uis.MainUi.OpenOrClose(false);
                 AppManager.Uis.ListUi.OpenOrClose(true);
+
+                /* 窗口位置居中 */
+                AppManager.MainWindow.WindowPositionCenter();
+
+                /* 修改最近的项目 */
+                AppManager.Systems.LatelySystem.Add(AppManager.Systems.ProjectSystem.ProjectData, AppManager.Systems.ProjectSystem.ProjectFilePath);
             }
 
             //显示[协同合作功能测试版]提示
@@ -139,6 +145,22 @@ namespace EasyBugManager
 
                     //打开前景(灰色)
                     AppManager.Uis.OpenOrCloseForeground(true);
+
+                    //移动界面
+                    if (AppManager.Uis.LatelyProjectUi.UiControl.Visibility == Visibility.Visible)//如果最近界面是打开的
+                    {
+                        UiControl.Margin = new Thickness(-80, -110, 0, 0);
+                    }
+
+                    else if (AppManager.Uis.MainUi.UiControl.Visibility == Visibility.Visible)//如果主界面是打开的
+                    {
+                        UiControl.Margin = new Thickness(-135, -110, 0, 0);
+                    }
+
+                    else
+                    {
+                        UiControl.Margin = new Thickness(0, 0, 0, 0);
+                    }
                     break;
 
                 //如果是关闭
@@ -148,6 +170,9 @@ namespace EasyBugManager
 
                     //关闭前景(灰色)
                     AppManager.Uis.OpenOrCloseForeground(false);
+
+                    //移动界面
+                    UiControl.Margin = new Thickness(0, 0, 0, 0);
                     break;
             }
 

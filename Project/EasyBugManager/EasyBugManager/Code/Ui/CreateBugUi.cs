@@ -45,7 +45,7 @@ namespace EasyBugManager
 
 
             /* 如果填写了BugName，就创建Bug */
-            AppManager.Systems.BugSystem.AddBug(UiControl.BugName,UiControl.PriorityType);
+            AppManager.Systems.BugSystem.AddBug(UiControl.BugName, UiControl.PriorityType);
 
 
             /* 关闭此界面，关闭MainUi，打开ListUi */

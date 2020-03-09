@@ -44,7 +44,7 @@
                                      PreviewMouseRightButtonDown="BaseCheckControl_MouseRightButtonDown"
                                      
                                      MouseDoubleClick="BaseCheckControl_OnMouseDoubleClick"/>
-            
+
             <!--Tip：跳转提示-->
             <StackPanel Name="TipStackPanel"
                         Grid.Column="1"
@@ -96,7 +96,7 @@
                             Width="35" Height="15" Margin="0,-3.5,0,0"
                             HorizontalAlignment="Right"
                             Background="{DynamicResource ListUi.Item.Turn.Icon.ImageBrush}"/>
-                    
+
                     <!--页面-->
                     <Border IsHitTestVisible="False"
                             Width="43" Height="21" HorizontalAlignment="Left"
@@ -120,7 +120,7 @@
         </Grid>
 
 
-        
+
         <!--内容-->
         <Grid>
 
@@ -242,11 +242,11 @@
                         Background="{DynamicResource ListUi.Item.MoreButton.ImageBrush}"
                         IsHitTestVisible="False"/>
             </Grid>
-            
+
         </Grid>
 
 
-        
+
         <!--已删除-->
         <Grid Name="DeletedGrid"
               Visibility="Collapsed">
@@ -305,5 +305,5 @@
 
 
     </Grid>
-    
+
 </UserControl>

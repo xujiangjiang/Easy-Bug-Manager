@@ -41,7 +41,7 @@ namespace EasyBugManager
         public void PlayAudio(AudioType _audioType)
         {
             //如果不播放声音
-            if (AppManager.Datas.SettingsData.Sound == false)return;
+            if (AppManager.Datas.SettingsData.Sound == false) return;
 
             //播放声音
             switch (_audioType)

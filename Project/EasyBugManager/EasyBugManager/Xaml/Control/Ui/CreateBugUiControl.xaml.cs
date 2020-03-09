@@ -77,13 +77,13 @@ namespace EasyBugManager
         /// <param name="e">依赖项属性改变事件 的参数（里面有这个属性的新的值，和旧的值）</param>
         private static void OnPriorityTypeChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            if((PriorityType)e.OldValue != (PriorityType)e.NewValue) 
+            if ((PriorityType)e.OldValue != (PriorityType)e.NewValue)
             {
                 //获取控件
                 CreateBugUiControl _createBugControl = sender as CreateBugUiControl;
 
                 //判断：修改CheckGroup
-                switch ((PriorityType)e.NewValue) 
+                switch ((PriorityType)e.NewValue)
                 {
                     case PriorityType.Low:
                         _createBugControl.PriorityCheckGroup.CheckedIndex = 0;
@@ -322,7 +322,7 @@ namespace EasyBugManager
         /// <summary>
         /// 这个方法，用于触发 PriorityChange 路由事件
         /// </summary>
-        private void OnPriorityChange(PriorityType _oldValue,PriorityType _newValue)
+        private void OnPriorityChange(PriorityType _oldValue, PriorityType _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<PriorityType> args = new RoutedPropertyChangedEventArgs<PriorityType>(_oldValue, _newValue);
@@ -388,7 +388,7 @@ namespace EasyBugManager
                 typeof(PriorityType), //属性的类型
                 typeof(CreateBugUiControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (PriorityType)PriorityType.None,
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnPriorityTypeChanged))

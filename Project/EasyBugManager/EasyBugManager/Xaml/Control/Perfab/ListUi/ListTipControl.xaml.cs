@@ -115,7 +115,7 @@ namespace EasyBugManager
             switch ((bool)e.NewValue)
             {
                 //如果是打开Tip
-                case true: 
+                case true:
                     //打开控件
                     _listTipControl.Visibility = Visibility.Visible;
 
@@ -123,17 +123,17 @@ namespace EasyBugManager
                     //播放[第1个]动画:把Opacity属性设置为1
                     AnimationTool.PlayGridOpacityAnimation(_listTipControl.BaseGrid, null, 1, 0.25f,
                       (object _sender1, EventArgs _e1) =>
-                        {
-                            //当[第1个]动画播放完成后，播放[第2个动画]：啥也不干，等待3秒，然后关闭控件
-                            AnimationTool.PlayGridOpacityAnimation(_listTipControl.BaseGrid, 1, 1, 3f,
-                                (object _sender2, EventArgs _e2) =>
-                                {
-                                  //当[第2个]动画播放完成后，关闭控件
-                                  _listTipControl.IsOpen = false;
-                                });
+                      {
+                          //当[第1个]动画播放完成后，播放[第2个动画]：啥也不干，等待3秒，然后关闭控件
+                          AnimationTool.PlayGridOpacityAnimation(_listTipControl.BaseGrid, 1, 1, 3f,
+                              (object _sender2, EventArgs _e2) =>
+                              {
+                                    //当[第2个]动画播放完成后，关闭控件
+                                    _listTipControl.IsOpen = false;
+                              });
 
-                        });
-                        break;
+                      });
+                    break;
 
                 //如果是关闭Tip
                 case false:
@@ -266,7 +266,7 @@ namespace EasyBugManager
                 typeof(bool), //属性的类型
                 typeof(ListTipControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (bool)false,
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnIsAddBugCompleteTipChanged))

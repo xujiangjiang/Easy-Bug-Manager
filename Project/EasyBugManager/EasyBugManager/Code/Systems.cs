@@ -37,6 +37,7 @@ namespace EasyBugManager
         private ExportSystem exportSystem;//[导出]的系统
         private BackupSystem backupSystem;//[备份]的系统
         private CollaborationSystem collaborationSystem;//[协同合作]的系统
+        private LatelySystem latelySystem;//[最近]的系统
 
 
 
@@ -195,6 +196,14 @@ namespace EasyBugManager
         {
             get { return collaborationSystem; }
         }
+
+        /// <summary>
+        /// [最近]的系统
+        /// </summary>
+        public LatelySystem LatelySystem
+        {
+            get { return latelySystem; }
+        }
         #endregion
 
         #region 构造方法
@@ -223,6 +232,7 @@ namespace EasyBugManager
             exportSystem = new ExportSystem();
             backupSystem = new BackupSystem();
             collaborationSystem = new CollaborationSystem();
+            latelySystem = new LatelySystem();
         }
         #endregion
 

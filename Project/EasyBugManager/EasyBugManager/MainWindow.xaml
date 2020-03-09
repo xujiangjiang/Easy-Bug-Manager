@@ -78,17 +78,42 @@
                     MouseLeftButtonDown="WindowTitleBorder_MouseLeftButtonDown"></Border>
             </Grid>
 
-            <!-- 界面：Main -->
-            <local:MainUiControl x:Name="MainUiControl"
-                             Width="845" Height="526"
-                             Margin="0,-100,0,0"
-                             Visibility="Collapsed"
+
+
+            <!-- 界面：主界面 -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="-50,0,0,0">
+
+
+                <!-- 界面：最近的项目 -->
+                <local:LatelyProjectUiControl x:Name="LatelyProjectUiControl"
+                                              Width="420" Height="520"
+                                              Margin="0,-50,5,0"
+                                              Visibility="Collapsed"
+                                              
+                                              Datas="{Binding AppData.LatelyProjectDatas}"
+
+                                              ClickFoldButton="LatelyProjectUiControl_OnClickFoldButton"
+                                              
+                                              ClickListItemBaseButton="LatelyProjectUiControl_OnClickListItemBaseButton"
+                                              ClickListItemOpenFolderButton="LatelyProjectUiControl_OnClickListItemOpenFolderButton"
+                                              ClickListItemRemoveButton="LatelyProjectUiControl_OnClickListItemRemoveButton"/>
+
+                <!-- 界面：Main -->
+                <local:MainUiControl x:Name="MainUiControl"
+                                     Width="845" Height="526"
+                                     Margin="0,-100,0,0"
+                                     Visibility="Collapsed"
                              
-                             ClickMinimizeButton="MainUiControl_ClickMinimizeButton"
-                             ClickCloseButton="MainUiControl_ClickCloseButton"
-                             ClickSettingButton="MainUiControl_ClickSettingButton"
-                             ClickCreateProjectButton="MainUiControl_ClickCreateProjectButton"
-                             ClickOpenProjectButton="MainUiControl_ClickOpenProjectButton"/>
+                                     ClickMinimizeButton="MainUiControl_ClickMinimizeButton"
+                                     ClickCloseButton="MainUiControl_ClickCloseButton"
+                                     ClickSettingButton="MainUiControl_ClickSettingButton"
+                                     ClickCreateProjectButton="MainUiControl_ClickCreateProjectButton"
+                                     ClickOpenProjectButton="MainUiControl_ClickOpenProjectButton"
+                                     ClickLatelyButton="MainUiControl_OnClickLatelyButton"/>
+
+            </StackPanel>
 
             <!--界面：列表-->
             <local:ListUiControl x:Name="ListUiControl"
@@ -218,7 +243,7 @@
                                   Width="1440" Height="1002"
                                   Visibility="Collapsed"
 
-                                  ImagePath="{Binding OtherData.ShowImagePath}"
+                                  ImagePath=""
                               
                                   ClickCloseButton="ImageUiControl_OnClickCloseButton"
                                   ClickFileButton="ImageUiControl_OnClickFileButton"/>
@@ -265,7 +290,7 @@
             <!--界面：创建项目-->
             <local:CreateProjectUiControl x:Name="CreateProjectUiControl"
                                       Width="1440" Height="1002"
-                                      Margin="-85,-110,0,0"
+                                      Margin="-135,-110,0,0"
                                       Visibility="Collapsed"
                                       
                                       ClickBrowseButton="CreateProjectUiControl_OnClickBrowseButton"
@@ -287,7 +312,7 @@
                                   Visibility="Collapsed"
                                   
                                   TipString=""
-                                  BugNameMaxLength="{Binding OtherData.BugNameMaxLength}"
+                                  BugNameMaxLength="{Binding AppData.BugNameMaxLength}"
                                   RelatedBugNames="{Binding OtherData.ShowRelatedBugNames,Mode=TwoWay}"
 
                                   ClickYesButton="CreateBugUiControl_OnClickYesButton"
@@ -302,7 +327,7 @@
                                   Visibility="Collapsed"
 
                                   TipString=""
-                                  BugNameMaxLength="{Binding OtherData.BugNameMaxLength}"
+                                  BugNameMaxLength="{Binding AppData.BugNameMaxLength}"
                                   RelatedBugNames="{Binding OtherData.ShowRelatedBugNames,Mode=TwoWay}"
                                   
                                   ClickYesButton="ChangeBugUiControl_OnClickYesButton"
@@ -319,7 +344,7 @@
                             
                                      IsShowYesButton="True"
                                      IsShowNoButton="True"
-                                     IsNotRemindAgain="{Binding OtherData.IsNotAgainShowDeleteBugTip,Mode=TwoWay}"
+                                     IsNotRemindAgain="{Binding AppData.IsNotAgainShowDeleteBugTip,Mode=TwoWay}"
                             
                                      ClickYesButton="DeleteBugTipUiControl_OnClickYesButton"
                                      ClickNoButton="DeleteBugTipUiControl_OnClickNoButton"/>
@@ -331,7 +356,7 @@
                             
                                   IsShowYesButton="True"
                                   IsShowNoButton="True"
-                                  IsNotRemindAgain="{Binding OtherData.IsNotAgainShowDeleteRecordTip,Mode=TwoWay}"
+                                  IsNotRemindAgain="{Binding AppData.IsNotAgainShowDeleteRecordTip,Mode=TwoWay}"
                             
                                   ClickYesButton="DeleteRecordTipUiControl_OnClickYesButton"
                                   ClickNoButton="DeleteRecordTipUiControl_OnClickNoButton"/>
@@ -347,6 +372,18 @@
                             
                             ClickYesButton="BaseTipUiControl_OnClickYesButton"
                             ClickNoButton="BaseTipUiControl_OnClickNoButton"/>
+
+            <!--界面：最近项目的Tip-->
+            <local:TipUiControl x:Name="LatelyProjectTipUiControl"
+                                Width="1440" Height="1002"
+                                Margin="0"
+                                Visibility="Collapsed"
+
+                                IsShowYesButton="True"
+                                IsShowNoButton="True"
+                            
+                                ClickYesButton="LatelyProjectTipUiControl_OnClickYesButton"
+                                ClickNoButton="LatelyProjectTipUiControl_OnClickNoButton"/>
 
             <!--界面：错误-->
             <local:ErrorUiControl x:Name="ErrorUiControl"

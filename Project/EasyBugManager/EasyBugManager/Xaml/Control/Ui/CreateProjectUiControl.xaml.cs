@@ -307,7 +307,7 @@ namespace EasyBugManager
                 typeof(string), //属性的类型
                 typeof(CreateProjectUiControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (string)"",
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnSaveLocationChanged))

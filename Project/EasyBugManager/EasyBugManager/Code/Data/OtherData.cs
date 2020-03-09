@@ -15,7 +15,7 @@ namespace EasyBugManager
     /// 其他的数据
     /// (一些需要绑定，但不需要储存的数据)
     /// </summary>
-    public class OtherData: INotifyPropertyChanged
+    public class OtherData : INotifyPropertyChanged
     {
 
         /* Bug相关 */
@@ -38,11 +38,6 @@ namespace EasyBugManager
 
         /* 修改or创建界面 */
         private ObservableCollection<HighlightText> showRelatedBugNames;//要显示的 相关的Bug的名字（属于创建BugUi、修改BugUi）
-        private int bugNameMaxLength;//Bug名字 的最大长度(最大个数)
-
-        /* 删除的提示界面 */
-        private bool isNotAgainShowDeleteBugTip;//是否不再显示[删除Bug的提示]？（如果为true，代表不再提示；如果为false，代表再次提示）
-        private bool isNotAgainShowDeleteRecordTip;//是否不再显示[删除记录的提示]？（如果为true，代表不再提示；如果为false，代表再次提示）
 
         /* 同步界面 */
         private string syncLogText;//同步的日志文字（所有同步的日志）
@@ -213,47 +208,6 @@ namespace EasyBugManager
                 PropertyChange("ShowRelatedBugNames");//通知Ui更新
             }
         }
-
-        /// <summary>
-        /// Bug名字 的最大长度(最大个数)
-        /// </summary>
-        public int BugNameMaxLength
-        {
-            get { return bugNameMaxLength; }
-            set
-            {
-                bugNameMaxLength = value;
-                PropertyChange("BugNameMaxLength");//通知Ui更新
-            }
-        }
-        #endregion
-
-        #region [公开属性 - 删除的提示界面]
-        /// <summary>
-        /// 是否再次提示？ - 是否不再显示[删除Bug的提示]？（如果为true，代表不再提示；如果为false，代表再次提示）
-        /// </summary>
-        public bool IsNotAgainShowDeleteBugTip
-        {
-            get { return isNotAgainShowDeleteBugTip; }
-            set
-            {
-                isNotAgainShowDeleteBugTip = value;
-                PropertyChange("IsNotAgainShowDeleteBugTip");
-            }
-        }
-
-        /// <summary>
-        /// 是否再次提示？ - 是否不再显示[删除记录的提示]？（如果为true，代表不再提示；如果为false，代表再次提示）
-        /// </summary>
-        public bool IsNotAgainShowDeleteRecordTip
-        {
-            get { return isNotAgainShowDeleteRecordTip; }
-            set
-            {
-                isNotAgainShowDeleteRecordTip = value;
-                PropertyChange("IsNotAgainShowDeleteRecordTip");
-            }
-        }
         #endregion
 
         #region [公开属性 - 同步界面]
@@ -362,11 +316,6 @@ namespace EasyBugManager
 
             IsShowBugReply = true;
             IsShowSubmitButtonAnimation = false;
-
-            IsNotAgainShowDeleteBugTip = false;
-            IsNotAgainShowDeleteRecordTip = false;
-
-            BugNameMaxLength = 100;
 
             SyncLogText = "";
             SyncStateType = SyncStateType.NoSync;

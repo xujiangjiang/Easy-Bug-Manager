@@ -90,7 +90,7 @@ namespace EasyBugManager
                 _imageCheckControl.ButtonImageBorder.SetBinding(BackgroundProperty, _binding);
             }
             //如果是未选中
-            else 
+            else
             {
                 /* 更改按钮的背景 */
                 //创建绑定数据
@@ -106,7 +106,7 @@ namespace EasyBugManager
             //触发事件
             if ((bool)e.NewValue != (bool)e.OldValue)
             {
-                _imageCheckControl.OnIsCheckedChange((bool)e.OldValue,(bool)e.NewValue);//触发事件
+                _imageCheckControl.OnIsCheckedChange((bool)e.OldValue, (bool)e.NewValue);//触发事件
 
 
                 if ((bool)e.NewValue == true)
@@ -401,7 +401,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_oldValue">旧的值</param>
         /// <param name="_newValue">新的值</param>
-        private void OnIsCheckedChange(bool _oldValue,bool _newValue)
+        private void OnIsCheckedChange(bool _oldValue, bool _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<bool> args = new RoutedPropertyChangedEventArgs<bool>(_oldValue, _newValue);
@@ -448,7 +448,7 @@ namespace EasyBugManager
             //注册PressAnimationSizeProperty
             PressAnimationSizeProperty = DependencyProperty.Register(
                 "PressAnimationSize", typeof(Point), typeof(ImageCheckControl),
-                new FrameworkPropertyMetadata((Point)new Point(0.75f,0.75f), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
+                new FrameworkPropertyMetadata((Point)new Point(0.75f, 0.75f), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
 
             //注册IsCheckedProperty
             IsCheckedProperty = DependencyProperty.Register(

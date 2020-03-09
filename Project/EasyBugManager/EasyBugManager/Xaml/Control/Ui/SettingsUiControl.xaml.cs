@@ -76,13 +76,13 @@ namespace EasyBugManager
         private static void OnLanguageChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             //如果值发生改变了
-            if ((LanguageType)e.OldValue != (LanguageType)e.NewValue) 
+            if ((LanguageType)e.OldValue != (LanguageType)e.NewValue)
             {
                 //获取控件
                 SettingsUiControl _settingsUiControl = sender as SettingsUiControl;
 
                 //判断
-                switch ((LanguageType)e.NewValue) 
+                switch ((LanguageType)e.NewValue)
                 {
                     //如果值为[英文]
                     case LanguageType.English:
@@ -881,7 +881,7 @@ namespace EasyBugManager
                 typeof(LanguageType), //属性的类型
                 typeof(SettingsUiControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (LanguageType)LanguageType.None,
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnLanguageChanged))
@@ -1035,7 +1035,7 @@ namespace EasyBugManager
             ImageCheckGroupControl _imageCheckGroupControl = sender as ImageCheckGroupControl;
 
             //判断
-            switch (_imageCheckGroupControl.CheckedIndex) 
+            switch (_imageCheckGroupControl.CheckedIndex)
             {
                 //如果为0
                 case 0:
@@ -1219,7 +1219,7 @@ namespace EasyBugManager
         {
             //打开Staff面板
             this.StaffGrid.Visibility = Visibility.Visible;
-            AnimationTool.PlayGridOpacityAnimation(this.StaffGrid,null,1,0.25f);
+            AnimationTool.PlayGridOpacityAnimation(this.StaffGrid, null, 1, 0.25f);
         }
 
         //当鼠标离开[Staff]按钮或者按钮时

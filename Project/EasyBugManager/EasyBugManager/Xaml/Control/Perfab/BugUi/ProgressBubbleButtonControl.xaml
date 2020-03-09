@@ -24,7 +24,7 @@
                 MouseEnter="BaseButton_OnMouseEnter"
                 MouseLeave="BaseButton_OnMouseLeave"
                 Click="Button_OnClick">
-            
+
             <!--变换-->
             <Button.RenderTransform>
                 <TransformGroup>
@@ -35,7 +35,7 @@
         </Button>
 
 
-        
+
         <!--图片：气泡-->
         <Border Name="BubbleBorder"
                 Background="{Binding ElementName=ProgressBubbleButtonUserControl,Path=MouseLeaveImage}"
@@ -67,8 +67,8 @@
 
         </Border>
 
- 
-        
+
+
     </Grid>
 
 

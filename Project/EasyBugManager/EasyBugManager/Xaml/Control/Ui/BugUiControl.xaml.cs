@@ -204,7 +204,7 @@ namespace EasyBugManager
             {
                 _bugUiControl.SolveBugBorder.Visibility = Visibility.Hidden;
             }
-            else 
+            else
             {
                 _bugUiControl.SolveBugBorder.Visibility = Visibility.Visible;
             }
@@ -327,18 +327,18 @@ namespace EasyBugManager
         {
             //获取控件
             BugUiControl _bugUiControl = sender as BugUiControl;
-            
+
             //判断：动画
             switch ((bool)e.NewValue)
             {
                 //当[省略号]显示时，等2秒后，关闭[省略号]
                 case true:
-                    AnimationTool.PlayGridOpacityAnimation(_bugUiControl.AnimationGrid,0,0,2f, 
+                    AnimationTool.PlayGridOpacityAnimation(_bugUiControl.AnimationGrid, 0, 0, 2f,
                         (object _sender1, EventArgs _e1) =>
-                    {
-                        //当完成动画后，关闭[省略号]
-                        _bugUiControl.IsShowSubmitButtonAnimation = false;
-                    });
+                        {
+                            //当完成动画后，关闭[省略号]
+                            _bugUiControl.IsShowSubmitButtonAnimation = false;
+                        });
                     break;
             }
 
@@ -849,7 +849,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_oldValue">旧的值</param>
         /// <param name="_newValue">新的值</param>
-        private void OnIsShowBugReplyChange(bool _oldValue,bool _newValue)
+        private void OnIsShowBugReplyChange(bool _oldValue, bool _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<bool> args = new RoutedPropertyChangedEventArgs<bool>(_oldValue, _newValue);
@@ -918,7 +918,7 @@ namespace EasyBugManager
                 typeof(string), //属性的类型
                 typeof(BugUiControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (string)"",
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnBugNameChanged))
@@ -1135,7 +1135,7 @@ namespace EasyBugManager
             RecordListItemControl _recordListItemControl = sender as RecordListItemControl;
 
             //取到控件的数据源
-            RecordItemData _data = (RecordItemData) _recordListItemControl.Tag;
+            RecordItemData _data = (RecordItemData)_recordListItemControl.Tag;
 
             //触发事件
             this.OnClickRecordListItemDeleteButton(_data.Data);
@@ -1159,7 +1159,7 @@ namespace EasyBugManager
         /// </summary>
         private void IsShowBugReplyCheckControl_OnIsCheckedChange(object sender, RoutedPropertyChangedEventArgs<bool> e)
         {
-            this.OnIsShowBugReplyChange(e.OldValue,e.NewValue);//触发事件
+            this.OnIsShowBugReplyChange(e.OldValue, e.NewValue);//触发事件
         }
 
         #endregion
@@ -1183,7 +1183,7 @@ namespace EasyBugManager
         private void RightCanvas_OnMouseLeave(object sender, MouseEventArgs e)
         {
             //隐藏[是否显示Bug回复]控件（把Opacity属性设置为0）
-            AnimationTool.PlayGridOpacityAnimation(this.IsShowBugReplyGrid,null,0,0.25f);
+            AnimationTool.PlayGridOpacityAnimation(this.IsShowBugReplyGrid, null, 0, 0.25f);
 
             //隐藏“选择图片”按钮
             RecordInputBoxControl.HideChooseImageButton();
@@ -1214,7 +1214,7 @@ namespace EasyBugManager
             int _itemIndex = RecordListBox.Items.Count - 1;
 
             //把ListBox的滚动条设置到最下面
-            if (_itemIndex>0)
+            if (_itemIndex > 0)
             {
                 RecordListBox.ScrollIntoView(RecordListBox.Items[_itemIndex]);
             }

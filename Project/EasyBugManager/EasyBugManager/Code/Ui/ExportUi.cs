@@ -46,9 +46,9 @@ namespace EasyBugManager
             if (_dialogResult == DialogResult.OK)
             {
                 //把用户选择的文件夹，赋值给ExportLocation属性
-                string _folderPath = _folderBrowserDialog.SelectedPath +"/"
+                string _folderPath = _folderBrowserDialog.SelectedPath + "/"
                                                                        + AppManager.Systems.ProjectSystem.ProjectData.FileName
-                                                                       + " - " 
+                                                                       + " - "
                                                                        + DateTimeTool.DateTimeToString(DateTime.Now, TimeFormatType.YearMonthDayHourMinuteSecondMillisecond)
                                                                        + ".xlsx";
                 UiControl.ExportLocation = _folderPath;

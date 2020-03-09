@@ -70,15 +70,15 @@ namespace EasyBugManager
             RecordInputBoxControl _recordInputBoxControl = sender as RecordInputBoxControl;
 
             //判断
-            switch ((bool)e.NewValue) 
+            switch ((bool)e.NewValue)
             {
-                case true:     
+                case true:
                     _recordInputBoxControl.PlayEllipsisAnimation();//播放动画
                     _recordInputBoxControl.EllipsisStackPanel.Visibility = Visibility.Visible;//显示省略号
                     _recordInputBoxControl.SendButtonBorder.Visibility = Visibility.Visible;//打开SendButtonBorder
                     break;
 
-                case false:                
+                case false:
                     _recordInputBoxControl.PlayEllipsisAnimation();//停止动画
                     _recordInputBoxControl.EllipsisStackPanel.Visibility = Visibility.Collapsed;//隐藏省略号
                     _recordInputBoxControl.SendButtonBorder.Visibility = Visibility.Collapsed;//关闭SendButtonBorder
@@ -151,7 +151,7 @@ namespace EasyBugManager
             RecordInputBoxControl _recordInputBoxControl = sender as RecordInputBoxControl;
 
             //判断
-            switch ((int)e.NewValue) 
+            switch ((int)e.NewValue)
             {
                 //如果有0个省略号
                 case 0:
@@ -212,7 +212,7 @@ namespace EasyBugManager
             RecordInputBoxControl _recordInputBoxControl = sender as RecordInputBoxControl;
 
             //判断：如果当前的图片个数为0的话
-            if ((int) e.NewValue <= 0)
+            if ((int)e.NewValue <= 0)
             {
                 //隐藏[图片个数]的Grid
                 _recordInputBoxControl.ImageMaxNumberStackPanel.Visibility = Visibility.Collapsed;
@@ -398,7 +398,7 @@ namespace EasyBugManager
                 typeof(bool), //属性的类型
                 typeof(RecordInputBoxControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                     //初始值
+                                               //初始值
                     (bool)false,
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnIsShowSubmitButtonAnimationChanged))
@@ -517,7 +517,7 @@ namespace EasyBugManager
         /// <summary>
         /// 播放省略号的动画
         /// </summary>
-        private void PlayEllipsisAnimation() 
+        private void PlayEllipsisAnimation()
         {
             //先停止动画
             StopEllipsisAnimation();
@@ -551,7 +551,7 @@ namespace EasyBugManager
         /// <summary>
         /// 显示“选择图片”的按钮
         /// </summary>
-        public void ShowChooseImageButton() 
+        public void ShowChooseImageButton()
         {
             //显示按钮
             AnimationTool.PlayGridOpacityAnimation(this.ChooseImageGrid, null, 1, 0.25f);
@@ -563,7 +563,7 @@ namespace EasyBugManager
         public void HideChooseImageButton()
         {
             //如果没有图片在显示，那么就可以关闭掉选择图片的按钮
-            if (this.ImagePaths == null || this.ImagePaths.Count == 0) 
+            if (this.ImagePaths == null || this.ImagePaths.Count == 0)
             {
                 //隐藏按钮
                 AnimationTool.PlayGridOpacityAnimation(this.ChooseImageGrid, null, 0, 0.25f);

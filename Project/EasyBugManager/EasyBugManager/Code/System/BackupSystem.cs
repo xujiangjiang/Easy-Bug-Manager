@@ -46,7 +46,7 @@ namespace EasyBugManager
         /// </summary>
         private string BugBackupFolderPath
         {
-            get { return AppManager.Systems.ProjectSystem.BackupFolderPath+"/Bug"; }
+            get { return AppManager.Systems.ProjectSystem.BackupFolderPath + "/Bug"; }
         }
 
 
@@ -100,8 +100,8 @@ namespace EasyBugManager
                 string _nowDateTimeString = DateTimeTool.DateTimeToString(DateTime.UtcNow, TimeFormatType.YearMonthDayHourMinuteSecondMillisecond);
 
                 //文件的备份路径
-                string _projectFilePath = ProjectBackupFolderPath+"/"
-                                          + _nowDateTimeString+AppManager.Systems.ProjectSystem.ProjectFileSuffix;
+                string _projectFilePath = ProjectBackupFolderPath + "/"
+                                          + _nowDateTimeString + AppManager.Systems.ProjectSystem.ProjectFileSuffix;
 
 
                 /* 进行备份 */
@@ -140,13 +140,13 @@ namespace EasyBugManager
 
                 /*获取【Bug】文件的个数（如果文件超过10个，就删除最早创建的那个文件）*/
                 FileInfo[] _bugBackupFileInfos = _bugBackupDirectoryInfo.GetFiles();
-                if (_bugBackupFileInfos!=null && _bugBackupFileInfos.Length > 10)
+                if (_bugBackupFileInfos != null && _bugBackupFileInfos.Length > 10)
                 {
                     //找到Bug备份文件中，最早创建的那个文件
                     FileInfo _firstFileInfo = FindFirstBackupFile(_bugBackupFileInfos);
 
                     //删除最早的1个文件
-                    if (_firstFileInfo!=null)
+                    if (_firstFileInfo != null)
                     {
                         File.Delete(_firstFileInfo.FullName);
                     }
@@ -177,7 +177,7 @@ namespace EasyBugManager
                 for (int i = 0; i < _bugDatas.Count; i++)
                 {
                     BugBaseData _bugBaseData = BugBaseData.DataToBaseData(_bugDatas[i]);
-                    if (_bugBaseData!=null)
+                    if (_bugBaseData != null)
                     {
                         _bugBaseDatas.Add(_bugBaseData);
                     }
@@ -254,7 +254,7 @@ namespace EasyBugManager
                 for (int i = 0; i < _recordDatas.Count; i++)
                 {
                     RecordBaseData _recordBaseData = RecordBaseData.DataToBaseData(_recordDatas[i]);
-                    if (_recordBaseData!=null)
+                    if (_recordBaseData != null)
                     {
                         _recordBaseDatas.Add(_recordBaseData);
                     }

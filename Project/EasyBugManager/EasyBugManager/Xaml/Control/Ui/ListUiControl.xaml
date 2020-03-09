@@ -11,7 +11,7 @@
              Name="ListUiUserControl"
              
              Loaded="ListUiControl_OnLoaded">
-    
+
     <Grid>
 
         <!--上方右边-->
@@ -997,5 +997,5 @@
         </Canvas>
 
     </Grid>
-    
+
 </UserControl>

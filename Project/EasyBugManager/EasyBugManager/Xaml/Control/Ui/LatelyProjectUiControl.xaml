@@ -1,0 +1,307 @@
+﻿<UserControl x:Class="EasyBugManager.LatelyProjectUiControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyBugManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="520" d:DesignWidth="420"
+             
+             Name="LatelyProjectUiUserControl"
+
+             Loaded="LatelyProjectUiControl_OnLoaded"
+             MouseEnter="LatelyProjectUiControl_OnMouseEnter"
+             MouseLeave="LatelyProjectUiControl_OnMouseLeave">
+
+
+    <Grid>
+
+        <!--内容-->
+        <Canvas Width="368" Height="480">
+
+            <!--背景：灰色-->
+            <Border Name="BackgroudBorder"
+                    Width="368" Height="480"
+                    Background="#434343" CornerRadius="10"
+                    Opacity="1">
+                <Border.Effect>
+                    <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" 
+                                      Opacity="0.25" Color="#FF5B5B5B"></DropShadowEffect>
+                </Border.Effect>
+            </Border>
+
+            <!--图片：气泡-->
+            <Border Width="16" Height="18"
+                    Canvas.Right="-10" Canvas.Top="94"
+                    Background="{DynamicResource LatelyProjectUi.Bubble.ImageBrush}"></Border>
+
+            <!--用于拖动窗口-->
+            <Grid Width="368" Height="120"
+                  Visibility="Visible">
+                <Border Width="368" Height="120" Background="Transparent"
+                        VerticalAlignment="Top"
+                        MouseLeftButtonDown="WindowTitleBorder_MouseLeftButtonDown"></Border>
+            </Grid>
+
+
+            <!--列表：项目-->
+            <ListBox Name="ProjectListBox"
+                     Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                     Style="{StaticResource BaseListBoxStyle}"
+
+                     Canvas.Left="18" Canvas.Top="120"
+                     Height="315" Width="323"
+                         
+                     ItemContainerStyle="{StaticResource BugListItemStyle}"
+                     
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ScrollViewer.CanContentScroll="False">
+
+
+                <!--布局：让列表纵向排列，并且从下到上排列-->
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" VerticalAlignment="Top"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+
+
+                <!--Item：项目-->
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl1"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[0]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[0]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"
+                                                    
+                                                    IsVisibleChanged="LatelyProjectListItemControl1_OnIsVisibleChanged"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl2"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[1]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[1]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl3"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[2]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[2]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl4"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[3]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[3]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl5"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[4]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[4]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl6"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[5]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[5]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl7"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[6]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[6]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl8"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[7]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[7]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl9"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[8]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[8]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+                <local:LatelyProjectListItemControl x:Name="LatelyProjectListItemControl10"
+                                                    Width="306" Height="85"
+                                                    Margin="0,5,0,10"
+                                                    Visibility="Collapsed"
+
+                                                    DataContext="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[9]}"
+                                                    Tag="{Binding ElementName=LatelyProjectUiUserControl,Path=Datas[9]}"
+
+                                                    Title="{Binding Name}"
+                                                    Path="{Binding Path}"
+                                                    Time="{Binding OpenTimeString}"
+                                                    Mode="{Binding ModeString}"
+                                                    
+                                                    ClickBaseButton="LatelyProjectListItemControl_OnClickBaseButton"
+                                                    ClickOpenFolderButton="LatelyProjectListItemControl_OnClickOpenFolderButton"
+                                                    ClickRemoveButton="LatelyProjectListItemControl_OnClickRemoveButton"/>
+
+
+            </ListBox>
+
+            <!--图片：标题-->
+            <Border Width="235" Height="111"
+                    Canvas.Left="14" Canvas.Top="19"
+                    Background="{DynamicResource LatelyProjectUi.Text.Title.ImageBrush}"
+                    IsHitTestVisible="False"/>
+
+            <!--按钮：折叠-->
+            <Grid Name="FoldGrid"
+                  Width="45" Height="40"
+                  Canvas.Right="25" Canvas.Top="16"
+                  Opacity="0">
+
+                <local:ColorButtonControl CornerRadius="5" BorderThickness="2"
+                                          PressAnimationSize="0.95,0.95"
+                                          MouseEnterBackground="Transparent" MouseEnterBorderBrush="#8c636363"
+                                          MouseLeaveBackground="Transparent" MouseLeaveBorderBrush="Transparent"
+                                          
+                                          Click="FoldButtonControl_OnClick"/>
+
+                <Border Width="30" Height="32"
+                        Background="{DynamicResource LatelyProjectUi.FoldButton.ImageBrush}"
+                        IsHitTestVisible="False"/>
+
+            </Grid>
+
+            <!--图片：暂无项目-->
+            <Border Name="EmptyBorder"
+                    Width="77" Height="21" Canvas.Left="140" Canvas.Top="232"
+                    Visibility="Visible"
+                    Background="{DynamicResource LatelyProjectUi.Text.Empty.ImageBrush}"
+                    IsHitTestVisible="False"/>
+
+        </Canvas>
+
+
+
+        <!--灰色-->
+        <Canvas Name="ForegroundCanvas" 
+                Width="368" Height="480"
+                Opacity="0.6"
+                Visibility="Collapsed">
+
+            <!--背景：灰色-->
+            <Border Width="368" Height="480"
+                    Background="Black" CornerRadius="10"/>
+
+            <!--图片：气泡-->
+            <Border Width="16" Height="18"
+                    Canvas.Right="-10" Canvas.Top="94"
+                    Background="{DynamicResource LatelyProjectUi.Foreground.Bubble.ImageBrush}"/>
+
+        </Canvas>
+
+
+
+    </Grid>
+
+
+</UserControl>

@@ -13,7 +13,7 @@ namespace EasyBugManager
     /// <summary>
     /// 设置的数据
     /// </summary>
-    public class SettingsData: INotifyPropertyChanged
+    public class SettingsData : INotifyPropertyChanged
     {
         private LanguageType language;//语言
         private bool sound;//是否有声音？
@@ -22,6 +22,8 @@ namespace EasyBugManager
 
         private int windowWidth;//窗口的宽度
         private int windowHeight;//窗口的高度
+
+        private bool isShowLatelyUi;//是否显示[最近项目]界面？
 
 
 
@@ -106,14 +108,43 @@ namespace EasyBugManager
 
         #region [属性 - 其他]
         /// <summary>
+        /// 是否显示[最近项目]界面？
+        /// </summary>
+        public bool IsShowLatelyUi
+        {
+            get { return isShowLatelyUi; }
+            set
+            {
+                isShowLatelyUi = value;
+                PropertyChange("IsShowLatelyUi");
+                PropertyChange("IsShowLatelyButton");
+            }
+        }
+        #endregion
+
+        #region [属性 - 不保存]
+
+        /// <summary>
         /// 透明度(0到1)
         /// </summary>
         public float Transparent01
         {
-            get { return transparent/100.0f; }
+            get { return transparent / 100.0f; }
             set { transparent = Convert.ToInt32(value * 100); }
         }
+
+
+        /// <summary>
+        /// 是否显示[最近项目]按钮？
+        /// </summary>
+        public bool IsShowLatelyButton
+        {
+            get { return !IsShowLatelyUi; }
+            set { IsShowLatelyUi = !value; }
+        }
         #endregion
+
+
 
         #region [构造方法]
 
@@ -126,6 +157,8 @@ namespace EasyBugManager
 
             windowWidth = 1480;
             windowHeight = 1030;
+
+            isShowLatelyUi = true;
         }
 
         #endregion

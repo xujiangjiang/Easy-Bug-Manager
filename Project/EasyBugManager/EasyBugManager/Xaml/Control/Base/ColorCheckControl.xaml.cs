@@ -530,7 +530,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_oldValue">在点击之前，IsChecked字段的值</param>
         /// <param name="_newValue">在点击之后，IsChecked字段的值</param>
-        private void OnClick(bool _oldValue,bool _newValue)
+        private void OnClick(bool _oldValue, bool _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<bool> args = new RoutedPropertyChangedEventArgs<bool>(_oldValue, _newValue);
@@ -682,7 +682,7 @@ namespace EasyBugManager
 
             //注册ClickEvent
             ClickEvent = System.Windows.EventManager.RegisterRoutedEvent(
-                "Click", RoutingStrategy.Bubble, 
+                "Click", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<bool>), typeof(ColorCheckControl));
 
             //注册IsCheckedChangeEvent

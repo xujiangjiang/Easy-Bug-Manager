@@ -188,7 +188,7 @@ namespace EasyBugManager
             //注册PressAnimationSizeProperty
             PressAnimationSizeProperty = DependencyProperty.Register(
                 "PressAnimationSize", typeof(Point), typeof(NoButtonControl),
-                new FrameworkPropertyMetadata((Point)new Point(0.75,0.75), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
+                new FrameworkPropertyMetadata((Point)new Point(0.75, 0.75), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
 
 
 

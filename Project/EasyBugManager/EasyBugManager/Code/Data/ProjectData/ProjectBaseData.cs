@@ -61,7 +61,7 @@ namespace EasyBugManager
         public static ProjectData BaseDataToData(ProjectBaseData _baseData)
         {
 
-            if (_baseData!=null)
+            if (_baseData != null)
             {
                 ProjectData _data = new ProjectData();
 
@@ -86,8 +86,8 @@ namespace EasyBugManager
         /// <returns>转换后的BaseData对象</returns>
         public static ProjectBaseData DataToBaseData(ProjectData _data)
         {
-            
-            if (_data!=null)
+
+            if (_data != null)
             {
                 ProjectBaseData _baseData = new ProjectBaseData();
 

@@ -276,9 +276,9 @@ namespace EasyBugManager
                             case ChangeType.Delete:
                                 //并且正在显示这个Bug的话
                                 if (AppManager.Uis.BugUi.UiControl.Visibility == Visibility.Visible &&
-                                    AppManager.Datas.OtherData.ShowBugItemData!=null &&
+                                    AppManager.Datas.OtherData.ShowBugItemData != null &&
                                     AppManager.Datas.OtherData.ShowBugItemData.Data.Id == _bugId &&
-                                    _bugId>-1)
+                                    _bugId > -1)
                                 {
                                     //关闭修改Bug的界面
                                     if (AppManager.Uis.ChangeBugUi.UiControl.Visibility == Visibility.Visible)
@@ -322,8 +322,8 @@ namespace EasyBugManager
                     BugData _bugData = AppManager.Systems.BugSystem.GetBugData(_recordData);
 
                     //如果Bug是正在显示的Bug，那么就刷新BugUi的记录
-                    if (AppManager.Datas.OtherData.ShowBugItemData!=null && 
-                        _bugData!=null &&
+                    if (AppManager.Datas.OtherData.ShowBugItemData != null &&
+                        _bugData != null &&
                         AppManager.Datas.OtherData.ShowBugItemData.Data.Id == _bugData.Id)
                     {
                         //刷新记录
@@ -738,7 +738,7 @@ namespace EasyBugManager
         /// <param name="_syncBugIds">需要同步的所有Bug编号</param>
         /// <param name="_changeTypes">改变的类型（key：Bug的编号；value：改变的类型）</param>
         /// <param name="_logs">同步的日志</param>
-        private void SyncBug(List<long> _syncBugIds, out Dictionary<long,ChangeType> _changeTypes, out List<string> _logs)
+        private void SyncBug(List<long> _syncBugIds, out Dictionary<long, ChangeType> _changeTypes, out List<string> _logs)
         {
             //out
             _logs = new List<string>();//所有的日志
@@ -757,7 +757,7 @@ namespace EasyBugManager
                 /* 取到当前的数据 */
                 //取到当前Bug的数据
                 BugData _oldBugData = BugData.Copy(AppManager.Systems.BugSystem.GetBugData(_bugId));
-                if (_oldBugData!=null)
+                if (_oldBugData != null)
                 {
                     _oldBugData.Name = _oldBugData.Name.Copy();
                 }
@@ -792,7 +792,7 @@ namespace EasyBugManager
 
                 //如果是添加一个Bug，或者是修改一个Bug，或者是IsDelete为true的删除Bug
                 if ((_oldBugData != null && _newBugData != null) ||
-                    (_oldBugData == null && _newBugData != null) ) 
+                    (_oldBugData == null && _newBugData != null))
                 {
 
                     //如果新的Bug是完整的
@@ -829,7 +829,7 @@ namespace EasyBugManager
 
 
                 //如果是直接删除文件的删除Bug
-                else if(_oldBugData!=null && _newBugData == null)
+                else if (_oldBugData != null && _newBugData == null)
                 {
                     //判断Bug文件是否存在
                     FileInfo _bugFileInfo = new FileInfo(_bugFilePath);
@@ -926,7 +926,7 @@ namespace EasyBugManager
                 /* 对比2个Record的修改 */
                 //如果是添加一个Record，或者是修改一个Record，或者是IsDelete为true的删除Record
                 if ((_oldRecordData != null && _newRecordData != null) ||
-                    (_oldRecordData == null && _newRecordData != null) )
+                    (_oldRecordData == null && _newRecordData != null))
                 {
                     //如果新的Record是完整的
                     if (RecordData.VerifyIntegrity(_newRecordData))
@@ -986,7 +986,7 @@ namespace EasyBugManager
                         _changeTypes.Add(_recordId, _changeType);
 
                         //把_log加入到_logs中
-                        if (_log!=null && _log!="")
+                        if (_log != null && _log != "")
                         {
                             _logs.Add(_log);
                         }
@@ -1021,7 +1021,7 @@ namespace EasyBugManager
                     //文字：创建 Bug: [XXXXXXXXX]
                     if (_newBugData != null)
                     {
-                        _log=AddString + " " + BugString + ": [" + StringTool.Clamp(_newBugData.Name.Text, 25) + "]";
+                        _log = AddString + " " + BugString + ": [" + StringTool.Clamp(_newBugData.Name.Text, 25) + "]";
                     }
                     else if (_oldBugData != null)
                     {
@@ -1032,11 +1032,11 @@ namespace EasyBugManager
                 //如果是[删除Bug]
                 case ChangeType.Delete:
                     //文字：删除 Bug: [XXXXXXXXX]
-                    if (_newBugData!=null)
+                    if (_newBugData != null)
                     {
                         _log = DeleteString + " " + BugString + ": [" + StringTool.Clamp(_newBugData.Name.Text, 25) + "]";
                     }
-                    else if(_oldBugData !=null)
+                    else if (_oldBugData != null)
                     {
                         _log = DeleteString + " " + BugString + ": [" + StringTool.Clamp(_oldBugData.Name.Text, 25) + "]";
                     }
@@ -1088,11 +1088,11 @@ namespace EasyBugManager
                 //如果是[新建Record]
                 case ChangeType.Add:
                     //文字：添加 聊天记录: [Bug：XXXXXXXXX]
-                    if (_newBugData!=null)
+                    if (_newBugData != null)
                     {
                         _log = AddString + " " + RecordString + ": [Bug：" + StringTool.Clamp(_newBugData.Name.Text, 25) + "]";
                     }
-                    else if(_oldBugData !=null)
+                    else if (_oldBugData != null)
                     {
                         _log = AddString + " " + RecordString + ": [Bug：" + StringTool.Clamp(_oldBugData.Name.Text, 25) + "]";
                     }
@@ -1165,8 +1165,8 @@ namespace EasyBugManager
             /* [新建Bug] ：
                第一种情况：Old为空，New不为空
                第二种情况：Old不为空，New不为空，Old已删除，New未删除*/
-            if ((_oldBugData == null && _newBugData != null && _newBugData.IsDelete != true)||
-                (_oldBugData!=null && _newBugData!=null && _oldBugData.IsDelete == true && _newBugData.IsDelete!=true))
+            if ((_oldBugData == null && _newBugData != null && _newBugData.IsDelete != true) ||
+                (_oldBugData != null && _newBugData != null && _oldBugData.IsDelete == true && _newBugData.IsDelete != true))
             {
                 return ChangeType.Add;
             }
@@ -1211,7 +1211,7 @@ namespace EasyBugManager
             /* [新建Record] ：
                第一种情况：Old为空，New不为空
                第二种情况：Old不为空，New不为空，Old已删除，New未删除*/
-            if ((_oldRecordData == null && _newRecordData != null && _newRecordData.IsDelete != true)||
+            if ((_oldRecordData == null && _newRecordData != null && _newRecordData.IsDelete != true) ||
                 (_oldRecordData != null && _newRecordData != null && _oldRecordData.IsDelete == true && _newRecordData.IsDelete != true))
             {
                 return ChangeType.Add;

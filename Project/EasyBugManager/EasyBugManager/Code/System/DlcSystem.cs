@@ -67,7 +67,7 @@ namespace EasyBugManager
                 case DlcType.None:
                     //取到皮肤
                     ThemeType _themeType = AppManager.Systems.ThemeSystem.Theme;
-                    
+
                     //如果是猫咪皮肤，就把皮肤设置为默认皮肤
                     if (_themeType == ThemeType.Cat_White || _themeType == ThemeType.Cat_Dark)
                     {

@@ -12,7 +12,7 @@ By : XuDaWang
 
 <br/>
 
-![](Image/Logo.png)
+![Image](Image/Logo.png)
 
 <br/>
 
@@ -60,11 +60,11 @@ Github：https://github.com/xujiangjiang/Easy-Bug-Manager
 
 ## 简介
 
-![](Image/40.png)
+![Image](Image/40.png)
 
-![](Image/41.png)
+![Image](Image/41.png)
 
-![](Image/42.png)
+![Image](Image/42.png)
 
 <br/>
 
@@ -150,19 +150,19 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**打开软件后，点击软件中的[创建]按钮。
 
-![](Image/01.png)
+![Image](Image/01.png)
 
 <br/>
 
 **第2步：**输入项目的名字，并且选择你要把项目文件保存到哪个文件夹中。
 
-![](Image\02.png)
+![Image](Image\02.png)
 
 <br/>
 
 **第3步：**点击[确认]按钮，一个项目就创建完毕啦！
 
-![](Image/03.png)
+![Image](Image/03.png)
 
 <br/>
 
@@ -174,7 +174,7 @@ Easy Bug Manager是一款用于管理Bug的工具。
  （如果你想了解更多关于“项目文件”的详细内容，可以查看后面的[项目文件]章节）
 ```
 
-​				![](Image/04.png)
+​				![Image](Image/04.png)
 
 <br/>
 
@@ -192,19 +192,19 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**打开软件后，点击软件中的[打开]按钮。
 
-![](Image/05.png)
+![Image](Image/05.png)
 
 <br/>
 
 **第2步：**然后选择你要打开的项目文件`(.bugs文件)`，然后点击[打开]按钮。
 
-![](Image/06.png)
+![Image](Image/06.png)
 
 <br/>
 
 **第3步：**软件就会自动打开这个项目啦~
 
-![](Image/04.png)
+![Image](Image/04.png)
 
 <br/>
 
@@ -224,25 +224,25 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**点击界面中的[添加]按钮
 
-![](Image/07.png)
+![Image](Image/07.png)
 
 <br/>
 
 **第2步：**输入Bug的名字，以及Bug的优先级。
 
-![](Image/08.png)
+![Image](Image/08.png)
 
 <br/>
 
 **第3步：**点击[确定]按钮
 
-![](Image/09.png)
+![Image](Image/09.png)
 
 <br/>
 
 **第4步：**这样一个Bug就创建成功啦！
 
-![](Image/10.png)
+![Image](Image/10.png)
 
 <br/>
 
@@ -260,19 +260,19 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**点击要删除的Bug
 
-![](Image/11.png)
+![Image](Image/11.png)
 
 <br/>
 
 **第2步：**再点击[删除]按钮
 
-![](Image/12.png)
+![Image](Image/12.png)
 
 <br/>
 
 **第3步：**然后点击[确定删除]按钮，这个Bug就被删除啦！
 
-![](Image/13.png)
+![Image](Image/13.png)
 
 <br/>
 
@@ -292,19 +292,19 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**点击Bug的[进度]按钮
 
-![](Image/14.png)
+![Image](Image/14.png)
 
 <br/>
 
 **第2步：**对这个Bug进行一些修改
 
-![](Image/15.png)
+![Image](Image/15.png)
 
 <br/>
 
 **第3步：**点击[确认]按钮，Bug就修改好啦！
 
-![](Image/16.png)
+![Image](Image/16.png)
 
 <br/>
 
@@ -314,7 +314,7 @@ Easy Bug Manager是一款用于管理Bug的工具。
 如果想了解这2个按钮的作用，可以查看后面的"刷新按钮&跳转按钮"章节。
 ```
 
-![](Image/17.png)
+![Image](Image/17.png)
 
 <br/>
 
@@ -345,25 +345,25 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**点击Bug的[更多]按钮，进入[Bug界面]
 
-![](Image/18.png)
+![Image](Image/18.png)
 
 <br/>
 
 **第2步：**然后可以在输入框里，输入你想告诉Bug的话，或者是记录一些Bug的信息。
 
-![](Image/19.png)
+![Image](Image/19.png)
 
 <br/>
 
 **第3步：**点击[发送]按钮，这样Bug就能收到你想说的话啦！
 
-![](Image/20.png)
+![Image](Image/20.png)
 
 <br/>
 
 **第4步：**然后Bug就会回复你啦！
 
-![](Image/21.png)
+![Image](Image/21.png)
 
 <br/>
 
@@ -411,7 +411,7 @@ Easy Bug Manager是一款用于管理Bug的工具。
 | Backup `(文件夹)` | 存放备份的项目数据和Bug数据 |
 | *.bugs `(文件)`   | 【项目数据】                |
 
-![](Image/22.png)
+![Image](Image/22.png)
 
 <br/>
 
@@ -429,19 +429,19 @@ Easy Bug Manager是一款用于管理Bug的工具。
 
 **第1步：**点击[设置]按钮 ，打开设置界面。
 
-![](Image/43.png)
+![Image](Image/43.png)
 
 <br/>
 
 **第2步：**点击设置界面中的[Tool]按钮，打开小工具。
 
-![](Image/44.png)
+![Image](Image/44.png)
 
 <br/>
 
 **第3步：**点击小工具中的[修复项目]按钮，就可以开始对项目进行修复啦！
 
-![](Image/45.png)
+![Image](Image/45.png)
 
 <br/>
 
@@ -466,19 +466,19 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 **第1步：**点击[设置]按钮，打开设置界面
 
-![](Image/23.png)
+![Image](Image/23.png)
 
 <br/>
 
 **第2步：**点击[导出Excel]按钮
 
-![](Image/24.png)
+![Image](Image/24.png)
 
 <br/>
 
 **第3步：**点击[选择文件夹]按钮。选择要把Excel文件保存到哪个文件夹中。
 
-![](Image/25.png)
+![Image](Image/25.png)
 
 <br/>
 
@@ -486,17 +486,17 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 ​			 这样Excel文件就导出成功啦！
 
-![](Image/26.png)
+![Image](Image/26.png)
 
-![](Image/27.png)
+![Image](Image/27.png)
 
 <br/>
 
 **第5步：**导出后的Excel文件，大概是这样哒！
 
-![](Image/28.png)
+![Image](Image/28.png)
 
-![](Image/29.png)
+![Image](Image/29.png)
 
 <br/>
 
@@ -540,7 +540,7 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 这表明这个Bug，可能不属于这里，但是为了方便操作，因此这个Bug暂时显示在这里 ↓
 ```
 
-![](Image/30.png)
+![Image](Image/30.png)
 
 <br/>
 
@@ -554,7 +554,7 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 （对所有Bug进行重新排序）
 ```
 
-![](Image/31.png)
+![Image](Image/31.png)
 
 <br/>
 
@@ -564,7 +564,7 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 你可以点击[跳转]按钮，跳转到这个Bug所在的页面中。
 
-![](Image/32.png)
+![Image](Image/32.png)
 
 <br/>
 
@@ -645,19 +645,19 @@ Easy Bug Manager软件支持第三方的版本控制软件。
 
 **第1步：**点击[创建项目]按钮，打开创建项目界面。
 
-![](Image/46.png)
+![Image](Image/46.png)
 
 <br/>
 
 **第2步：**点击[高级选项]按钮，打开高级选项面板。
 
-![](Image/47.png)
+![Image](Image/47.png)
 
 <br/>
 
 **第3步：**我们勾选[协同合作模式]选项，这样一来，这个项目就成为了一个支持协同合作模式的项目啦！
 
-![](Image/48.png)
+![Image](Image/48.png)
 
 <br/>
 
@@ -668,7 +668,7 @@ Easy Bug Manager软件支持第三方的版本控制软件。
 （如果你看到软件的左上角有[协同合作模式]按钮，就代表软件开启了协同合作模式。）
 ```
 
-![](Image/49.png)
+![Image](Image/49.png)
 
 <br/>
 
@@ -694,7 +694,7 @@ Easy Bug Manager软件支持第三方的版本控制软件。
 直接退出软件，也可以关闭项目。
 ```
 
-![](Image/50.png)
+![Image](Image/50.png)
 
 <br/>
 
@@ -731,19 +731,19 @@ Easy Bug Manager软件支持第三方的版本控制软件。
 
 **第1步：**点击[设置]按钮 ，打开设置界面。
 
-![](Image/43.png)
+![Image](Image/43.png)
 
 <br/>
 
 **第2步：**点击设置界面中的[Tool]按钮，打开小工具。
 
-![](Image/44.png)
+![Image](Image/44.png)
 
 <br/>
 
 **第3步：**点击小工具中的[转换项目]按钮，就可以开始对项目进行转换啦！
 
-![](Image/51.png)
+![Image](Image/51.png)
 
 <br/>
 
@@ -770,13 +770,13 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 **第1步：**点击[设置]按钮，打开设置界面
 
-![](Image/33.png)
+![Image](Image/33.png)
 
 <br/>
 
 **第2步：**点击你要选择的语言，就可以修改软件的语言啦！
 
-![](Image/34.png)
+![Image](Image/34.png)
 
 <br/>
 
@@ -790,9 +790,9 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 软件自带2个皮肤，白色和黑色皮肤。
 
-![](Image/36.png)
+![Image](Image/36.png)
 
-![](Image/37.png)
+![Image](Image/37.png)
 
 <br/>
 
@@ -802,13 +802,13 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 **第1步：**点击[设置]按钮，打开设置界面
 
-![](Image/33.png)
+![Image](Image/33.png)
 
 <br/>
 
 **第2步：**点击你要选择的皮肤，就可以修改软件的皮肤啦！
 
-![](Image/35.png)
+![Image](Image/35.png)
 
 <br/>
 
@@ -830,9 +830,9 @@ https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 （非常非常非常感谢大家，非常非常感谢QAQ！）
 
-![](Image/38.png)
+![Image](Image/38.png)
 
-![](Image/39.png)
+![Image](Image/39.png)
 
 <br/>
 
@@ -860,7 +860,7 @@ Easy Bug Manager Tool：https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 <br/>
 
-![](Image/Staff.png)
+![Image](Image/Staff.png)
 
 <br/>
 
@@ -884,7 +884,22 @@ Easy Bug Manager Tool：https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 **Litjson：**https://github.com/LitJSON/litjson
 
-> （感谢站酷的免费字体，感谢开源类库Epplus和Litjson。）
+> 感谢站酷的免费字体，感谢开源类库Epplus和Litjson。
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+## 常见问题
+
+1. **是否可以调整窗口的大小？**
+
+> 可以的。
+> 在打开项目之后，鼠标在窗口边缘进行拖拽，就可以调整窗口的大小。
 
 <br/>
 

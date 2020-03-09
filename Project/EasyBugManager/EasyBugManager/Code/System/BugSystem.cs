@@ -171,7 +171,7 @@ namespace EasyBugManager
                                 for (int i = 0; i < _bugBaseDatas.Count; i++)
                                 {
                                     BugData _bug = BugBaseData.BaseDataToData(_bugBaseDatas[i]);
-                                    if (_bug!=null)
+                                    if (_bug != null)
                                     {
                                         _bugs.Add(_bug);
                                     }
@@ -252,7 +252,7 @@ namespace EasyBugManager
                         for (int i = 0; i < _bugDatas.Count; i++)
                         {
                             BugBaseData _bugBaseData = BugBaseData.DataToBaseData(_bugDatas[i]);
-                            if (_bugBaseData!=null)
+                            if (_bugBaseData != null)
                             {
                                 _bugBaseDatas.Add(_bugBaseData);
                             }
@@ -452,7 +452,7 @@ namespace EasyBugManager
             //创建一个Bug
             BugData _bugData = new BugData();
             _bugData.Id = DateTimeTool.DateTimeToLong(DateTime.UtcNow, TimeFormatType.YearMonthDayHourMinuteSecondMillisecond);
-            _bugData.Name = new HighlightText(){Text = _name};
+            _bugData.Name = new HighlightText() { Text = _name };
             _bugData.Progress = ProgressType.Undone;
             _bugData.Priority = _priority;
             _bugData.CreateTime = DateTime.UtcNow;
@@ -482,7 +482,7 @@ namespace EasyBugManager
             AppManager.Uis.ListUi.UiControl.OpenOrCloseListTip(true, true, _bugData);
 
             //保存Bug文件
-            this.SaveBug(AppManager.Datas.ProjectData.ModeType,_bugData.Id);
+            this.SaveBug(AppManager.Datas.ProjectData.ModeType, _bugData.Id);
         }
 
 
@@ -514,7 +514,7 @@ namespace EasyBugManager
                 AppManager.Systems.PageSytem.Refresh();
 
                 //显示ListBug
-                AppManager.Uis.ListUi.UiControl.OpenOrCloseListTip(true,false);
+                AppManager.Uis.ListUi.UiControl.OpenOrCloseListTip(true, false);
 
                 //保存Bug文件
                 this.SaveBug(AppManager.Datas.ProjectData.ModeType, _bugData.Id);
@@ -574,13 +574,13 @@ namespace EasyBugManager
         /// <param name="_oldPriority">旧的优先级</param>
         /// <param name="_newPriority">新的优先级</param>
         public void ChangeBug(BugData _bugData,
-                              string _oldName,string _newName,
-                              ProgressType _oldProgress,ProgressType _newProgress,
-                              PriorityType _oldPriority,PriorityType _newPriority)
+                              string _oldName, string _newName,
+                              ProgressType _oldProgress, ProgressType _newProgress,
+                              PriorityType _oldPriority, PriorityType _newPriority)
         {
 
             /* 判断是否有改变 */
-            if (_oldName==_newName && _oldProgress == _newProgress && _oldPriority == _newPriority)return;
+            if (_oldName == _newName && _oldProgress == _newProgress && _oldPriority == _newPriority) return;
 
 
             /* 如果有改变，就修改数据 */
@@ -656,7 +656,7 @@ namespace EasyBugManager
         /// <returns>记录所在的Bug数据</returns>
         public BugData GetBugData(RecordData _recordData)
         {
-            if (_recordData!=null)
+            if (_recordData != null)
             {
                 //根据记录，获取Bug
                 BugData _bugData = GetBugData(_recordData.BugId);
@@ -681,7 +681,7 @@ namespace EasyBugManager
             int _midUndoneBugTotalNumber = 0;//中优先级并且未完成 的Bug数量
             int _highUndoneBugTotalNumber = 0;//高优先级并且未完成 的Bug数量
 
-            
+
 
             //遍历所有Bug数据，计算数量
             for (int i = 0; i < BugDatas.Count; i++)

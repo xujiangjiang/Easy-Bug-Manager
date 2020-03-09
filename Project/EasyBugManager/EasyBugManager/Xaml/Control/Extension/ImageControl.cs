@@ -76,7 +76,7 @@ namespace EasyBugManager
 
             //如果字符串不正确，或者文件不存在就算了
             if (e.NewValue == null || string.IsNullOrEmpty(e.NewValue.ToString()) ||
-                File.Exists(e.NewValue.ToString())==false)
+                File.Exists(e.NewValue.ToString()) == false)
             {
                 _image.Source = null;
                 return;

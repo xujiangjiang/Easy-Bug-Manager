@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
@@ -165,10 +166,10 @@ namespace EasyBugManager
 
 
                         //赋值数据
-                        if (AppManager.Datas!=null && AppManager.Datas.SettingsData!=null)
+                        if (AppManager.Datas != null && AppManager.Datas.SettingsData != null)
                         {
                             AppManager.Datas.SettingsData.WindowWidth = (int)this.Width;
-                            AppManager.Datas.SettingsData.WindowHeight = (int) this.Height;
+                            AppManager.Datas.SettingsData.WindowHeight = (int)this.Height;
                         }
                         break;
                     }
@@ -222,6 +223,14 @@ namespace EasyBugManager
         {
             AppManager.Uis.MainUi.ClickOpenProjectButton();//调用逻辑
         }
+
+        /// <summary>
+        /// 当点击[最近]按钮时
+        /// </summary>
+        private void MainUiControl_OnClickLatelyButton(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            AppManager.Uis.MainUi.ClickLatelyButton();//调用逻辑
+        }
         #endregion
 
         #region [事件 - 列表界面]
@@ -238,7 +247,7 @@ namespace EasyBugManager
         /// </summary>
         private void ListUiControl_OnShowNumberChange(object sender, RoutedPropertyChangedEventArgs<int> e)
         {
-            AppManager.Uis.ListUi.ShowNumberChange(e.OldValue,e.NewValue);//触发事件
+            AppManager.Uis.ListUi.ShowNumberChange(e.OldValue, e.NewValue);//触发事件
         }
 
         /// <summary>
@@ -490,7 +499,7 @@ namespace EasyBugManager
         /// </summary>
         private void BugUiControl_OnIsShowBugReplyChange(object sender, RoutedPropertyChangedEventArgs<bool> e)
         {
-            AppManager.Uis.BugUi.IsShowBugReplyChange(e.OldValue,e.NewValue);//触发事件
+            AppManager.Uis.BugUi.IsShowBugReplyChange(e.OldValue, e.NewValue);//触发事件
         }
 
         /// <summary>
@@ -516,7 +525,7 @@ namespace EasyBugManager
         /// </summary>
         private void BugUiControl_OnClickRecordListItemImageButton(object sender, RoutedPropertyChangedEventArgs<string> e)
         {
-            AppManager.Uis.BugUi.ClickRecordListItemImageButton(e.NewValue,e.Source as RecordData);//触发事件
+            AppManager.Uis.BugUi.ClickRecordListItemImageButton(e.NewValue, e.Source as RecordData);//触发事件
         }
         #endregion
 
@@ -721,7 +730,7 @@ namespace EasyBugManager
         /// </summary>
         private void CreateBugUiControl_OnPriorityChange(object sender, RoutedPropertyChangedEventArgs<PriorityType> e)
         {
-            AppManager.Uis.CreateBugUi.PriorityChange(e.OldValue,e.NewValue);//触发事件
+            AppManager.Uis.CreateBugUi.PriorityChange(e.OldValue, e.NewValue);//触发事件
         }
 
         /// <summary>
@@ -837,6 +846,24 @@ namespace EasyBugManager
         }
         #endregion
 
+        #region [事件 - 最近项目的Tip界面]
+        /// <summary>
+        /// 当点击[确定]按钮时
+        /// </summary>
+        private void LatelyProjectTipUiControl_OnClickYesButton(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            AppManager.Uis.LatelyProjectTipUi.ClickYesButton();//触发事件
+        }
+
+        /// <summary>
+        /// 当点击[取消]按钮时
+        /// </summary>
+        private void LatelyProjectTipUiControl_OnClickNoButton(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            AppManager.Uis.LatelyProjectTipUi.ClickNoButton();//触发事件
+        }
+        #endregion
+
         #region [事件 - 图片界面]
         /// <summary>
         /// 当点击[关闭]按钮时
@@ -903,7 +930,7 @@ namespace EasyBugManager
         /// </summary>
         private void SyncUiControl_OnSyncStateTypeChange(object sender, RoutedPropertyChangedEventArgs<SyncStateType> e)
         {
-            AppManager.Uis.SyncUi.SyncStateTypeChange((SyncStateType)e.OldValue,(SyncStateType)e.NewValue);//触发事件
+            AppManager.Uis.SyncUi.SyncStateTypeChange((SyncStateType)e.OldValue, (SyncStateType)e.NewValue);//触发事件
         }
 
         /// <summary>
@@ -919,7 +946,7 @@ namespace EasyBugManager
         /// </summary>
         private void SyncUiControl_OnSyncIconAnimationStateTypeChange(object sender, RoutedPropertyChangedEventArgs<AnimationStateType> e)
         {
-            AppManager.Uis.SyncUi.SyncIconAnimationStateTypeChange((AnimationStateType)e.OldValue,(AnimationStateType)e.NewValue);//触发事件
+            AppManager.Uis.SyncUi.SyncIconAnimationStateTypeChange((AnimationStateType)e.OldValue, (AnimationStateType)e.NewValue);//触发事件
         }
 
         /// <summary>
@@ -931,7 +958,64 @@ namespace EasyBugManager
         }
         #endregion
 
+        #region [事件 - 最近的项目界面]
+        /// <summary>
+        /// 当点击[折叠]按钮时
+        /// </summary>
+        private void LatelyProjectUiControl_OnClickFoldButton(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            AppManager.Uis.LatelyProjectUi.ClickFoldButton();//触发事件
+        }
 
 
+
+        /// <summary>
+        /// 当点击[Item]的[Base]按钮时
+        /// </summary>
+        private void LatelyProjectUiControl_OnClickListItemBaseButton(object sender, RoutedPropertyChangedEventArgs<LatelyProjectData> e)
+        {
+            AppManager.Uis.LatelyProjectUi.ClickListItemBaseButton(e.NewValue as LatelyProjectData);//触发事件
+        }
+
+        /// <summary>
+        /// 当点击[Item]的[打开文件夹]按钮时
+        /// </summary>
+        private void LatelyProjectUiControl_OnClickListItemOpenFolderButton(object sender, RoutedPropertyChangedEventArgs<LatelyProjectData> e)
+        {
+            AppManager.Uis.LatelyProjectUi.ClickListItemOpenFolderButton(e.NewValue as LatelyProjectData);//触发事件
+        }
+
+        /// <summary>
+        /// 当点击[Item]的[从列表中移除]按钮时
+        /// </summary>
+        private void LatelyProjectUiControl_OnClickListItemRemoveButton(object sender, RoutedPropertyChangedEventArgs<LatelyProjectData> e)
+        {
+            AppManager.Uis.LatelyProjectUi.ClickListItemRemoveButton(e.NewValue as LatelyProjectData);//触发事件
+        }
+        #endregion
+
+
+
+        #region [私有方法 - 窗口位置]
+        /// <summary>
+        /// 窗口位置居中
+        /// </summary>
+        public void WindowPositionCenter()
+        {
+            /* 获取窗口所在的屏幕 */
+            var _screen = Screen.FromHandle(new WindowInteropHelper(this).Handle);
+
+            /* 获取任务栏的宽度 */
+            //任务栏高度 = 屏幕高度 - 工作区高度
+            double _taskBarHeight = _screen.Bounds.Height - _screen.WorkingArea.Height;//任务栏高度
+            double _taskBarWidth = _screen.Bounds.Width - _screen.WorkingArea.Width;//任务栏宽度
+
+            /* 让窗口到屏幕中央 */
+            //窗口的位置 = (屏幕宽度 - 窗口宽度 - 任务栏宽度)/2
+            this.Left = _screen.Bounds.Left + (_screen.Bounds.Width - this.Width - _taskBarWidth) / 2;
+            this.Top = _screen.Bounds.Top + (_screen.Bounds.Height - this.Height - _taskBarHeight) / 2;
+
+        }
+        #endregion
     }
 }

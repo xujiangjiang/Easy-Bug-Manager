@@ -71,7 +71,7 @@ namespace EasyBugManager
         /// </summary>
         public string ProjectFilePath
         {
-            get { return ProjectFolderPath +"/"+ ProjectData.FileName + ProjectFileSuffix; }
+            get { return ProjectFolderPath + "\\" + ProjectData.FileName + ProjectFileSuffix; }
         }
 
 
@@ -177,7 +177,7 @@ namespace EasyBugManager
 
                 /*判断是否有相同的文件夹*/
                 //判断是否有相同的文件夹(返回值是一个唯一的文件夹【xxxx/文件夹 (1)/】)
-                string _onlyFolderPath = FolderTool.AvoidSameFolder(_chooseFolderPath + "/" +_projectFileName);
+                string _onlyFolderPath = FolderTool.AvoidSameFolder(_chooseFolderPath + "/" + _projectFileName);
                 //取到文件夹的名字（这个文件夹不会和任何文件夹重名）
                 DirectoryInfo _onlyFolderInfo = new DirectoryInfo(_onlyFolderPath);
                 _projectFileName = _onlyFolderInfo.Name;
@@ -196,7 +196,7 @@ namespace EasyBugManager
                 ProjectData = _projectData;
 
                 //工程文件夹的路径
-                ProjectFolderPath = _chooseFolderPath + "/" + _projectFileName;
+                ProjectFolderPath = _chooseFolderPath + "\\" + _projectFileName;
 
 
 
@@ -236,9 +236,9 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_projectFilePath">项目文件夹的路径(就是.bugs文件的路径)(如果为null，就代表使用当前的savePath属性+ProjectName属性)</param>
         /// <returns>是否读取成功？</returns>
-        public bool LoadProject(string _projectFilePath=null)
+        public bool LoadProject(string _projectFilePath = null)
         {
-            
+
             try
             {
                 /* 设置项目路径 */
@@ -289,16 +289,16 @@ namespace EasyBugManager
                 {
                     //把ProjectBaseData对象，转化为ProjectData对象
                     ProjectData _projectData = ProjectBaseData.BaseDataToData(_projectBaseData);
-                    
+
                     //如果取到了数据
-                    if (_projectData!=null)
+                    if (_projectData != null)
                     {
                         //赋值
                         _projectData.FileName = _fileName;
                         this.ProjectData = _projectData;
 
                         //读取排序数据
-                        AppManager.Systems.SortSystem.LoadSort();
+                        AppManager.Systems.SortSystem.Load();
 
 
                         //创建文件夹和文件
@@ -335,7 +335,7 @@ namespace EasyBugManager
         {
             try
             {
-                if (ProjectFolderPath==null || ProjectFolderPath == "")
+                if (ProjectFolderPath == null || ProjectFolderPath == "")
                 {
                     return false;
                 }
@@ -352,7 +352,7 @@ namespace EasyBugManager
                 File.WriteAllText(ProjectFilePath, _projectJsonText, Encoding.Default);
 
                 //保存排序数据
-                AppManager.Systems.SortSystem.SaveSort();
+                AppManager.Systems.SortSystem.Save();
 
 
 

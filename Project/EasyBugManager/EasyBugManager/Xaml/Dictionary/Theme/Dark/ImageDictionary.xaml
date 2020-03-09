@@ -21,7 +21,7 @@
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/MainUi/NoButton-MouseEnter.png"></ImageBrush>
     <ImageBrush x:Key="MainUi.NoButton.MouseLeave.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/MainUi/NoButton-MouseLeave.png"></ImageBrush>
-    
+
     <ImageBrush x:Key="MainUi.MinimizeButton.MouseEnter.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/MainUi/MinimizeButton-MouseEnter.png"></ImageBrush>
     <ImageBrush x:Key="MainUi.MinimizeButton.MouseLeave.ImageBrush"
@@ -145,8 +145,8 @@
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/ListUi/Arrow-UpdateTime-Up.png"></ImageBrush>
 
 
-    
-    
+
+
     <ImageBrush x:Key="ListUi.Item.PriorityIcon.High.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/BugListItem/PriorityIcon-High.png"></ImageBrush>
     <ImageBrush x:Key="ListUi.Item.PriorityIcon.Low.ImageBrush"
@@ -291,13 +291,13 @@
     <ImageBrush x:Key="CreateProjectUi.Browse.MouseLeave.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/CreateProjectUi/Browse-MouseLeave.png"></ImageBrush>
 
-    
-    
+
+
     <!--界面：修改Bug-->
     <ImageBrush x:Key="ChangeBugUi.Line.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/ChangeBugUi/Line.png"></ImageBrush>
 
-    
+
 
     <!--界面：Tip-->
     <ImageBrush x:Key="TipUi.Brackets.Left.ImageBrush"
@@ -337,6 +337,20 @@
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/ImageUi/FileButton-MouseEnter.png"></ImageBrush>
     <ImageBrush x:Key="ImageUi.FileButton.MouseLeave.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/Dark/ImageUi/FileButton-MouseLeave.png"></ImageBrush>
+
+
+
+    <!--界面：最近的项目-->
+    <ImageBrush x:Key="LatelyProjectUi.Bubble.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/Dark/LatelyProjectUi/Bubble.png"></ImageBrush>
+    <ImageBrush x:Key="LatelyProjectUi.Foreground.Bubble.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/LatelyProjectUi/Foreground-Bubble.png"></ImageBrush>
+    <ImageBrush x:Key="LatelyProjectUi.IconFolder.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/LatelyProjectUi/Icon-Folder.png"></ImageBrush>
+    <ImageBrush x:Key="LatelyProjectUi.IconRemove.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/LatelyProjectUi/Icon-Remove.png"></ImageBrush>
+    <ImageBrush x:Key="LatelyProjectUi.FoldButton.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/Dark/LatelyProjectUi/FoldButton.png"></ImageBrush>
 
 
 </ResourceDictionary>

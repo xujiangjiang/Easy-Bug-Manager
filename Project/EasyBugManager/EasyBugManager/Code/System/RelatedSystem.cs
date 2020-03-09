@@ -58,7 +58,7 @@ namespace EasyBugManager
 
                 //重新排序（创建时间，从后到前排序）
                 List<BugData> _sortBugDatas = new List<BugData>();
-                if (_bugDatas!=null)
+                if (_bugDatas != null)
                 {
                     for (int i = 0; i < _bugDatas.Count; i++)
                     {
@@ -66,7 +66,7 @@ namespace EasyBugManager
                         BugData _bugData = _bugDatas[i];
 
                         //如果Bug没有被删除
-                        if (_bugData!=null && _bugData.IsDelete!=true)
+                        if (_bugData != null && _bugData.IsDelete != true)
                         {
                             _sortBugDatas.Add(_bugDatas[i]);
                         }
@@ -97,7 +97,7 @@ namespace EasyBugManager
                         string _newBugName = _sortBugDatas[i].Name.Text.ToLower();//把字符串str中的所有字符转换为小写
 
                         //如果BugName中，存在这个关键字
-                        if (_newBugName.Contains(_newHighlight) == true && _newHighlight!="")
+                        if (_newBugName.Contains(_newHighlight) == true && _newHighlight != "")
                         {
                             HighlightText _relatedBugName = _sortBugDatas[i].Name.Copy();//把这个Name复制一下
                             _relatedBugName.Highlight = _highlight;//更改高亮

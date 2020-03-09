@@ -71,7 +71,7 @@ namespace EasyBugManager
             ProgressBubbleButtonControl _progressBubbleButtonControl = sender as ProgressBubbleButtonControl;
 
             //判断值
-            switch ((ProgressType)e.NewValue) 
+            switch ((ProgressType)e.NewValue)
             {
                 //如果是空
                 case ProgressType.None:
@@ -425,7 +425,7 @@ namespace EasyBugManager
         private void Button_OnPreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             /* 获取"抬起动画"，并播放动画 */
-            AnimationTool.PlayButtonAnimation(false,this.PressAnimationSize,this.BaseButtonScaleTransform);
+            AnimationTool.PlayButtonAnimation(false, this.PressAnimationSize, this.BaseButtonScaleTransform);
         }
 
 

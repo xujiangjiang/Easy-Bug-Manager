@@ -28,7 +28,7 @@ namespace EasyBugManager
         public static void PlayButtonAnimation(bool _isPress, Point _pressAnimationSize, ScaleTransform _buttonScaleTransform)
         {
             /* 音效 */
-            if (_isPress == true) 
+            if (_isPress == true)
             {
                 AppManager.Systems.AudioSystem.PlayAudio(AudioType.ButtonDown);//播放音效
             }
@@ -80,7 +80,7 @@ namespace EasyBugManager
         /// 播放 [TextBox改变时] 的动画
         /// </summary>
         /// <param name="_textBox">文本框</param>
-        public static void PlayTextChangedAnimation(TextBox _textBox) 
+        public static void PlayTextChangedAnimation(TextBox _textBox)
         {
             //获取皮肤的类型
             ThemeType _themeType = AppManager.Datas.SettingsData.Theme;
@@ -102,7 +102,7 @@ namespace EasyBugManager
                 }
 
                 //如果是黑色系的皮肤
-                else if(_themeType == ThemeType.Dark || _themeType == ThemeType.Cat_Dark)
+                else if (_themeType == ThemeType.Dark || _themeType == ThemeType.Cat_Dark)
                 {
                     //把TextBox的背景设置为黑色
                     _textBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
@@ -120,7 +120,7 @@ namespace EasyBugManager
         /// <param name="_to">结束值</param>
         /// <param name="_durationSeconds">间隔市场(单位：秒)</param>
         /// <param name="_completed">完成时，要触发的事件</param>
-        public static void PlayGridOpacityAnimation(Grid _grid, double? _from, double? _to, float _durationSeconds, EventHandler _completed=null)
+        public static void PlayGridOpacityAnimation(Grid _grid, double? _from, double? _to, float _durationSeconds, EventHandler _completed = null)
         {
             /* 动画 */
             DoubleAnimation _animation = new DoubleAnimation();
@@ -129,7 +129,7 @@ namespace EasyBugManager
             _animation.From = _from;
             _animation.To = _to;
             _animation.Duration = TimeSpan.FromSeconds(_durationSeconds);
-            if (_completed!=null)
+            if (_completed != null)
             {
                 _animation.Completed += _completed;
             }
@@ -138,7 +138,7 @@ namespace EasyBugManager
 
 
             //播放动画
-            _grid.BeginAnimation(Grid.OpacityProperty, _animation,HandoffBehavior.SnapshotAndReplace);
+            _grid.BeginAnimation(Grid.OpacityProperty, _animation, HandoffBehavior.SnapshotAndReplace);
         }
     }
 }

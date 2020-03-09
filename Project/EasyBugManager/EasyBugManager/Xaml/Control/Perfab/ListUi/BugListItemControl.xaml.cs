@@ -353,7 +353,7 @@ namespace EasyBugManager
             BugListItemControl _bugListItemControl = sender as BugListItemControl;
 
             //判断：如果为-1，或者小于等于0，就代表不跳转（不显示跳转提示）
-            if ((int)e.NewValue <= 0) 
+            if ((int)e.NewValue <= 0)
             {
                 //关闭提示面板
                 _bugListItemControl.TipStackPanel.Visibility = Visibility.Collapsed;
@@ -1163,7 +1163,7 @@ namespace EasyBugManager
         /// </summary>
         private void BugListItemControl_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if ((this.DataContext as BugItemData) ==null)
+            if ((this.DataContext as BugItemData) == null)
             {
                 //关闭此控件
                 this.Visibility = Visibility.Collapsed;
@@ -1177,8 +1177,6 @@ namespace EasyBugManager
             //不选中此控件
             this.IsChecked = false;
         }
-
-
         #endregion
 
 

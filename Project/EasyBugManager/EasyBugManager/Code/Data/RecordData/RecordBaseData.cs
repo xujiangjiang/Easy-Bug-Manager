@@ -90,7 +90,7 @@ namespace EasyBugManager
         /// <returns>转换后的Data对象</returns>
         public static RecordData BaseDataToData(RecordBaseData _baseData)
         {
-            if (_baseData !=null)
+            if (_baseData != null)
             {
                 RecordData _data = new RecordData();
 
@@ -120,7 +120,7 @@ namespace EasyBugManager
         /// <returns>转换后的BaseData对象</returns>
         public static RecordBaseData DataToBaseData(RecordData _data)
         {
-            if (_data!=null)
+            if (_data != null)
             {
                 RecordBaseData _baseData = new RecordBaseData();
 

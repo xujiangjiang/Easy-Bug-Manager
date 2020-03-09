@@ -46,9 +46,9 @@ namespace EasyBugManager
             /* 如果填写了BugName，就修改Bug */
             BugData _bugData = UiControl.BugData;
             AppManager.Systems.BugSystem.ChangeBug(_bugData,
-                                                   _bugData.Name.Text,UiControl.BugName,
-                                                   _bugData.Progress,UiControl.ProgressType,
-                                                   _bugData.Priority,UiControl.PriorityType);
+                                                   _bugData.Name.Text, UiControl.BugName,
+                                                   _bugData.Progress, UiControl.ProgressType,
+                                                   _bugData.Priority, UiControl.PriorityType);
 
             /* 关闭此界面，关闭MainUi，打开ListUi */
             this.OpenOrClose(false);

@@ -138,7 +138,7 @@ namespace EasyBugManager
             SyncUiControl _syncUiControl = sender as SyncUiControl;
 
             //触发事件
-            _syncUiControl.OnIsShowSyncLogChange((bool)e.OldValue,(bool)e.NewValue);
+            _syncUiControl.OnIsShowSyncLogChange((bool)e.OldValue, (bool)e.NewValue);
         }
         #endregion
 
@@ -624,7 +624,7 @@ namespace EasyBugManager
         /// <summary>
         /// 这个方法，用于触发 SyncStateTypeChange 路由事件
         /// </summary>
-        private void OnSyncStateTypeChange(SyncStateType _oldValue,SyncStateType _newValue)
+        private void OnSyncStateTypeChange(SyncStateType _oldValue, SyncStateType _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<SyncStateType> args = new RoutedPropertyChangedEventArgs<SyncStateType>(_oldValue, _newValue);

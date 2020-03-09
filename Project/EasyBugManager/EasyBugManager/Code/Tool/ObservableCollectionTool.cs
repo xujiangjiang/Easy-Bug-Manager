@@ -27,7 +27,7 @@ namespace EasyBugManager
             List<T> _list = new List<T>();
 
             //遍历ObservableCollection集合
-            if (_observableCollection!=null)
+            if (_observableCollection != null)
             {
                 for (int i = 0; i < _observableCollection.Count; i++)
                 {

@@ -204,7 +204,7 @@ namespace EasyBugManager
         /// <param name="_isOpen">是否打开？</param>
         public void OpenOrClose(bool _isOpen)
         {
-            if (AppManager.MainWindow == null || this.UiControl == null)return;
+            if (AppManager.MainWindow == null || this.UiControl == null) return;
 
 
             //显示
@@ -214,7 +214,7 @@ namespace EasyBugManager
                 case true:
                     //打开界面
                     this.UiControl.Visibility = Visibility.Visible;
-                    
+
                     //修改[Bug界面]的[返回按钮]的位置
                     Canvas.SetTop(AppManager.Uis.BugUi.UiControl.BackGrid, 70);
                     break;

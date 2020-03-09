@@ -103,7 +103,7 @@ namespace EasyBugManager
                 {
                     for (int i = 0; i < _sortBugDatas.Count; i++)
                     {
-                        if (_sortBugDatas[i]!=null)
+                        if (_sortBugDatas[i] != null)
                         {
                             //让文字不高亮
                             _sortBugDatas[i].Name.Highlight = "";

@@ -11,7 +11,7 @@
 
 
     <StackPanel Orientation="{Binding ElementName=ImageCheckGroupUserControl,Path=Orientation}">
-        
+
         <!--第1个Check-->
         <local:ImageCheckControl x:Name="ImageCheckControl1"
                                  Visibility="Collapsed"
@@ -55,5 +55,5 @@
                                  Click="ImageCheckControl3_OnClick"/>
 
     </StackPanel>
-    
+
 </UserControl>

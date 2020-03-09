@@ -51,7 +51,7 @@ namespace EasyBugManager
                 //获取和设置当前目录（即该进程从中启动的目录）的完全限定路径。
                 //返回值是：X:\xxx\xxx (.exe文件所在的目录)
                 string _appPath = System.Environment.CurrentDirectory;
-                
+
                 //排序文件夹 [.exe文件所在的目录/Data/Sort]
                 return _appPath + "/Data/Sort";
             }
@@ -76,16 +76,18 @@ namespace EasyBugManager
         /// <summary>
         /// 保存[排序方式]
         /// </summary>
-        public void SaveSort()
+        public void Save()
         {
             try
             {
-                if (SortData==null)return;
+                if (SortData == null) return;
+                if (ProjectData.VerifyIntegrity(AppManager.Systems.ProjectSystem.ProjectData) == false)return;
+
 
 
 
                 /* 如果文件夹不存在，就创建文件夹 */
-                CreateSortFolder();
+                CreateFolder();
 
 
 
@@ -97,7 +99,7 @@ namespace EasyBugManager
                 string _sortJsonText = JsonMapper.ToJson(_sortBaseData);
 
                 //Sort文件的路径（文件夹+文件名+后缀）
-                string _sortFilePath = SortFolderPath +"/Sort - "+ AppManager.Systems.ProjectSystem.ProjectData.Id + AppManager.Systems.ProjectSystem.OtherFileSuffix;
+                string _sortFilePath = SortFolderPath + "/Sort - " + AppManager.Systems.ProjectSystem.ProjectData.Id + AppManager.Systems.ProjectSystem.OtherFileSuffix;
 
                 //把json文件保存到[Sort - ProjectId.json]文件里
                 File.WriteAllText(_sortFilePath, _sortJsonText, Encoding.Default);
@@ -111,7 +113,7 @@ namespace EasyBugManager
         /// <summary>
         /// 读取[排序方式]
         /// </summary>
-        public void LoadSort()
+        public void Load()
         {
             try
             {
@@ -142,7 +144,7 @@ namespace EasyBugManager
                     SortData _sortData = SortBaseData.BaseDataToData(_sortBaseData);
 
                     //然后，赋值
-                    if (_sortData!=null)
+                    if (_sortData != null)
                     {
                         SortData = _sortData;
                     }
@@ -174,8 +176,8 @@ namespace EasyBugManager
 
         #endregion
 
-        
-        
+
+
         #region [私有方法 - 排序]
 
         /// <summary>
@@ -194,11 +196,11 @@ namespace EasyBugManager
 
             /* 把ObservableCollection集合变为List集合 */
             List<BugData> _oldBugDatas = new List<BugData>();
-            if (_bugDatas!=null)
+            if (_bugDatas != null)
             {
                 for (int i = 0; i < _bugDatas.Count; i++)
                 {
-                    if (_bugDatas[i]!=null && _bugDatas[i].IsDelete != true)//判断下，如果这个Bug没有被删除，就添加到列表中
+                    if (_bugDatas[i] != null && _bugDatas[i].IsDelete != true)//判断下，如果这个Bug没有被删除，就添加到列表中
                     {
                         _oldBugDatas.Add(_bugDatas[i]);
                     }
@@ -283,14 +285,14 @@ namespace EasyBugManager
         /// <summary>
         /// 创建[排序]文件夹
         /// </summary>
-        private void CreateSortFolder()
+        private void CreateFolder()
         {
             //获取和设置当前目录（即该进程从中启动的目录）的完全限定路径。
             //返回值是：X:\xxx\xxx (.exe文件所在的目录)
             string _appPath = System.Environment.CurrentDirectory;
 
             //如果.exe/Data文件夹不存在
-            DirectoryInfo _dataDirectoryInfo = new DirectoryInfo(_appPath+"/Data");
+            DirectoryInfo _dataDirectoryInfo = new DirectoryInfo(_appPath + "/Data");
             if (_dataDirectoryInfo.Exists == false)
             {
                 //就创建文件夹

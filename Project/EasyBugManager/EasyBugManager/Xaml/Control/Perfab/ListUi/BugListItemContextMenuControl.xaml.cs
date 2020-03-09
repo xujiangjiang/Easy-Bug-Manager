@@ -70,13 +70,13 @@ namespace EasyBugManager
         /// <param name="e">依赖项属性改变事件 的参数（里面有这个属性的新的值，和旧的值）</param>
         private static void OnProgressChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            if ((ProgressType) e.OldValue != (ProgressType) e.NewValue)
+            if ((ProgressType)e.OldValue != (ProgressType)e.NewValue)
             {
                 //获取控件
                 BugListItemContextMenuControl _bugListItemContextMenuControl = sender as BugListItemContextMenuControl;
 
                 //判断：修改CheckGroup
-                switch ((ProgressType) e.NewValue)
+                switch ((ProgressType)e.NewValue)
                 {
                     case ProgressType.Undone:
                         _bugListItemContextMenuControl.ProgressCheckGroup.CheckedIndex = 0;
@@ -92,7 +92,7 @@ namespace EasyBugManager
                 }
 
                 //触发事件
-                _bugListItemContextMenuControl.OnProgressTypeChange((ProgressType) e.OldValue, (ProgressType) e.NewValue);
+                _bugListItemContextMenuControl.OnProgressTypeChange((ProgressType)e.OldValue, (ProgressType)e.NewValue);
             }
         }
 
@@ -254,7 +254,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_oldValue"></param>
         /// <param name="_newValue">当前被选中的[进度Type]</param>
-        private void OnProgressTypeChange(ProgressType _oldValue,ProgressType _newValue)
+        private void OnProgressTypeChange(ProgressType _oldValue, ProgressType _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<ProgressType> args = new RoutedPropertyChangedEventArgs<ProgressType>(_oldValue, _newValue);
@@ -403,7 +403,7 @@ namespace EasyBugManager
                 typeof(ProgressType), //属性的类型
                 typeof(BugListItemContextMenuControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (ProgressType)ProgressType.None,
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnProgressChanged))
@@ -493,7 +493,7 @@ namespace EasyBugManager
             this.isMouseEnterProgressButton = false;
 
             //隐藏Panel
-            if (this.isMouseEnterProgressButton==false && this.isMouseEnterProgressPanel ==false) 
+            if (this.isMouseEnterProgressButton == false && this.isMouseEnterProgressPanel == false)
             {
                 this.ProgressPanel.IsOpen = false;
             }
@@ -506,7 +506,8 @@ namespace EasyBugManager
             this.isMouseEnterProgressPanel = true;
 
             //显示Panel
-            if (this.ProgressPanel.IsOpen!=true) {
+            if (this.ProgressPanel.IsOpen != true)
+            {
                 this.ProgressPanel.IsOpen = true;
             }
         }

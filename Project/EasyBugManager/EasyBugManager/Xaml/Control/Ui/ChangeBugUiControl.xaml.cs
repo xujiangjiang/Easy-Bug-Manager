@@ -711,30 +711,30 @@ namespace EasyBugManager
         /// 打开或者关闭 [相关Bug]的面板
         /// </summary>
         /// <param name="_isOpen">是否打开？</param>
-        public void OpenOrCloseRelatedBugsGrid(bool _isOpen) 
+        public void OpenOrCloseRelatedBugsGrid(bool _isOpen)
         {
             //如果是打开
-            if(_isOpen == true) 
+            if (_isOpen == true)
             {
                 ObservableCollection<HighlightText> _relatedBugs = this.RelatedBugsListBox.ItemsSource as ObservableCollection<HighlightText>;
 
                 //如果没有[相关的Bug]，就关闭面板
-                if (_relatedBugs==null || _relatedBugs.Count == 0) 
+                if (_relatedBugs == null || _relatedBugs.Count == 0)
                 {
                     //隐藏[相关Bug]的面板
                     this.RelatedBugsGrid.Visibility = Visibility.Collapsed;
                 }
 
                 //如果有[相关的Bug]，就打开面板
-                else 
+                else
                 {
                     //显示[相关Bug]的面板
-                    this.RelatedBugsGrid.Visibility = Visibility.Visible;                   
+                    this.RelatedBugsGrid.Visibility = Visibility.Visible;
                 }
             }
 
             //如果是关闭
-            else 
+            else
             {
                 //隐藏[相关Bug]的面板
                 this.RelatedBugsGrid.Visibility = Visibility.Collapsed;

@@ -9,7 +9,7 @@
              d:DesignHeight="62" d:DesignWidth="73"
              
              Name="MinimizeButtonUserControl">
-        
+
     <Grid>
         <!--背景-->
         <Button Name="BaseButton"

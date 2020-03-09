@@ -13,8 +13,9 @@
 
     <Grid>
 
+
         <!--内容-->
-        <Canvas Name="MainUiGrid" Width="845" Height="526" Opacity="1">
+        <Canvas Name="MainUiGrid" Width="845" Height="526">
 
             <!--窗口背景-->
             <Border Name="BackgroundBorder"
@@ -103,6 +104,17 @@
                                             MouseLeaveImage="{DynamicResource MainUi.Text.OpenButton.MouseLeave.ImageBrush}"
                                             Click="OpenProjectButtonControl_OnClick"/>
 
+            <!--按钮：打开项目-->
+            <local:LatelyButtonControl x:Name="LatelyButtonControl"
+                                       Width="104" Height="79" Canvas.Left="326" Canvas.Top="305"
+                                       PressAnimationSize="0.9,0.9"
+                                       MouseEnterImage="{DynamicResource LatelyProjectUi.Text.LatelyButton.MouseEnter.ImageBrush}"
+                                       MouseLeaveImage="{DynamicResource LatelyProjectUi.Text.LatelyButton.MouseLeave.ImageBrush}"
+                                       
+                                       Visibility="{Binding SettingsData.IsShowLatelyButton,Converter={StaticResource BoolToVisibilityConverter}}"
+                                       
+                                       Click="LatelyButtonControl_OnClick"/>
+
         </Canvas>
 
 
@@ -112,7 +124,7 @@
                 Visibility="Collapsed">
 
             <!--窗口背景-->
-            <Border Background="Black" CornerRadius="15" Opacity="{Binding SettingsData.Transparent01}"
+            <Border Background="Black" CornerRadius="15"
                     Width="674" Height="463" Canvas.Left="44" Canvas.Top="63"/>
 
 

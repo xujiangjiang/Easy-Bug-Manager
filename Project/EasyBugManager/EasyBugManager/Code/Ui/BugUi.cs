@@ -84,7 +84,7 @@ namespace EasyBugManager
         {
             /* 如果输入框的文字为空，就返回 */
             if ((this.UiControl.InputBoxText == null || this.UiControl.InputBoxText == "")
-                && (this.UiControl.InputBoxImagePaths == null || this.UiControl.InputBoxImagePaths.Count <= 0)) 
+                && (this.UiControl.InputBoxImagePaths == null || this.UiControl.InputBoxImagePaths.Count <= 0))
                 return;
 
             //修改标识符
@@ -111,7 +111,7 @@ namespace EasyBugManager
 
             //修改Bug的更新次数
             AppManager.Systems.BugSystem.SetUpdateNumber(_bugData);
-            AppManager.Systems.BugSystem.SaveBug(AppManager.Systems.CollaborationSystem.ModeType,_bugData.Id);
+            AppManager.Systems.BugSystem.SaveBug(AppManager.Systems.CollaborationSystem.ModeType, _bugData.Id);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace EasyBugManager
         public void ClickChooseImageButton()
         {
             /* 如果InputBox中的图片数，已经有了4张，那么就返回 */
-            if (this.UiControl.InputBoxImagePaths.Count>=4)return;
+            if (this.UiControl.InputBoxImagePaths.Count >= 4) return;
 
 
             /* OpenFileDialog类，用于打开文件对话框 */
@@ -191,11 +191,11 @@ namespace EasyBugManager
             if (_source != null)
             {
                 //如果[还要提示]
-                if (AppManager.Datas.OtherData.IsNotAgainShowDeleteRecordTip == false)
+                if (AppManager.Datas.AppData.IsNotAgainShowDeleteRecordTip == false)
                 {
                     //显示删除Bug界面
                     AppManager.Uis.DeleteRecordTipUi.UiControl.Data = _source;
-                    AppManager.Uis.DeleteRecordTipUi.UiControl.Text = StringTool.Clamp(_source.Content,25);
+                    AppManager.Uis.DeleteRecordTipUi.UiControl.Text = StringTool.Clamp(_source.Content, 25);
                     AppManager.Uis.DeleteRecordTipUi.OpenOrClose(true);
                 }
 
@@ -229,7 +229,7 @@ namespace EasyBugManager
         /// <param name="_newValue">新的值</param>
         public void IsShowBugReplyChange(bool _oldValue, bool _newValue)
         {
-            if (AppManager.Datas.OtherData.ShowBugItemData!=null)
+            if (AppManager.Datas.OtherData.ShowBugItemData != null)
             {
                 //获取当前Bug
                 BugData _bugData = AppManager.Datas.OtherData.ShowBugItemData.Data;

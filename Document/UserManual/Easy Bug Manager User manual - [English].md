@@ -14,7 +14,7 @@ Translation: Google Translate  (Chinese-> English)
 
 <br/>
 
-![](Image/Logo.png)
+![Image](Image/Logo.png)
 
 <br/>
 
@@ -62,11 +62,11 @@ Github : https://github.com/xujiangjiang/Easy-Bug-Manager
 
 ## Introduction
 
-![](Image/40.png)
+![Image](Image/40.png)
 
-![](Image/41.png)
+![Image](Image/41.png)
 
-![](Image/42.png)
+![Image](Image/42.png)
 
 <br/>
 
@@ -151,19 +151,19 @@ How can I create a project file  `(.bugs file)` ?
 
 **Step 1 : **After opening the software, click the [Create] button.
 
-![](Image/01.png)
+![Image](Image/01.png)
 
 <br/>
 
 **Step 2 : **Enter a name for the project and choose the folder where you want to save the project file.
 
-![](Image\02.png)
+![Image](Image\02.png)
 
 <br/>
 
 **Step 3 :  **Click the [OK] button and a project is created!
 
-![](Image/03.png)
+![Image](Image/03.png)
 
 <br/>
 
@@ -175,7 +175,7 @@ How can I create a project file  `(.bugs file)` ?
  (If you want to know more about the "Project File", you can check the [Project File] section later)
 ```
 
-​		![](Image/04.png)
+​		![Image](Image/04.png)
 
 <br/>
 
@@ -193,19 +193,19 @@ If you already have a project file, how can you open this project file?
 
 **Step 1 : ** After opening the software, click the [Open] button.
 
-![](Image/05.png)
+![Image](Image/05.png)
 
 <br/>
 
 **Step 2 : ** Then select the project file `(.bugs file)` you want to open, and then click the [Open] button.
 
-![](Image/06.png)
+![Image](Image/06.png)
 
 <br/>
 
 **Step 3 : ** This way, the software will open this project ~
 
-![](Image/04.png)
+![Image](Image/04.png)
 
 <br/>
 
@@ -225,25 +225,25 @@ So how can we create a bug  `(record a bug)`  in the project?
 
 **Step 1 : ** Click the [Add] button in the interface.
 
-![](Image/07.png)
+![Image](Image/07.png)
 
 <br/>
 
 **Step 2 : ** Enter the name and the priority of the bug.
 
-![](Image/08.png)
+![Image](Image/08.png)
 
 <br/>
 
 **Step 3 : ** Click the [OK] button.
 
-![](Image/09.png)
+![Image](Image/09.png)
 
 <br/>
 
 **Step 4 : ** This way, a bug is created!
 
-![](Image/10.png)
+![Image](Image/10.png)
 
 <br/>
 
@@ -261,19 +261,19 @@ How can we delete a bug?
 
 **Step 1 : ** Click on the bug you want to delete
 
-![](Image/11.png)
+![Image](Image/11.png)
 
 <br/>
 
 **Step 2 : ** Click the [Delete] button
 
-![](Image/12.png)
+![Image](Image/12.png)
 
 <br/>
 
 **Step 3 : ** Then click [OK to delete] button, this bug will be deleted!
 
-![](Image/13.png)
+![Image](Image/13.png)
 
 <br/>
 
@@ -293,19 +293,19 @@ You can change the title, progress, and priority of a bug at any time.
 
 **Step 1 : ** Click the [Progress] button of the bug
 
-![](Image/14.png)
+![Image](Image/14.png)
 
 <br/>
 
 **Step 2 : ** Make some changes to this bug
 
-![](Image/15.png)
+![Image](Image/15.png)
 
 <br/>
 
 **Step 3 : ** Click the [OK] button and the bug will be changed!
 
-![](Image/16.png)
+![Image](Image/16.png)
 
 <br/>
 
@@ -315,7 +315,7 @@ When the progress and priority of a bug is changed, two buttons will appear behi
 If you want to know the function of these two buttons, you can check the "Refresh Button & Turn Button" chapter.
 ```
 
-![](Image/17.png)
+![Image](Image/17.png)
 
 <br/>
 
@@ -346,25 +346,25 @@ See the "Networking" chapter for details.
 
 **Step 1 : ** Click the [More] button of the bug to enter the [Bug interface]
 
-![](Image/18.png)
+![Image](Image/18.png)
 
 <br/>
 
 **Step 2 : ** Then in the input box, enter what you want to tell the bug, or record some bug information.
 
-![](Image/19.png)
+![Image](Image/19.png)
 
 <br/>
 
 **Step 3 : ** Click the [Send] button so that the bug can receive what you want to say!
 
-![](Image/20.png)
+![Image](Image/20.png)
 
 <br/>
 
 **Step 4 : ** Then the bug will reply you!
 
-![](Image/21.png)
+![Image](Image/21.png)
 
 <br/>
 
@@ -412,7 +412,7 @@ In this [project folder], there are these things:
 | Backup `(folder)` | [Backup data]                   |
 | *.bugs `(File)`   | [Project data]                  |
 
-![](Image/22.png)
+![Image](Image/22.png)
 
 <br/>
 
@@ -432,19 +432,19 @@ Note: The repair may not be successful. Couldn't repair picture.
 
 **Step 1 : ** Click the [Settings] button to open the setting interface.
 
-![](Image/43.png)
+![Image](Image/43.png)
 
 <br/>
 
 **Step 2 : ** Click the [Tool] button in the setting interface to open the Tool.
 
-![](Image/44.png)
+![Image](Image/44.png)
 
 <br/>
 
 **Step 3: ** Click the [Repair Project] button in the Tool to start repairing the project!
 
-![](Image/45.png)
+![Image](Image/45.png)
 
 <br/>
 
@@ -469,19 +469,19 @@ You can export a project as an Excel file `(.xlsx file) `.
 
 **Step 1 : ** Click [Settings] button to open the setting interface
 
-![](Image/23.png)
+![Image](Image/23.png)
 
 <br/>
 
 **Step 2 : ** Click the [Export as Excel] button
 
-![](Image/24.png)
+![Image](Image/24.png)
 
 <br/>
 
 **Step 3 : ** Click the [Select Folder] button. Select the folder where you want to save the Excel file.
 
-![](Image/25.png)
+![Image](Image/25.png)
 
 <br/>
 
@@ -489,17 +489,17 @@ You can export a project as an Excel file `(.xlsx file) `.
 
 ​			    The Excel file is successfully exported!
 
-![](Image/26.png)
+![Image](Image/26.png)
 
-![](Image/27.png)
+![Image](Image/27.png)
 
 <br/>
 
 **Step 5 : ** The exported Excel file is probably like this!
 
-![](Image/28.png)
+![Image](Image/28.png)
 
-![](Image/29.png)
+![Image](Image/29.png)
 
 <br/>
 
@@ -543,7 +543,7 @@ This bug will be temporarily in the state of the following picture:
 This picture shows that this bug may not belong here, but for convenience, this bug is temporarily displayed here ↓
 ```
 
-![](Image/30.png)
+![Image](Image/30.png)
 
 <br/>
 
@@ -557,7 +557,7 @@ You can click the [Refresh] button to refresh the current page.
 (All bugs will be reordered)
 ```
 
-![](Image/31.png)
+![Image](Image/31.png)
 
 <br/>
 
@@ -567,7 +567,7 @@ You can click the [Refresh] button to refresh the current page.
 
 You can click the [Turn] button to turn to the page where this bug is located.
 
-![](Image/32.png)
+![Image](Image/32.png)
 
 <br/>
 
@@ -674,19 +674,19 @@ Collaborative Mode is currently in beta test, there may be some defects.Hope you
 
 **Step 1 : ** Click the [Create Project] button to open the Create Project interface.
 
-![](Image/46.png)
+![Image](Image/46.png)
 
 <br/>
 
 **Step 2 : ** Click the [Advanced Options] button to open the Advanced Options Panel.
 
-![](Image/47.png)
+![Image](Image/47.png)
 
 <br/>
 
 **Step 3 : ** We check the [Collaborative Mode] option. In this way, this project has become a project that supports Collaborative Mode!
 
-![](Image/48.png)
+![Image](Image/48.png)
 
 <br/>
 
@@ -697,7 +697,7 @@ Collaborative Mode is currently in beta test, there may be some defects.Hope you
 (If you see the [Collaborative Mode] button in the upper left corner of the software, it means that the software has enabled the Collaborative Mode.)
 ```
 
-![](Image/49.png)
+![Image](Image/49.png)
 
 <br/>
 
@@ -723,7 +723,7 @@ When you close a project, the Collaborative Mode automatically closes.
 You can also close the project by exiting the software directly.
 ```
 
-![](Image/50.png)
+![Image](Image/50.png)
 
 <br/>
 
@@ -779,19 +779,19 @@ You can use the "Convert Project" tool provided by us to convert the project.
 
 **Step 1 : ** Click the [Settings] button to open the setting interface.
 
-![](Image/43.png)
+![Image](Image/43.png)
 
 <br/>
 
 **Step 2 : ** Click the [Tool] button in the setting interface to open the Tool.
 
-![](Image/44.png)
+![Image](Image/44.png)
 
 <br/>
 
 **Step 3 : ** Click the [Convert Project] button in the Tool to start converting projects!
 
-![](Image/51.png)
+![Image](Image/51.png)
 
 <br/>
 
@@ -818,13 +818,13 @@ How do I change the language?
 
 **Step 1 : ** Click [Settings] button to open the setting interface
 
-![](Image/33.png)
+![Image](Image/33.png)
 
 <br/>
 
 **Step 2 : ** Click on the language you want to choose, you can change the language of the software!
 
-![](Image/34.png)
+![Image](Image/34.png)
 
 <br/>
 
@@ -838,9 +838,9 @@ How do I change the language?
 
 The software comes with 2 themes, light theme and dark theme.
 
-![](Image/36.png)
+![Image](Image/36.png)
 
-![](Image/37.png)
+![Image](Image/37.png)
 
 <br/>
 
@@ -850,13 +850,13 @@ The software comes with 2 themes, light theme and dark theme.
 
 **Step 1 : ** Click [Settings] button to open the setting interface
 
-![](Image/33.png)
+![Image](Image/33.png)
 
 <br/>
 
 **Step 2 : ** Click the theme you want to choose, you can change the theme of the software!
 
-![](Image/35.png)
+![Image](Image/35.png)
 
 <br/>
 
@@ -878,9 +878,9 @@ You can buy it on the Steam Store : https://store.steampowered.com/app/1217970/E
 
 (Thank you very very very much, thank you very very much!)
 
-![](Image/38.png)
+![Image](Image/38.png)
 
-![](Image/39.png)
+![Image](Image/39.png)
 
 <br/>
 
@@ -908,7 +908,7 @@ Easy Bug Manager Tool：https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 
 <br/>
 
-![](Image/Staff.png)
+![Image](Image/Staff.png)
 
 <br/>
 
@@ -933,6 +933,21 @@ Easy Bug Manager Tool：https://github.com/xujiangjiang/Easy-Bug-Manager-Tool
 **Litjson：**https://github.com/LitJSON/litjson
 
 > Thanks for the cool fonts of ZCOOL, and the open source libraries Epplus and Litjson. 
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+## FAQ
+
+1. **Is it possible to resize the window?**
+
+> Yes.
+> After opening the project, drag the mouse on the edge of the window to adjust the size of the window.
 
 <br/>
 

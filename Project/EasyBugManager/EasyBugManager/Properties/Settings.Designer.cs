@@ -94,5 +94,17 @@ namespace EasyBugManager.Properties {
                 this["WindowHeight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsShowLatelyUi {
+            get {
+                return ((bool)(this["IsShowLatelyUi"]));
+            }
+            set {
+                this["IsShowLatelyUi"] = value;
+            }
+        }
     }
 }

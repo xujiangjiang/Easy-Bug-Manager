@@ -31,7 +31,8 @@ namespace EasyBugManager
         /// <summary>
         /// [工作人员名单]的文本
         /// </summary>
-        private string StaffText {
+        private string StaffText
+        {
             get { return Properties.Resources.StaffText; }
         }
 
@@ -150,7 +151,7 @@ namespace EasyBugManager
         /// </summary>
         public void ClickMoreButton()
         {
-            this.UiControl.StaffPanelText = StaffText;//设置文字
+            this.UiControl.StaffPanelText = "\n\n\n" + StaffText;//设置文字
         }
 
         /// <summary>
@@ -158,7 +159,7 @@ namespace EasyBugManager
         /// </summary>
         public void ClickEpplusButton()
         {
-            this.UiControl.StaffPanelText = EpplusText;//设置文字
+            this.UiControl.StaffPanelText = "\n\n\n" + EpplusText;//设置文字
         }
 
         /// <summary>
@@ -166,7 +167,7 @@ namespace EasyBugManager
         /// </summary>
         public void ClickLitjsonButton()
         {
-            this.UiControl.StaffPanelText = LitjsonText;//设置文字
+            this.UiControl.StaffPanelText = "\n\n\n" + LitjsonText;//设置文字
         }
 
         /// <summary>
@@ -221,7 +222,7 @@ namespace EasyBugManager
             {
 
                 //获取.exe的路径
-                string _exeFilePath = System.Environment.CurrentDirectory+ "/Tool/Easy Bug Manager Tool.exe";
+                string _exeFilePath = System.Environment.CurrentDirectory + "/Tool/Easy Bug Manager Tool.exe";
 
                 //打开文件
                 if (_exeFilePath != null && _exeFilePath != "")
@@ -260,7 +261,7 @@ namespace EasyBugManager
         /// </summary>
         public void ClickEmailButton()
         {
-            this.UiControl.StaffPanelText = EmailText;//设置文字
+            this.UiControl.StaffPanelText = "\n\n\n" + EmailText;//设置文字
         }
         #endregion [事件 - 按钮]
 
@@ -285,6 +286,16 @@ namespace EasyBugManager
 
                     //打开前景(灰色)
                     AppManager.Uis.OpenOrCloseForeground(true);
+
+                    //移动界面
+                    if (AppManager.Uis.MainUi.UiControl.Visibility == Visibility.Visible)//如果主界面是打开的
+                    {
+                        UiControl.Margin = new Thickness(-95, 0, 0, 0);
+                    }
+                    else
+                    {
+                        UiControl.Margin = new Thickness(0, 0, 0, 0);
+                    }
                     break;
 
                 //如果是关闭
@@ -294,6 +305,9 @@ namespace EasyBugManager
 
                     //关闭前景(灰色)
                     AppManager.Uis.OpenOrCloseForeground(false);
+
+                    //移动界面
+                    UiControl.Margin = new Thickness(0, 0, 0, 0);
                     break;
             }
         }

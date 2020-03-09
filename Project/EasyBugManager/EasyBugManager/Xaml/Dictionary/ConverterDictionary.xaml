@@ -4,5 +4,5 @@
 
     <!--bool类型 和 Visibility类型 的转换器-->
     <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"></BooleanToVisibilityConverter>
-    
+
 </ResourceDictionary>

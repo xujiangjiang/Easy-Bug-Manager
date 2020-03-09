@@ -180,6 +180,20 @@ namespace EasyBugManager
                     AppManager.Uis.SyncUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
 
 
+                    //最近项目界面
+                    AppManager.Uis.LatelyProjectUi.UiControl.BackgroudBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#434343"));
+
+
+                    //最近项目Item
+                    for (int i = 0; i < AppManager.Uis.LatelyProjectUi.UiControl.Items.Count; i++)
+                    {
+                        LatelyProjectListItemControl _latelyProjectListItemControl = AppManager.Uis.LatelyProjectUi.UiControl.Items[i];
+
+                        _latelyProjectListItemControl.MoreButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#434343"));
+                        _latelyProjectListItemControl.MoreButton.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#434343"));
+                    }
+
+
                     //其他界面
                     AppManager.Uis.SettingsUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
                     AppManager.Uis.SettingsUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
@@ -192,6 +206,7 @@ namespace EasyBugManager
                     AppManager.Uis.BaseTipUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
                     AppManager.Uis.ImageUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
                     AppManager.Uis.ErrorUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
+                    AppManager.Uis.LatelyProjectTipUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
 
                     AppManager.Uis.CreateBugUi.UiControl.RelatedBugsListBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
                     AppManager.Uis.CreateBugUi.UiControl.RelatedBugsListBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7d7d7d"));
@@ -266,7 +281,7 @@ namespace EasyBugManager
                         _bugListItemControl.ContextMenuControl.ProgressBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#515151"));
                         _bugListItemControl.ContextMenuControl.PriorityBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
                         _bugListItemControl.ContextMenuControl.PriorityBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#515151"));
-                        
+
                         _bugListItemControl.ContextMenuControl.Line1Border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#003d3d3d"));
                         _bugListItemControl.ContextMenuControl.Line2Border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#003d3d3d"));
                         _bugListItemControl.ContextMenuControl.Line3Border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#003d3d3d"));
@@ -289,6 +304,20 @@ namespace EasyBugManager
                     AppManager.Uis.SyncUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
 
 
+                    //最近项目界面
+                    AppManager.Uis.LatelyProjectUi.UiControl.BackgroudBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#353535"));
+
+
+                    //最近项目Item
+                    for (int i = 0; i < AppManager.Uis.LatelyProjectUi.UiControl.Items.Count; i++)
+                    {
+                        LatelyProjectListItemControl _latelyProjectListItemControl = AppManager.Uis.LatelyProjectUi.UiControl.Items[i];
+
+                        _latelyProjectListItemControl.MoreButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#353535"));
+                        _latelyProjectListItemControl.MoreButton.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#353535"));
+                    }
+
+
                     //其他界面
                     AppManager.Uis.SettingsUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
                     AppManager.Uis.SettingsUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
@@ -301,6 +330,7 @@ namespace EasyBugManager
                     AppManager.Uis.BaseTipUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
                     AppManager.Uis.ImageUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
                     AppManager.Uis.ErrorUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
+                    AppManager.Uis.LatelyProjectTipUi.UiControl.BackgroundBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
 
                     AppManager.Uis.CreateBugUi.UiControl.RelatedBugsListBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#222222"));
                     AppManager.Uis.CreateBugUi.UiControl.RelatedBugsListBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#363636"));
@@ -329,7 +359,7 @@ namespace EasyBugManager
                 }
 
                 //猫咪的皮肤
-                else if(_theme == ThemeType.Cat_White || _theme == ThemeType.Cat_Dark)
+                else if (_theme == ThemeType.Cat_White || _theme == ThemeType.Cat_Dark)
                 {
                     //BugItem
                     for (int i = 0; i < AppManager.Uis.ListUi.UiControl.BugItems.Count; i++)
@@ -386,6 +416,7 @@ namespace EasyBugManager
                         AppManager.Uis.DeleteBugTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9b2424"));
                         AppManager.Uis.DeleteRecordTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9b2424"));
                         AppManager.Uis.BaseTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9b2424"));
+                        AppManager.Uis.LatelyProjectTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9b2424"));
                         break;
 
 
@@ -425,6 +456,7 @@ namespace EasyBugManager
                         AppManager.Uis.DeleteBugTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bbbbbb"));
                         AppManager.Uis.DeleteRecordTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bbbbbb"));
                         AppManager.Uis.BaseTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bbbbbb"));
+                        AppManager.Uis.LatelyProjectTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bbbbbb"));
                         break;
 
 
@@ -469,6 +501,7 @@ namespace EasyBugManager
                         AppManager.Uis.DeleteBugTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9e6c3a"));
                         AppManager.Uis.DeleteRecordTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9e6c3a"));
                         AppManager.Uis.BaseTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9e6c3a"));
+                        AppManager.Uis.LatelyProjectTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9e6c3a"));
                         break;
 
 
@@ -511,6 +544,7 @@ namespace EasyBugManager
                         AppManager.Uis.DeleteBugTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0ab12"));
                         AppManager.Uis.DeleteRecordTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0ab12"));
                         AppManager.Uis.BaseTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0ab12"));
+                        AppManager.Uis.LatelyProjectTipUi.UiControl.TipTextBlock.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0ab12"));
                         break;
                 }
             }
@@ -543,6 +577,9 @@ namespace EasyBugManager
                     Canvas.SetLeft(AppManager.Uis.MainUi.UiControl.OpenProjectButtonControl, 342);
                     Canvas.SetTop(AppManager.Uis.MainUi.UiControl.OpenProjectButtonControl, 234);
 
+                    Canvas.SetLeft(AppManager.Uis.MainUi.UiControl.LatelyButtonControl, 326);
+                    Canvas.SetTop(AppManager.Uis.MainUi.UiControl.LatelyButtonControl, 305);
+
 
                     //[列表界面]
                     Canvas.SetRight(AppManager.Uis.ListUi.UiControl.TopButtonGroupStackPanel, 63);
@@ -559,7 +596,7 @@ namespace EasyBugManager
                 }
 
                 //猫咪皮肤
-                else if(_theme == ThemeType.Cat_White || _theme == ThemeType.Cat_Dark)
+                else if (_theme == ThemeType.Cat_White || _theme == ThemeType.Cat_Dark)
                 {
                     //[主界面]
                     Canvas.SetLeft(AppManager.Uis.MainUi.UiControl.BearBorder, 384);
@@ -571,6 +608,9 @@ namespace EasyBugManager
                     Canvas.SetTop(AppManager.Uis.MainUi.UiControl.CreateProjectButtonControl, 178);
                     Canvas.SetLeft(AppManager.Uis.MainUi.UiControl.OpenProjectButtonControl, 264);
                     Canvas.SetTop(AppManager.Uis.MainUi.UiControl.OpenProjectButtonControl, 234);
+
+                    Canvas.SetLeft(AppManager.Uis.MainUi.UiControl.LatelyButtonControl, 326);
+                    Canvas.SetTop(AppManager.Uis.MainUi.UiControl.LatelyButtonControl, 285);
 
 
                     //[列表界面]

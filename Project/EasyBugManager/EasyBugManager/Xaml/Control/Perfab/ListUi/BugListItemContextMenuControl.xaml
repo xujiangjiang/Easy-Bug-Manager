@@ -9,7 +9,7 @@
              d:DesignHeight="200" d:DesignWidth="148"
                  
              Name="BugListItemContextMenuUserControl">
-    
+
 
     <Grid Width="148" Height="200">
 

@@ -30,7 +30,7 @@
     <ImageBrush x:Key="ListUi.Text.UpdateTime.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/UpdateTimeText-EN.png"></ImageBrush>
 
-    
+
     <ImageBrush x:Key="ListUi.Text.TotalNumber.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/White/ListUi/TotalNumber-EN.png"></ImageBrush>
     <ImageBrush x:Key="ListUi.Text.PriorityNumber.ImageBrush"
@@ -299,6 +299,19 @@
                 ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-Synced-EN.png"></ImageBrush>
     <ImageBrush x:Key="SyncUi.Text.Syncing.ImageBrush"
                 ImageSource="/EasyBugManager;component/Asset/Image/White/SyncUi/Text-Syncing-EN.png"></ImageBrush>
+
+
+
+    <!--文字：最近项目界面-->
+    <ImageBrush x:Key="LatelyProjectUi.Text.Title.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/LatelyProjectUi/Text-Title-EN.png"></ImageBrush>
+    <ImageBrush x:Key="LatelyProjectUi.Text.Empty.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/White/LatelyProjectUi/Text-Empty-EN.png"></ImageBrush>
+
+    <ImageBrush x:Key="LatelyProjectUi.Text.LatelyButton.MouseEnter.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/Dark/LatelyProjectUi/LatelyButton-MouseEnter-EN.png"></ImageBrush>
+    <ImageBrush x:Key="LatelyProjectUi.Text.LatelyButton.MouseLeave.ImageBrush"
+                ImageSource="/EasyBugManager;component/Asset/Image/Dark/LatelyProjectUi/LatelyButton-MouseLeave-EN.png"></ImageBrush>
 
 
 </ResourceDictionary>

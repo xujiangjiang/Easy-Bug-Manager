@@ -301,7 +301,7 @@ namespace EasyBugManager
             //注册PressAnimationSizeProperty
             PressAnimationSizeProperty = DependencyProperty.Register(
                 "PressAnimationSize", typeof(Point), typeof(ColorButtonControl),
-                new FrameworkPropertyMetadata((Point)new Point(0.75f,0.75f), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
+                new FrameworkPropertyMetadata((Point)new Point(0.75f, 0.75f), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
 
             //注册MouseEnterBackgroundProperty
             MouseEnterBackgroundProperty = DependencyProperty.Register(

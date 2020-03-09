@@ -31,13 +31,16 @@ namespace EasyBugManager
         private ImageUi imageUi;//[图片]界面
         private ErrorUi errorUi;//[错误]界面
 
+        private LatelyProjectUi latelyProjectUi;//[最近的项目]界面
+        private LatelyProjectTipUi latelyProjectTipUi;//[最近项目的提示]界面
+
 
 
         #region 属性
         /// <summary>
         /// [主]界面
         /// </summary>
-        public MainUi MainUi 
+        public MainUi MainUi
         {
             get { return mainUi; }
         }
@@ -147,11 +150,30 @@ namespace EasyBugManager
         {
             get { return errorUi; }
         }
+
+
+
+        /// <summary>
+        /// [最近的项目]界面
+        /// </summary>
+        public LatelyProjectUi LatelyProjectUi
+        {
+            get { return latelyProjectUi; }
+        }
+
+        /// <summary>
+        /// [最近项目的提示]界面
+        /// </summary>
+        public LatelyProjectTipUi LatelyProjectTipUi
+        {
+            get { return latelyProjectTipUi; }
+        }
+
         #endregion
 
 
         #region 构造方法
-        public Uis() 
+        public Uis()
         {
             mainUi = new MainUi();
             listUi = new ListUi();
@@ -168,6 +190,9 @@ namespace EasyBugManager
             baseTipUi = new BaseTipUi();
             imageUi = new ImageUi();
             errorUi = new ErrorUi();
+
+            latelyProjectUi = new LatelyProjectUi();
+            latelyProjectTipUi = new LatelyProjectTipUi();
         }
         #endregion
 
@@ -195,6 +220,7 @@ namespace EasyBugManager
                     if (MainUi.UiControl.Visibility == Visibility.Visible)
                     {
                         MainUi.UiControl.ForegroundCanvas.Visibility = Visibility.Visible;
+                        LatelyProjectUi.UiControl.ForegroundCanvas.Visibility = Visibility.Visible;
                         ListUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         BugUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         SyncUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
@@ -205,6 +231,7 @@ namespace EasyBugManager
                     else if (ImageUi.UiControl.Visibility == Visibility.Visible)
                     {
                         MainUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
+                        LatelyProjectUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         ListUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         BugUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         SyncUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
@@ -215,6 +242,7 @@ namespace EasyBugManager
                     else if (SyncUi.UiControl.Visibility == Visibility.Visible)
                     {
                         MainUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
+                        LatelyProjectUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         ListUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         BugUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         SyncUi.UiControl.ForegroundCanvas.Visibility = Visibility.Visible;
@@ -234,6 +262,7 @@ namespace EasyBugManager
                     else if (ListUi.UiControl.Visibility == Visibility.Visible)
                     {
                         MainUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
+                        LatelyProjectUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         ListUi.UiControl.ForegroundCanvas.Visibility = Visibility.Visible;
                         BugUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         SyncUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
@@ -244,6 +273,7 @@ namespace EasyBugManager
                     else if (BugUi.UiControl.Visibility == Visibility.Visible)
                     {
                         MainUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
+                        LatelyProjectUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         ListUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                         BugUi.UiControl.ForegroundCanvas.Visibility = Visibility.Visible;
                         SyncUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
@@ -260,6 +290,7 @@ namespace EasyBugManager
 
                     /* 关闭前景(灰色) */
                     MainUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
+                    LatelyProjectUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                     ListUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                     BugUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;
                     SyncUi.UiControl.ForegroundCanvas.Visibility = Visibility.Collapsed;

@@ -285,27 +285,27 @@ namespace EasyBugManager
         /// </summary>
         public int TotalPageNumber
         {
-            get 
+            get
             {
                 int _value = 1;
 
                 if (TotalPageNumberTextBlock != null)
                 {
                     //把文字转换为数字
-                    Int32.TryParse(this.TotalPageNumberTextBlock.Text,out _value);
+                    Int32.TryParse(this.TotalPageNumberTextBlock.Text, out _value);
                 }
 
                 return _value;
             }
-            set 
+            set
             {
-                if (this.TotalPageNumberTextBlock==null) 
+                if (this.TotalPageNumberTextBlock == null)
                 {
-                    
+
                 }
 
                 //如果页码小于等于0
-                else if (value <=0)
+                else if (value <= 0)
                 {
                     this.TotalPageNumberTextBlock.Text = 1 + "";
                 }
@@ -325,12 +325,12 @@ namespace EasyBugManager
         /// </summary>
         public int CurrentPageNumber
         {
-            get 
+            get
             {
                 //把文字转换为数字
                 int _value = 1;
                 bool _isParse = false;
-                if (CurrentPageNumberTextBox != null) 
+                if (CurrentPageNumberTextBox != null)
                 {
                     _isParse = Int32.TryParse(this.CurrentPageNumberTextBox.Text, out _value);
                 }
@@ -343,7 +343,7 @@ namespace EasyBugManager
                     _value = 1;
                 }
                 //如果数字大于总页数的话
-                else if (_value > TotalPageNumber) 
+                else if (_value > TotalPageNumber)
                 {
                     CurrentPageNumber = TotalPageNumber;
                     _value = TotalPageNumber;
@@ -352,16 +352,16 @@ namespace EasyBugManager
                 return _value;
             }
 
-            set 
+            set
             {
                 //赋值
                 if (this.CurrentPageNumberTextBox == null)
                 {
-                    
+
                 }
 
                 //如果页码小于等于0
-                else if(value <= 0)
+                else if (value <= 0)
                 {
                     this.CurrentPageNumberTextBox.Text = 1 + "";
                 }
@@ -458,16 +458,16 @@ namespace EasyBugManager
         /// </summary>
         public string SearchString
         {
-            get 
+            get
             {
-                if (this.SearchTextBox!=null) 
+                if (this.SearchTextBox != null)
                 {
                     return this.SearchTextBox.Text;
                 }
 
                 return "";
             }
-            set 
+            set
             {
                 if (this.SearchTextBox != null)
                 {
@@ -662,7 +662,7 @@ namespace EasyBugManager
         {
             get
             {
-                if (this.BugListBox != null && SelectedBugContorl!=null)
+                if (this.BugListBox != null && SelectedBugContorl != null)
                 {
                     //遍历所有的BugListItem
                     for (int i = 0; i < BugItems.Count; i++)
@@ -694,7 +694,7 @@ namespace EasyBugManager
                     }
                 }
 
-                else if(this.BugListBox != null && value <= -1)
+                else if (this.BugListBox != null && value <= -1)
                 {
                     //不选中任何Bug
                     SelectedBugContorl = null;
@@ -778,7 +778,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_oldValue">之前的选中项的索引</param>
         /// <param name="_newValue">新的选中项的索引</param>
-        private void OnShowNumberChange(int _oldValue,int _newValue)
+        private void OnShowNumberChange(int _oldValue, int _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<int> args = new RoutedPropertyChangedEventArgs<int>(_oldValue, _newValue);
@@ -1612,7 +1612,7 @@ namespace EasyBugManager
                 typeof(ObservableCollection<BugItemData>), //属性的类型
                 typeof(ListUiControl), //这个属性属于哪个控件？
                 new FrameworkPropertyMetadata( //属性的初始值和回调函数
-                    //初始值
+                                               //初始值
                     (ObservableCollection<BugItemData>)new ObservableCollection<BugItemData>(),
                     //当属性的值发生改变时，调用什么方法？
                     new PropertyChangedCallback(OnBugItemDatasChanged))
@@ -1698,7 +1698,7 @@ namespace EasyBugManager
 
             //注册ShowNumberChangeEvent
             ShowNumberChangeEvent = System.Windows.EventManager.RegisterRoutedEvent(
-                "ShowNumberChange", RoutingStrategy.Bubble, 
+                "ShowNumberChange", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<int>), typeof(ListUiControl));
 
             //注册SearchTextChangeEvent
@@ -1835,7 +1835,7 @@ namespace EasyBugManager
         private void ProgressListHeadButton_Click(object sender, RoutedPropertyChangedEventArgs<bool> e)
         {
             /* 判断当前的[进度]的排序类型 */
-            switch (ProgressSortType) 
+            switch (ProgressSortType)
             {
                 //如果排序方式是None，就把排序方式改为[从低到高]
                 case SortType.None:
@@ -2041,11 +2041,11 @@ namespace EasyBugManager
             AnimationTool.PlayTextChangedAnimation(_textBox);
 
             //如果搜索框里有内容，就把Clear按钮显示出来
-            if(_textBox.Text==null || _textBox.Text == "") 
+            if (_textBox.Text == null || _textBox.Text == "")
             {
                 this.ClearSearchButtonControl.Visibility = Visibility.Collapsed;//隐藏
             }
-            else 
+            else
             {
                 this.ClearSearchButtonControl.Visibility = Visibility.Visible;//显示
             }
@@ -2335,10 +2335,13 @@ namespace EasyBugManager
         /// <param name="_isOpen">是否打开ListTip？</param>
         /// <param name="_isAddBugCompleteTip">是否是[添加Bug成功]的提示？（如果为true，就显示[添加Bug成功]的提示；如果为false，就显示[删除Bug成功]的提示；如果为null，则不改变提示）</param>
         /// <param name="_bugData">要操作的Bug。如果是[删除Bug成功]的话，可以为null</param>
-        public void OpenOrCloseListTip(bool _isOpen, bool? _isAddBugCompleteTip, BugData _bugData=null)
+        public void OpenOrCloseListTip(bool _isOpen, bool? _isAddBugCompleteTip, BugData _bugData = null)
         {
             /* 设置数据 */
-            this.ListTipControl.BugData = _bugData;
+            if (_bugData!=null)
+            {
+                this.ListTipControl.BugData = _bugData;
+            }
 
             /* 设置Tip的类型 */
             if (_isAddBugCompleteTip != null)

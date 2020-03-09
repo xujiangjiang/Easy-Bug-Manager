@@ -66,7 +66,7 @@ namespace EasyBugManager
             RecordData _recordData = AppManager.Systems.RecordSystem.GetRecordData(_recordId);
 
             //保存图片，并获取到图片的新名字
-            string _newImageName = this.CopyImageFile(_imagePath,_recordData);
+            string _newImageName = this.CopyImageFile(_imagePath, _recordData);
 
             //然后，把新的图片名字，添加到记录里
             _recordData.Images.Add(_newImageName);
@@ -110,7 +110,7 @@ namespace EasyBugManager
         /// <returns>Image的路径(文件夹+文件名+文件后缀)</returns>
         public string GetImagePath(string _image)
         {
-            if (_image!=null)
+            if (_image != null)
             {
                 string _imagePath = AppManager.Systems.ImageSystem.ImageFolderPath + "/" + _image;//图片的绝对路径 (绝对路径：XXXX/项目名/Image/ImageId.png)
                 return _imagePath;
@@ -188,7 +188,7 @@ namespace EasyBugManager
 
                     //然后把原图片，复制到新的路径地址上
                     byte[] _oldImageBytes = File.ReadAllBytes(_imagePath);//取到旧的图片的二进制数据
-                    File.WriteAllBytes(_newImagePath,_oldImageBytes);//把旧图片的二进制信息，写进新图片文件中
+                    File.WriteAllBytes(_newImagePath, _oldImageBytes);//把旧图片的二进制信息，写进新图片文件中
                 }
 
                 //返回值

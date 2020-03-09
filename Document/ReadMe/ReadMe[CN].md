@@ -6,7 +6,7 @@
 
 <br/>
 
-![](Image/Logo.png)
+![Image](Image/Logo.png)
 
 <br/>
 
@@ -26,9 +26,9 @@
 
 ## 下载
 
-最新版本： v1.0.0.1 (2020年02月09日)
+最新版本： v1.1.0.0 (2020年02月28日)
 
-下载地址：[点击下载v1.0.0.1版本](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.0.0.1/Easy.Bug.Manager.v1.0.0.1.zip)
+下载地址：[点击下载v1.1.0.0版本](https://github.com/xujiangjiang/Easy-Bug-Manager/releases/download/v1.1.0.0/easy.bug.manager.setup.exe)
 
 Steam商店：https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
@@ -42,11 +42,11 @@ Steam商店：https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
 ## 简介
 
-![](Image/40.png)
+![Image](Image/40.png)
 
-![](Image/41.png)
+![Image](Image/41.png)
 
-![](Image/42.png)
+![Image](Image/42.png)
 
 <br/>
 
@@ -137,6 +137,10 @@ Easy Bug Manager是一个使用C#语言编写的WPF应用（.NET Framework），
 
 <br/>
 
+<br/>
+
+<br/>
+
 ### 项目结构
 
 **文件夹说明：**
@@ -180,13 +184,49 @@ Easy Bug Manager是一个使用C#语言编写的WPF应用（.NET Framework），
 
 （非常非常非常感谢大家，非常非常感谢QAQ！）
 
-![](E:/Ximigua/App/BugManager WPF -20190927/Github/Document/User Manual/Image/38.png)
+![Image](Image/38.png)
 
-![](E:/Ximigua/App/BugManager WPF -20190927/Github/Document/User Manual/Image/39.png)
+![Image](Image/39.png)
+
+<br/>
 
 <br/>
 
 <br/>
+
+<br/>
+
+## 其他
+
+> 感谢站酷的免费字体，感谢开源类库Epplus和Litjson。
+
+**字体：**站酷庆科黄油体、站酷文艺体、站酷快乐体（https://www.zcool.com.cn/special/zcoolfonts/）
+
+**Epplus：**https://github.com/JanKallman/EPPlus
+
+**Litjson：**https://github.com/LitJSON/litjson
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+## 常见问题
+
+1. **是否可以调整窗口的大小？**
+
+> 可以的。
+> 在打开项目之后，鼠标在窗口边缘进行拖拽，就可以调整窗口的大小。
+
+<br/>
+
+2. **是否有用户手册？**
+
+> 有的。
+> 你可以[点击这里](../UserManual/Easy Bug Manager 用户手册 - [中文].md)，查看用户手册。
 
 <br/>
 

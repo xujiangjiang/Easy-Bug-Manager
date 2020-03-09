@@ -14,8 +14,8 @@ namespace EasyBugManager
     /// <summary>
     /// 排序类型
     /// </summary>
-    public enum SortType : byte 
-    { 
+    public enum SortType : byte
+    {
         None,//不排序
         LowToHigh,//由低到高排序（Up）
         HighToLow//由高到低排序（Down）
@@ -46,8 +46,8 @@ namespace EasyBugManager
     /// <summary>
     /// 记录类型
     /// </summary>
-    public enum RecordType : byte 
-    { 
+    public enum RecordType : byte
+    {
         None,
         Bug,//虫子
         Bear//熊
@@ -126,7 +126,7 @@ namespace EasyBugManager
     /// <summary>
     /// 时间格式类型
     /// </summary>
-    public enum TimeFormatType:byte
+    public enum TimeFormatType : byte
     {
         None,
         YearMonthDay,//年.月.日
@@ -139,7 +139,7 @@ namespace EasyBugManager
     /// <summary>
     /// [显示Bug记录]的类型
     /// </summary>
-    public enum ShowBugRecordType :byte
+    public enum ShowBugRecordType : byte
     {
         None,
         All,//记录列表里：显示[所有]的Bug说的话
@@ -205,5 +205,5 @@ namespace EasyBugManager
         }
 
         #endregion
-    } 
+    }
 }

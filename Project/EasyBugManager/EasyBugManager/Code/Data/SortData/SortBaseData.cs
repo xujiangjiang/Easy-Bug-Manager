@@ -76,7 +76,7 @@ namespace EasyBugManager
         /// <returns>转换后的Data对象</returns>
         public static SortData BaseDataToData(SortBaseData _baseData)
         {
-            if (_baseData!=null)
+            if (_baseData != null)
             {
                 SortData _data = new SortData();
 
@@ -104,7 +104,7 @@ namespace EasyBugManager
         /// <returns>转换后的BaseData对象</returns>
         public static SortBaseData DataToBaseData(SortData _data)
         {
-            if (_data!=null)
+            if (_data != null)
             {
                 SortBaseData _baseData = new SortBaseData();
 

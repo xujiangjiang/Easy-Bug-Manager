@@ -148,7 +148,7 @@ namespace EasyBugManager
             ImageCheckGroupControl _imageCheckGroupControl = sender as ImageCheckGroupControl;
 
             //如果数字改变了，就把另外的2个Check控件的IsChecked属性设置为false
-            switch ((int)e.NewValue) 
+            switch ((int)e.NewValue)
             {
                 //如果选择了-1个Check控件
                 case -1:
@@ -182,7 +182,7 @@ namespace EasyBugManager
 
             //然后触发CheckedChange事件
             _imageCheckGroupControl.OnCheckedChange((int)e.OldValue, (int)e.NewValue);
-            
+
         }
         #endregion
 
@@ -715,7 +715,7 @@ namespace EasyBugManager
         /// </summary>
         /// <param name="_oldValue">旧的值</param>
         /// <param name="_newValue">新的值(当前被选中的Check的索引)</param>
-        private void OnCheckedChange(int _oldValue,int _newValue)
+        private void OnCheckedChange(int _oldValue, int _newValue)
         {
             //创建路由事件参数
             RoutedPropertyChangedEventArgs<int> args = new RoutedPropertyChangedEventArgs<int>(_oldValue, _newValue);
@@ -868,7 +868,7 @@ namespace EasyBugManager
             //注册PressAnimationSizeProperty
             PressAnimationSizeProperty = DependencyProperty.Register(
                 "PressAnimationSize", typeof(Point), typeof(ImageCheckGroupControl),
-                new FrameworkPropertyMetadata((Point)new Point(0.75,0.75), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
+                new FrameworkPropertyMetadata((Point)new Point(0.75, 0.75), new PropertyChangedCallback(OnPressAnimationSizeChanged)));
 
             //注册CheckControlNumberProperty
             CheckControlNumberProperty = DependencyProperty.Register(
@@ -907,7 +907,7 @@ namespace EasyBugManager
 
             //注册ClickCheckEvent
             ClickCheckEvent = System.Windows.EventManager.RegisterRoutedEvent(
-                "ClickCheck", RoutingStrategy.Bubble, 
+                "ClickCheck", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<int>), typeof(ImageCheckGroupControl));
         }
         #endregion
@@ -942,7 +942,7 @@ namespace EasyBugManager
         //当第1个Check控件被点击时
         private void ImageCheckControl1_OnClick(object sender, RoutedPropertyChangedEventArgs<bool> e)
         {
-            this.OnClickCheck(-1,0);//触发事件
+            this.OnClickCheck(-1, 0);//触发事件
         }
 
         //当第2个Check控件被点击时

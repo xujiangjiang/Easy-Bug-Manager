@@ -123,7 +123,7 @@ namespace EasyBugManager
                                 for (int i = 0; i < _recordBaseDatas.Count; i++)
                                 {
                                     RecordData _recordData = RecordBaseData.BaseDataToData(_recordBaseDatas[i]);
-                                    if (_recordData!=null)
+                                    if (_recordData != null)
                                     {
                                         _recordDatas.Add(_recordData);
                                     }
@@ -201,11 +201,11 @@ namespace EasyBugManager
                         for (int i = 0; i < _recordDatas.Count; i++)
                         {
                             RecordBaseData _recordBaseData = RecordBaseData.DataToBaseData(_recordDatas[i]);
-                            if (_recordBaseData!=null)
+                            if (_recordBaseData != null)
                             {
                                 _recordBaseDatas.Add(_recordBaseData);
                             }
-                            
+
                         }
 
                         //把RecordBaseData转换为json
@@ -431,7 +431,7 @@ namespace EasyBugManager
 
 
             /* 保存记录 */
-            SaveRecord(AppManager.Systems.CollaborationSystem.ModeType,_recordData.Id);
+            SaveRecord(AppManager.Systems.CollaborationSystem.ModeType, _recordData.Id);
         }
 
 
@@ -462,7 +462,7 @@ namespace EasyBugManager
             }
 
             //保存记录
-            SaveRecord(AppManager.Systems.CollaborationSystem.ModeType,_recordData.Id);
+            SaveRecord(AppManager.Systems.CollaborationSystem.ModeType, _recordData.Id);
         }
 
         /// <summary>
@@ -548,12 +548,12 @@ namespace EasyBugManager
             //如果[Bug说的话]和[Bear说的话]都要显示
             if (_isHaveBug == true)
             {
-                SetShowRecords(_bugData,ShowBugRecordType.All);
+                SetShowRecords(_bugData, ShowBugRecordType.All);
             }
             //如果只显示[Bear说的话]
             else
             {
-                SetShowRecords(_bugData,ShowBugRecordType.One);
+                SetShowRecords(_bugData, ShowBugRecordType.One);
             }
         }
 
@@ -567,7 +567,7 @@ namespace EasyBugManager
         /// <param name="_showBugRecordType">[显示Bug记录]的类型</param>
         private void SetShowRecords(BugData _bugData, ShowBugRecordType _showBugRecordType)
         {
-            if (_bugData == null || RecordDatas==null)return;
+            if (_bugData == null || RecordDatas == null) return;
 
 
 
@@ -624,7 +624,7 @@ namespace EasyBugManager
                 }
 
                 //Bear说的话，以及 Bug回复时说的话
-                else if(_recordDatas[i].IsDelete!=true)
+                else if (_recordDatas[i].IsDelete != true)
                 {
                     switch (_showBugRecordType)
                     {
@@ -634,7 +634,7 @@ namespace EasyBugManager
                             _showrRecordItemDatas.Add(_recordDatas[i].BearRecordItemData);
 
                             //Bug的话
-                            if (_recordDatas[i].ReplyId>=0)
+                            if (_recordDatas[i].ReplyId >= 0)
                             {
                                 _recordDatas[i].BugRecordItemData.Content = AppManager.Systems.TemperamentSystem.GetReplyString(_bugData.TemperamentId, _recordDatas[i].ReplyId);
                                 _showrRecordItemDatas.Add(_recordDatas[i].BugRecordItemData);

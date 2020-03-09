@@ -8,8 +8,21 @@ Add: represents a newly added function
 
 <br/>
 
+【v1.1.0.0】
+1. [Fix]When the transparency data change, the transparency of the foreground mask of the main interface will also change.
+2. [Modify]When creating a bug, if the bug is not on the current page, and the page number of the bug is before the current page, then the last bug of the previous page is displayed in the first position of the current page
+3. [Modify]Sort data is saved when the software is closed
+4. [Add]"Lately Projects" function——Thanks: 踏长安
+5. [Modify]Center the window position when opening software, opening a project, or closing a project——Thanks: 小段_d
+6. [Fix]Solve the problem that Windows 8.1 system and Windows 7 system cannot open the software——Thanks: Mr_Specter
+7. [Modify]Changed software from .Net4.7.2 to .Net4.5
+8. [Fix]]When creating a new bug, click the "Look" button twice in succession, the page number will be wrong
+9. [Fix]]Solve the problem of missing dll files after downloading source code from github
+
+<br/>
 
 【v1.0.0.1】
+
 1. [Fix]Tool's setting data, not saved
 2. [Modify]Darken some text in a dark theme——Thanks：踏长安
 3. [Modify]The main interface window can be dragged——Thanks：playwhite、Linzh

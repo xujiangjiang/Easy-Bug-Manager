@@ -21,6 +21,7 @@ namespace EasyBugManager
                      SortData(排序的数据)*/
 
         /*数据(其他)：SettingsData(设置的数据)
+                     AppData(应用的数据)
                      OtherData(其他的数据)*/
 
 
@@ -33,6 +34,7 @@ namespace EasyBugManager
 
         /*数据：其他*/
         private SettingsData settingsData;//设置的数据
+        private AppData appData;//应用的数据
         private OtherData otherData;//其他的数据(一些需要绑定，但不需要储存的数据)
 
 
@@ -82,6 +84,20 @@ namespace EasyBugManager
 
 
         /// <summary>
+        /// 应用的数据
+        /// </summary>
+        public AppData AppData
+        {
+            get { return appData; }
+            set
+            {
+                appData = value;
+                PropertyChange("AppData");
+            }
+        }
+
+
+        /// <summary>
         /// 其他的数据
         /// (一些需要绑定，但不需要储存的数据)
         /// </summary>
@@ -106,10 +122,10 @@ namespace EasyBugManager
             sortData = new SortData();
 
             settingsData = new SettingsData();
+            appData = new AppData();
             otherData = new OtherData();
         }
         #endregion
-
 
 
 

@@ -14,7 +14,7 @@ namespace EasyBugManager
     /// <summary>
     /// 项目的数据
     /// </summary>
-    public class ProjectData: INotifyPropertyChanged
+    public class ProjectData : INotifyPropertyChanged
     {
         /* 属性：Id(编号)
                  Name(项目的名字)
@@ -133,6 +133,30 @@ namespace EasyBugManager
             RecordDatas = new ObservableCollection<RecordData>();
         }
 
+        #endregion
+
+        #region [静态方法]
+        /// <summary>
+        /// 验证完整性
+        /// （验证1个Project的完整性。
+        /// 如果Project是完整的，代表这个Project是有效的；
+        /// 如果Project是不完整的，代表Project文件还没有同步完，或者是Project文件已损坏）
+        /// </summary>
+        /// <param name="_data">要验证的Bug</param>
+        /// <returns>Bug是否是完整的</returns>
+        public static bool VerifyIntegrity(ProjectData _data)
+        {
+            if (_data == null ||
+                _data.Id < 0 ||
+                _data.Name == null ||_data.Name == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         #endregion
 
 

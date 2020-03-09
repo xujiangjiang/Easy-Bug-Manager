@@ -81,7 +81,7 @@ namespace EasyBugManager
 
 
         #region 构造方法
-        static AppManager() 
+        static AppManager()
         {
             datas = new Datas();
             uis = new Uis();
@@ -96,7 +96,6 @@ namespace EasyBugManager
         /// </summary>
         public static void Awake()
         {
-            systems = new Systems();
         }
 
 
@@ -110,6 +109,7 @@ namespace EasyBugManager
 
             /* 读取数据 */
             Systems.SaveSystem.Load();
+            Systems.LatelySystem.Load();
 
             /* 进行一些操作 */
             Systems.DlcSystem.Handle(DlcType.None);//进行一些和[DLC相关]的操作
@@ -128,6 +128,8 @@ namespace EasyBugManager
         {
             /* 保存数据 */
             systems.SaveSystem.Save();//保存App数据
+            Systems.SortSystem.Save();//保存排序数据
+
 
             /* 关闭协同合作功能 */
             systems.CollaborationSystem.Handle(false);

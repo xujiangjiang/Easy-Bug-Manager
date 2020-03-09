@@ -37,7 +37,7 @@ namespace EasyBugManager
         /* 不保存的字段 */
         private RecordItemData bearRecordItemData;//[Bear说的话]的ItemData
         private RecordItemData bugRecordItemData;//[Bug回复的话]的ItemData
-        
+
 
 
 
@@ -262,8 +262,8 @@ namespace EasyBugManager
         /// <returns>Record是否是完整的</returns>
         public static bool VerifyIntegrity(RecordData _recordData)
         {
-            if (_recordData == null||
-                _recordData.Id < 0 || _recordData.BugId <0 || _recordData.ReplyId <0)
+            if (_recordData == null ||
+                _recordData.Id < 0 || _recordData.BugId < 0 || _recordData.ReplyId < 0)
             {
                 return false;
             }

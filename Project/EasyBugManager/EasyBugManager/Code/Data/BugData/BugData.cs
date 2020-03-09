@@ -14,7 +14,7 @@ namespace EasyBugManager
     /// <summary>
     /// Bug的数据
     /// </summary>
-    public class BugData: INotifyPropertyChanged
+    public class BugData : INotifyPropertyChanged
     {
         /* 属性：Id(编号)
                  Name(名称)
@@ -236,7 +236,7 @@ namespace EasyBugManager
 
                 return _copyBugData;
             }
-            
+
         }
 
 
@@ -250,7 +250,7 @@ namespace EasyBugManager
         /// <returns>Bug是否是完整的</returns>
         public static bool VerifyIntegrity(BugData _bugData)
         {
-            if (_bugData==null||
+            if (_bugData == null ||
                 _bugData.Id < 0 ||
                 _bugData.Priority == PriorityType.None ||
                 _bugData.Progress == ProgressType.None ||

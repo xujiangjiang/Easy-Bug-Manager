@@ -24,7 +24,8 @@ namespace EasyBugManager
                  ClickCloseButton（当点击[关闭]按钮时）
                  ClickSettingButton（当点击[设置]按钮时）
                  ClickCreateProjectButton（当点击[创建项目]按钮时）
-                 ClickOpenProjectButton（当点击[打开项目]按钮时）*/
+                 ClickOpenProjectButton（当点击[打开项目]按钮时）
+                 ClickLatelyButton（当点击[最近]按钮时）*/
 
 
         public MainUiControl()
@@ -219,6 +220,43 @@ namespace EasyBugManager
         }
         #endregion
 
+        #region 路由事件：ClickLatelyButton
+        /// <summary>
+        /// 路由事件：ClickLatelyButtonEvent
+        /// （当点击按钮时，触发此事件）
+        /// </summary>
+        public static readonly RoutedEvent ClickLatelyButtonEvent;
+
+
+        /// <summary>
+        /// 路由事件的属性：ClickLatelyButton
+        /// </summary>
+        public event RoutedPropertyChangedEventHandler<bool> ClickLatelyButton
+        {
+            //添加一条事件
+            add { AddHandler(ClickLatelyButtonEvent, value); }
+
+            //移除一条事件
+            remove { RemoveHandler(ClickLatelyButtonEvent, value); }
+        }
+
+
+        /// <summary>
+        /// 这个方法，用于触发 ClickLatelyButton 路由事件
+        /// </summary>
+        private void OnClickLatelyButton()
+        {
+            //创建路由事件参数
+            RoutedPropertyChangedEventArgs<bool> args = new RoutedPropertyChangedEventArgs<bool>(true, true);
+
+            //设置这是哪个路由事件？
+            args.RoutedEvent = MainUiControl.ClickLatelyButtonEvent;
+
+            //引发这个路由事件
+            RaiseEvent(args);
+        }
+        #endregion
+
 
 
         #region 静态构造方法：注册依赖项属性 和 路由事件
@@ -238,7 +276,7 @@ namespace EasyBugManager
 
             //注册ClickCloseButtonEvent
             ClickCloseButtonEvent = System.Windows.EventManager.RegisterRoutedEvent(
-                "ClickCloseButton", RoutingStrategy.Bubble, 
+                "ClickCloseButton", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<bool>), typeof(MainUiControl));
 
             //注册ClickSettingButtonEvent
@@ -254,6 +292,11 @@ namespace EasyBugManager
             //注册ClickOpenProjectButtonEvent
             ClickOpenProjectButtonEvent = System.Windows.EventManager.RegisterRoutedEvent(
                 "ClickOpenProjectButton", RoutingStrategy.Bubble,
+                typeof(RoutedPropertyChangedEventHandler<bool>), typeof(MainUiControl));
+
+            //注册ClickLatelyButtonEvent
+            ClickLatelyButtonEvent = System.Windows.EventManager.RegisterRoutedEvent(
+                "ClickLatelyButton", RoutingStrategy.Bubble,
                 typeof(RoutedPropertyChangedEventHandler<bool>), typeof(MainUiControl));
         }
         #endregion
@@ -301,6 +344,14 @@ namespace EasyBugManager
         {
             this.OnClickOpenProjectButton();//触发[点击打开项目按钮]的事件
         }
+
+        /// <summary>
+        /// 当点击[最近]按钮时
+        /// </summary>
+        private void LatelyButtonControl_OnClick(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            this.OnClickLatelyButton();//触发[最近按钮]的事件
+        }
         #endregion
 
         #region [事件 - 拖动窗口]
@@ -318,6 +369,9 @@ namespace EasyBugManager
         }
 
         #endregion
+
+
+
 
     }
 }

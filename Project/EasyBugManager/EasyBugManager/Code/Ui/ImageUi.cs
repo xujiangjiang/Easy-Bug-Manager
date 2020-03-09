@@ -54,7 +54,7 @@ namespace EasyBugManager
                 string _filePath = UiControl.ImagePath;
 
                 //打开文件
-                if (_filePath!=null && _filePath!="")
+                if (_filePath != null && _filePath != "")
                 {
                     FileInfo _fileInfo = new FileInfo(_filePath);
 
@@ -74,7 +74,7 @@ namespace EasyBugManager
                     }
 
                 }
-                
+
             }
             catch (Exception e)
             {

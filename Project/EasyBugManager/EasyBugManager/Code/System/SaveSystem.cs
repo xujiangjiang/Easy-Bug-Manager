@@ -27,6 +27,8 @@ namespace EasyBugManager
             AppManager.Datas.SettingsData.Theme = (ThemeType)Properties.Settings.Default.Theme;//皮肤
             AppManager.Datas.SettingsData.Transparent = Properties.Settings.Default.Transparent;//透明度
 
+            AppManager.Datas.SettingsData.IsShowLatelyUi = Properties.Settings.Default.IsShowLatelyUi;//是否显示[最近项目]界面
+
 
             /* 设置窗口的尺寸 */
             //获取窗口尺寸的数据
@@ -51,6 +53,8 @@ namespace EasyBugManager
             Properties.Settings.Default.Sound = AppManager.Datas.SettingsData.Sound;//是否有声音？
             Properties.Settings.Default.Theme = (int)AppManager.Datas.SettingsData.Theme;//皮肤
             Properties.Settings.Default.Transparent = AppManager.Datas.SettingsData.Transparent;//透明度
+
+            Properties.Settings.Default.IsShowLatelyUi = AppManager.Datas.SettingsData.IsShowLatelyUi;//是否显示[最近项目]界面
 
             Properties.Settings.Default.WindowWidth = AppManager.Datas.SettingsData.WindowWidth;//窗口的宽度
             Properties.Settings.Default.WindowHeight = AppManager.Datas.SettingsData.WindowHeight;//窗口的高度

@@ -21,17 +21,17 @@ namespace EasyBugManager
         /// <param name="_min">最小值</param>
         /// <param name="_max">最大值</param>
         /// <returns>处理过的值</returns>
-        public static int Clamp(int _value, int _min,int _max)
+        public static int Clamp(int _value, int _min, int _max)
         {
             //如果value大于max，就返回max
             //如果value小于max，就返回min
             //否则，就返回value
 
-            if (_value>_max)
+            if (_value > _max)
             {
                 return _max;
             }
-            else if(_value<_min)
+            else if (_value < _min)
             {
                 return _min;
             }

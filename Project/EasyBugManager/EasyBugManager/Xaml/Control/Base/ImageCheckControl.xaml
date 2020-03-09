@@ -9,9 +9,9 @@
              d:DesignHeight="450" d:DesignWidth="800"
              
              Name="ImageCheckUserControl">
-    
+
     <Grid>
-        
+
         <!--按钮-->
         <Button Name="BaseButton"
                 Style="{StaticResource NoBackgroundButtonStyle}"
@@ -24,7 +24,7 @@
                 Click="Button_OnClick">
 
         </Button>
-        
+
         <!--图片-->
         <Border Name="ButtonImageBorder"
                 Width="{Binding ElementName=ImageCheckUserControl,Path=Width}"
@@ -42,5 +42,5 @@
         </Border>
 
     </Grid>
-    
+
 </UserControl>

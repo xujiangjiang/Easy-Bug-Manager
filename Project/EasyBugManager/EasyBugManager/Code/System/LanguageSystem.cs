@@ -15,7 +15,7 @@ namespace EasyBugManager
     /// <summary>
     /// 语言的系统（用于更换语言）
     /// </summary>
-    public class LanguageSystem: INotifyPropertyChanged
+    public class LanguageSystem : INotifyPropertyChanged
     {
 
         #region 字段
@@ -41,10 +41,18 @@ namespace EasyBugManager
         /*同步界面*/
         private string collaborativeModeTestTipTitle = "提示";//[协同合作模式 测试]的提示标题
         private string collaborativeModeTestTipContent = "目前 [协同合作模式] 只是一个测试功能，\n可能有很多不完善的地方，也许会有一些Bug。\n希望可以多包容，欢迎给我们建议，非常感谢！";//[协同合作模式 测试]的提示内容
+        private string collaborativeModeString = "协同合作模式";//[协同合作模式]的文字
 
         /*Bug界面*/
-        private string updateNumberFrontText= "(经过 ";//[更新次数]前面的文字
-        private string updateNumberBehindText= " 次更新)";//[更新次数]后面的文字
+        private string updateNumberFrontText = "(经过 ";//[更新次数]前面的文字
+        private string updateNumberBehindText = " 次更新)";//[更新次数]后面的文字
+
+        /*最近项目界面*/
+        private string latelyProjectTipTitle = "是否把此项目从列表中移除？";//[最近项目]的提示标题
+        private string latelyProjectTipContent = "项目文件不存在";//[最近项目]的提示内容
+        private string latelyProjectItemOpenFolderString = "打开文件夹";//[最近项目Item]的[打开文件夹]文字
+        private string latelyProjectItemRemoveString = "从列表中移除";//[最近项目Item]的[从列表中移除]文字
+
         #endregion
 
 
@@ -208,6 +216,19 @@ namespace EasyBugManager
                 PropertyChange("CollaborativeModeTestTipContent");//更新Ui
             }
         }
+
+        /// <summary>
+        /// [协同合作模式]的文字
+        /// </summary>
+        public string CollaborativeModeString
+        {
+            get { return collaborativeModeString; }
+            set
+            {
+                collaborativeModeString = value;
+                PropertyChange("CollaborativeModeString");//更新Ui
+            }
+        }
         #endregion
 
         #region [公开属性 - Bug界面]
@@ -228,6 +249,59 @@ namespace EasyBugManager
         {
             get { return updateNumberBehindText; }
             set { updateNumberBehindText = value; }
+        }
+
+        #endregion
+
+        #region [公开属性 - 最近项目界面]
+
+        /// <summary>
+        /// [最近项目]的提示标题
+        /// </summary>
+        public string LatelyProjectTipTitle
+        {
+            get { return latelyProjectTipTitle; }
+            set { latelyProjectTipTitle = value; }
+        }
+
+        /// <summary>
+        /// [最近项目]的提示内容
+        /// </summary>
+        public string LatelyProjectTipContent
+        {
+            get { return latelyProjectTipContent; }
+            set { latelyProjectTipContent = value; }
+        }
+
+        /// <summary>
+        /// [最近项目Item]的[打开文件夹]文字
+        /// </summary>
+        public string LatelyProjectItemOpenFolderString
+        {
+            get { return latelyProjectItemOpenFolderString; }
+            set { latelyProjectItemOpenFolderString = value; }
+        }
+
+        /// <summary>
+        /// [最近项目Item]的[从列表中移除]文字
+        /// </summary>
+        public string LatelyProjectItemRemoveString
+        {
+            get { return latelyProjectItemRemoveString; }
+            set { latelyProjectItemRemoveString = value; }
+        }
+        #endregion
+
+
+        #region [公开属性 - 数据]
+
+        /// <summary>
+        /// 语言的类型
+        /// </summary>
+        public LanguageType LanguageType
+        {
+            get { return AppManager.Datas.SettingsData.Language; }
+            set { AppManager.Datas.SettingsData.Language = value; }
         }
 
         #endregion
@@ -284,7 +358,7 @@ namespace EasyBugManager
             switch (_language)
             {
                 case LanguageType.Chinese:
-                    _dictionaryFilePath = "/EasyBugManager;component/Xaml/Dictionary/Theme/"+ _themeType + "/ChineseTextDictionary.xaml";
+                    _dictionaryFilePath = "/EasyBugManager;component/Xaml/Dictionary/Theme/" + _themeType + "/ChineseTextDictionary.xaml";
                     break;
 
                 case LanguageType.English:
@@ -331,8 +405,14 @@ namespace EasyBugManager
 
                     CollaborativeModeTestTipTitle = "提示";
                     CollaborativeModeTestTipContent = "[协同合作模式] 目前处于公测阶段，\n可能有很多不完善的地方。\n希望可以多包容，欢迎给我们建议，非常感谢！";
+                    CollaborativeModeString = "协同合作模式";
 
-                    AppManager.Datas.OtherData.BugNameMaxLength = 100;
+                    LatelyProjectTipTitle = "项目文件不存在";
+                    LatelyProjectTipContent = "是否把此项目从列表中移除？";
+                    LatelyProjectItemOpenFolderString = "打开文件夹";
+                    LatelyProjectItemRemoveString = "从列表中移除";
+
+                    AppManager.Datas.AppData.BugNameMaxLength = 100;
                     break;
 
                 /*英文*/
@@ -356,8 +436,14 @@ namespace EasyBugManager
 
                     CollaborativeModeTestTipTitle = "Tip";
                     CollaborativeModeTestTipContent = "[Collaborative Mode] is currently in beta test, there may be some defects.\nHope you can put up with us more, welcome to give us more suggestions, thank you very much!";
+                    CollaborativeModeString = "Collaborative Mode";
 
-                    AppManager.Datas.OtherData.BugNameMaxLength = 200;
+                    LatelyProjectTipTitle = "The project file does not exist";
+                    LatelyProjectTipContent = "Do you want to remove this project from the list?";
+                    LatelyProjectItemOpenFolderString = "Open folder";
+                    LatelyProjectItemRemoveString = "Remove from list";
+
+                    AppManager.Datas.AppData.BugNameMaxLength = 200;
                     break;
             }
         }
@@ -373,6 +459,9 @@ namespace EasyBugManager
 
             /*设置同步数据*/
             AppManager.Systems.CollaborationSystem.OnLanguageChange(_language);
+
+            /*设置最近数据*/
+            AppManager.Systems.LatelySystem.OnLanguageChange(_language);
 
             /*界面*/
             switch (_language)
