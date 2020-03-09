@@ -214,11 +214,11 @@ Easy Bug Manager是一个使用C#语言编写的WPF应用（.NET Framework），
 
 > 感谢站酷的免费字体，感谢开源类库Epplus和Litjson。
 
-**字体：**站酷庆科黄油体、站酷文艺体、站酷快乐体（https://www.zcool.com.cn/special/zcoolfonts/）
+**字体:** 站酷庆科黄油体、站酷文艺体、站酷快乐体（https://www.zcool.com.cn/special/zcoolfonts/）
 
-**Epplus：**https://github.com/JanKallman/EPPlus
+**Epplus:** https://github.com/JanKallman/EPPlus
 
-**Litjson：**https://github.com/LitJSON/litjson
+**Litjson:** https://github.com/LitJSON/litjson
 
 <br/>
 

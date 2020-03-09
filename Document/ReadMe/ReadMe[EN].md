@@ -214,11 +214,11 @@ You can buy it on the Steam Store : https://store.steampowered.com/app/1217970/E
 
 > Thanks for the cool fonts of ZCOOL, and the open source libraries Epplus and Litjson. 
 
-**Font : **站酷庆科黄油体、站酷文艺体、站酷快乐体（https://www.zcool.com.cn/special/zcoolfonts/）
+**Font:** 站酷庆科黄油体、站酷文艺体、站酷快乐体（https://www.zcool.com.cn/special/zcoolfonts/）
 
-**Epplus：**https://github.com/JanKallman/EPPlus
+**Epplus:** https://github.com/JanKallman/EPPlus
 
-**Litjson：**https://github.com/LitJSON/litjson
+**Litjson:** https://github.com/LitJSON/litjson
 
 <br/>
 
