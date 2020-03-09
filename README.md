@@ -46,6 +46,20 @@ Steam link : https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
 <br/>
 
+## Document
+
+User manual: [click here](Document/UserManual/Easy Bug Manager User manual - [English].md)
+
+Update Log: [click here](Document/UpdateLog/Update Log - [English].md)
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 ## Introduction
 
 ![Image](Document/ReadMe/Image/40.png)

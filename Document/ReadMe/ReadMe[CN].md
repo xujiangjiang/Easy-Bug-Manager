@@ -40,6 +40,20 @@ Steam商店：https://store.steampowered.com/app/1175080/Easy_Bug_Manager/
 
 <br/>
 
+## 文档
+
+用户手册： [click here](../UserManual/Easy Bug Manager 用户手册 - [中文].md)
+
+更新日志： [click here](../UpdateLog/更新日志 - [中文].md)
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 ## 简介
 
 ![Image](Image/40.png)
